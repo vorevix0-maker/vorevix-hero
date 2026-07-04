@@ -1,0 +1,175 @@
+.growth-process-section {
+  padding: 56px 6vw 28px;
+  overflow: hidden;
+  background: #fff;
+  color: #111;
+}
+
+.growth-process-header {
+  width: min(1450px, 100%);
+  margin: 0 auto 42px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: start;
+}
+
+.growth-process-header span {
+  color: #111;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.growth-process-title {
+  max-width: 980px;
+  margin: 0;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(36px, 3.45vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 950;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.roadmap-board {
+  width: min(1450px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.road-step,
+.road-step-01,
+.road-step-02,
+.road-step-03,
+.road-step-04,
+.road-step-05,
+.road-step-06 {
+  position: relative;
+  inset: auto;
+  width: auto;
+}
+
+.road-step {
+  min-height: 292px;
+  padding: 24px 18px;
+  display: grid;
+  grid-template-rows: 86px auto 1fr;
+  align-items: start;
+  border-radius: 22px;
+  background: #fff7ec;
+  border: 1px solid rgba(255, 91, 0, 0.2);
+  box-shadow: 0 22px 52px rgba(17, 17, 17, 0.07);
+}
+
+.road-step:nth-child(even) {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.step-orb {
+  width: 62px;
+  height: 62px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff5b00, #ffb12a);
+  box-shadow: 0 16px 34px rgba(255, 91, 0, 0.22);
+}
+
+.road-step:nth-child(even) .step-orb {
+  color: #ff5b00;
+  background: #fff;
+}
+
+.road-step > span {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.road-step:nth-child(even) > span {
+  color: #fff;
+}
+
+.road-step-title {
+  margin: 0 0 10px;
+  color: inherit;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.road-step p {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.64);
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.road-step:nth-child(even) p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 1200px) {
+  .roadmap-board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .growth-process-section {
+    padding: 52px 20px 28px;
+    overflow-x: hidden;
+  }
+
+  .growth-process-header {
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .growth-process-header span {
+    justify-self: center;
+  }
+
+  .growth-process-title {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    font-size: clamp(28px, 7.6vw, 34px);
+    white-space: normal;
+  }
+
+  .roadmap-board {
+    grid-template-columns: 1fr;
+  }
+
+  .road-step {
+    min-height: 230px;
+    grid-template-rows: 78px auto auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-orb {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

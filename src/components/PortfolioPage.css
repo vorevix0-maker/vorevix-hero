@@ -1,0 +1,1200 @@
+.portfolio-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, #f7fbf4 0%, #ffffff 34%, #fff7f0 100%);
+  color: #151515;
+  overflow: hidden;
+}
+
+.portfolio-hero {
+  width: min(1280px, calc(100% - 40px));
+  min-height: auto;
+  margin: 0 auto;
+  padding: 76px 0 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(440px, 1.14fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.portfolio-hero-copy h1,
+.portfolio-intro h2,
+.portfolio-case h2,
+.portfolio-section-heading h2,
+.portfolio-cta h2,
+.botanics-logo-panel h3 {
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  letter-spacing: 0;
+}
+
+.portfolio-eyebrow,
+.portfolio-kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid rgba(13, 92, 38, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #0d5c26;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+}
+
+.portfolio-hero-copy h1 {
+  max-width: 620px;
+  margin: 22px 0 20px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.96;
+  color: #102512;
+}
+
+.portfolio-hero-copy p {
+  max-width: 560px;
+  margin: 0;
+  color: #58645b;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.portfolio-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.portfolio-primary-link,
+.portfolio-secondary-link,
+.portfolio-cta a,
+.product-card-copy a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.portfolio-primary-link {
+  min-height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: #0d5c26;
+  color: #ffffff;
+  padding: 0 20px;
+  box-shadow: 0 18px 38px rgba(13, 92, 38, 0.22);
+  cursor: pointer;
+  font: inherit;
+}
+
+.portfolio-secondary-link {
+  min-height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 92, 38, 0.18);
+  color: #0d5c26;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.portfolio-hero-visual {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  height: clamp(390px, 38vw, 500px);
+  min-height: 0;
+  overflow: hidden;
+  background: #fff3df;
+  box-shadow: 0 34px 90px rgba(98, 59, 15, 0.16);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.portfolio-hero-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+}
+
+.dual-hero img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-floating-card {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: calc(100% - 44px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #0d5c26;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 16px 42px rgba(30, 43, 26, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+.portfolio-section,
+.portfolio-product-grid,
+.portfolio-case,
+.campaign-grid,
+.packaging-section,
+.portfolio-cta,
+.visual-open-card,
+.brand-selector,
+.botanics-showcase {
+  width: min(1180px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.brand-selector {
+  padding: 34px 0 78px;
+  scroll-margin-top: 110px;
+}
+
+.brand-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.brand-card {
+  position: relative;
+  min-height: 390px;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  background: #102512;
+  box-shadow: 0 24px 64px rgba(25, 34, 22, 0.14);
+}
+
+.brand-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.brand-card:hover img {
+  transform: scale(1.04);
+}
+
+.brand-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(8, 23, 14, 0.76));
+}
+
+.brand-card.botanics img {
+  object-fit: cover;
+  padding: 0;
+  background: #f5f7f2;
+}
+
+.brand-card.botanics::after {
+  background: linear-gradient(180deg, rgba(10, 36, 25, 0.02), rgba(10, 36, 25, 0.74));
+}
+
+.brand-card.dastaan {
+  background: #050505;
+}
+
+.brand-card.dastaan img {
+  object-fit: cover;
+  padding: 0;
+  background: #f4f4f2;
+}
+
+.brand-card.dastaan::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82));
+}
+
+.brand-card div {
+  position: absolute;
+  z-index: 1;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+}
+
+.brand-card span {
+  color: #f8d77a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-card h3 {
+  margin: 8px 0 14px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+
+.brand-card strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.portfolio-intro {
+  padding: 64px 0 34px;
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 34px;
+  align-items: end;
+}
+
+.portfolio-intro h2,
+.portfolio-case h2,
+.portfolio-section-heading h2,
+.portfolio-cta h2 {
+  margin: 16px 0 0;
+  color: #152216;
+  font-size: clamp(30px, 4.2vw, 56px);
+  line-height: 1.03;
+}
+
+.portfolio-intro p,
+.portfolio-case p {
+  margin: 0;
+  color: #657067;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.visual-open-card {
+  padding-bottom: 34px;
+}
+
+.visual-open-card button {
+  width: 100%;
+  min-height: 150px;
+  border: 1px solid rgba(13, 92, 38, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 190, 48, 0.22), rgba(255, 255, 255, 0)),
+    #ffffff;
+  color: #102512;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 28px;
+  text-align: left;
+  box-shadow: 0 18px 46px rgba(42, 37, 25, 0.08);
+}
+
+.visual-open-card span {
+  grid-column: 1 / -1;
+  color: #0d5c26;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.visual-open-card strong {
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1;
+}
+
+.portfolio-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-bottom: 32px;
+  scroll-margin-top: 110px;
+}
+
+#arshi-portfolio,
+#as-botanics-portfolio,
+#dastaan-portfolio {
+  scroll-margin-top: 110px;
+}
+
+.product-card,
+.campaign-card,
+.packaging-card {
+  position: relative;
+  border: 1px solid rgba(36, 46, 33, 0.1);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 18px 46px rgba(42, 37, 25, 0.08);
+}
+
+.product-card {
+  display: grid;
+  grid-template-rows: 260px auto;
+}
+
+.product-card-image {
+  display: flex;
+  align-items: center;
+  background: #fffaf2;
+  padding: 18px;
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 20px rgba(68, 54, 28, 0.12));
+}
+
+.product-card-copy {
+  padding: 22px;
+}
+
+.product-card-copy span,
+.campaign-card span {
+  color: #0d5c26;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-card-copy h3,
+.campaign-card h3,
+.packaging-card h3 {
+  margin: 9px 0 0;
+  color: #171717;
+  font-size: 21px;
+  line-height: 1.18;
+}
+
+.product-card-copy a {
+  width: fit-content;
+  margin-top: 18px;
+  color: #d64b00;
+  font-size: 14px;
+}
+
+.product-card.berry .product-card-copy a {
+  color: #c21634;
+}
+
+.product-card.orange .product-card-copy a {
+  color: #e26000;
+}
+
+.portfolio-case {
+  margin-top: 44px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 32px;
+  align-items: stretch;
+  border-radius: 8px;
+  background: #730500;
+  color: #ffffff;
+  padding: 28px;
+  box-shadow: 0 28px 76px rgba(115, 5, 0, 0.22);
+}
+
+.botanics-intro {
+  margin-top: 90px;
+}
+
+.botanics-intro .portfolio-kicker {
+  background: #eef5ec;
+  color: #184d35;
+}
+
+.botanics-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.55fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.botanics-logo-panel,
+.botanics-hero-panel {
+  border: 1px solid rgba(22, 65, 43, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f7f8f4;
+  box-shadow: 0 18px 46px rgba(42, 37, 25, 0.08);
+}
+
+.botanics-logo-panel {
+  position: relative;
+  display: block;
+  min-height: 420px;
+  padding: 0;
+  text-align: center;
+}
+
+.botanics-logo-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.botanics-logo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(245, 247, 242, 0.88));
+}
+
+.botanics-logo-panel h3 {
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  max-width: 520px;
+  margin: 0 auto;
+  color: #173f2e;
+  font-size: clamp(25px, 3vw, 40px);
+  line-height: 1.08;
+}
+
+.botanics-hero-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.botanics-grid .campaign-card.wide {
+  min-height: 460px;
+}
+
+.botanics-card div {
+  background: rgba(250, 250, 246, 0.91);
+}
+
+.botanics-card span {
+  color: #184d35;
+}
+
+.botanics-support {
+  padding-top: 70px;
+}
+
+.botanics-assets {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.botanics-assets .packaging-card {
+  display: grid;
+  grid-template-rows: auto auto;
+  background: #ffffff;
+}
+
+.botanics-assets .packaging-card img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  object-fit: cover;
+  padding: 0;
+  background: #ffffff;
+}
+
+.botanics-assets .packaging-card h3 {
+  margin: 0;
+  background: #ffffff;
+  padding: 16px;
+  color: #111111;
+  font-size: 17px;
+  line-height: 1.18;
+}
+
+.dastaan-intro {
+  margin-top: 96px;
+  color: #ffffff;
+}
+
+.dastaan-intro .portfolio-kicker {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.dastaan-intro h2 {
+  color: #111111;
+}
+
+.dastaan-showcase,
+.dastaan-assets,
+.reel-grid {
+  width: min(1180px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dastaan-showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.dastaan-dp-panel,
+.dastaan-cover-panel,
+.dastaan-assets article,
+.reel-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #070707;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.16);
+}
+
+.dastaan-dp-panel {
+  display: grid;
+  place-items: center;
+  min-height: 450px;
+  padding: 24px;
+  background: #f5f5f3;
+}
+
+.dastaan-dp-panel img {
+  width: min(420px, 100%);
+  display: block;
+}
+
+.dastaan-cover-panel {
+  position: relative;
+  min-height: 450px;
+}
+
+.dastaan-cover-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: block;
+  object-fit: cover;
+}
+
+.dastaan-cover-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.74));
+}
+
+.dastaan-cover-panel div {
+  position: absolute;
+  z-index: 1;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  color: #ffffff;
+}
+
+.dastaan-cover-panel span,
+.dastaan-card span {
+  color: #d7c48a;
+}
+
+.dastaan-cover-panel h3 {
+  max-width: 660px;
+  margin: 10px 0 0;
+  font-size: clamp(28px, 4vw, 50px);
+  line-height: 1.02;
+}
+
+.dastaan-products,
+.dastaan-stickers,
+.dastaan-reels {
+  padding-top: 72px;
+}
+
+.dastaan-product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dastaan-product-card {
+  grid-template-rows: 290px auto;
+  background: #111111;
+}
+
+.dastaan-product-card img {
+  object-fit: cover;
+  padding: 0;
+  background: #111111;
+}
+
+.dastaan-product-card h3,
+.reel-card h3 {
+  color: #ffffff;
+}
+
+.dastaan-post-grid {
+  margin-top: 44px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dastaan-post-grid .campaign-card {
+  min-height: 360px;
+}
+
+.dastaan-post-grid .campaign-card img {
+  object-fit: cover;
+}
+
+.dastaan-card div {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
+}
+
+.dastaan-card h3 {
+  color: #111111;
+}
+
+.dastaan-card span {
+  color: #111111;
+}
+
+.dastaan-sticker-grid .packaging-card {
+  grid-template-rows: 190px auto;
+  background: #101010;
+}
+
+.dastaan-sticker-grid .packaging-card img {
+  object-fit: cover;
+  padding: 0;
+  background: #101010;
+}
+
+.dastaan-sticker-grid .packaging-card h3 {
+  color: #ffffff;
+}
+
+.dastaan-assets {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.dastaan-assets img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+}
+
+.dastaan-assets h3 {
+  margin: 0;
+  padding: 18px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.reel-card video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  background: #000000;
+  object-fit: cover;
+}
+
+.reel-card h3 {
+  margin: 0;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.case-copy {
+  padding: 18px;
+  align-self: center;
+}
+
+.portfolio-case .portfolio-kicker {
+  border-color: rgba(255, 211, 115, 0.34);
+  background: rgba(255, 238, 201, 0.12);
+  color: #ffd873;
+}
+
+.portfolio-case h2 {
+  color: #ffffff;
+}
+
+.portfolio-case p {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.case-points {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.case-points span {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.case-image {
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+  min-height: 410px;
+}
+
+.case-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campaign-card {
+  min-height: 430px;
+  background: #1c120f;
+}
+
+.campaign-card.wide {
+  grid-column: 1 / -1;
+  min-height: 520px;
+}
+
+.campaign-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.campaign-card div {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.packaging-section {
+  padding: 80px 0 0;
+}
+
+.portfolio-section-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.packaging-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.packaging-card {
+  display: grid;
+  grid-template-rows: 280px auto;
+  background: #fffdf8;
+}
+
+.packaging-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  padding: 14px;
+  background: #ffffff;
+}
+
+.packaging-card h3 {
+  padding: 18px;
+  font-size: 18px;
+}
+
+.portfolio-cta {
+  margin-top: 80px;
+  margin-bottom: 92px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 188, 43, 0.18), rgba(255, 255, 255, 0)),
+    #102512;
+  color: #ffffff;
+  text-align: center;
+  padding: 62px 24px;
+}
+
+.portfolio-cta span {
+  color: #ffcf5c;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.portfolio-cta h2 {
+  max-width: 780px;
+  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.portfolio-cta a,
+.portfolio-cta button {
+  width: fit-content;
+  min-height: 50px;
+  margin: 26px auto 0;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #102512;
+  padding: 0 22px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+@media (max-width: 1040px) {
+  .portfolio-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 70px;
+  }
+
+  .portfolio-hero-copy h1,
+  .portfolio-hero-copy p {
+    max-width: 760px;
+  }
+
+  .portfolio-hero-visual {
+    height: clamp(360px, 58vw, 480px);
+    min-height: 0;
+  }
+
+  .portfolio-hero-visual img {
+    min-height: 0;
+  }
+
+  .portfolio-intro,
+  .portfolio-case,
+  .botanics-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-product-grid,
+  .packaging-grid,
+  .brand-card-grid,
+  .botanics-assets,
+  .dastaan-product-grid,
+  .dastaan-post-grid,
+  .reel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dastaan-showcase,
+  .dastaan-assets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .portfolio-hero,
+  .portfolio-section,
+  .portfolio-product-grid,
+  .portfolio-case,
+  .campaign-grid,
+  .packaging-section,
+  .portfolio-cta,
+  .visual-open-card,
+  .brand-selector,
+  .botanics-showcase,
+  .dastaan-showcase,
+  .dastaan-assets,
+  .reel-grid {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .portfolio-hero {
+    padding-top: 46px;
+    gap: 28px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .portfolio-hero-copy,
+  .portfolio-intro,
+  .portfolio-section-heading,
+  .portfolio-cta,
+  .product-card-copy,
+  .campaign-card div,
+  .packaging-card h3,
+  .reel-card h3,
+  .case-copy,
+  .brand-card div {
+    text-align: center;
+  }
+
+  .portfolio-eyebrow,
+  .portfolio-kicker,
+  .product-card-copy a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-hero-copy h1,
+  .portfolio-hero-copy p,
+  .portfolio-intro p,
+  .portfolio-section-heading,
+  .case-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-hero-copy h1 {
+    font-size: clamp(30px, 10vw, 44px);
+    line-height: 1.04;
+  }
+
+  .portfolio-hero-copy p,
+  .portfolio-intro p,
+  .portfolio-case p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .portfolio-intro h2,
+  .portfolio-case h2,
+  .portfolio-section-heading h2,
+  .portfolio-cta h2 {
+    font-size: clamp(25px, 8vw, 36px);
+    line-height: 1.08;
+  }
+
+  .portfolio-eyebrow,
+  .portfolio-kicker,
+  .product-card-copy span,
+  .campaign-card span,
+  .brand-card span {
+    font-size: 10px;
+  }
+
+  .product-card-copy h3,
+  .campaign-card h3,
+  .packaging-card h3 {
+    font-size: 18px;
+  }
+
+  .brand-card h3 {
+    font-size: 30px;
+  }
+
+  .portfolio-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: min(100%, 320px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-primary-link,
+  .portfolio-secondary-link {
+    width: 100%;
+  }
+
+  .visual-open-card button {
+    grid-template-columns: 1fr;
+    min-height: 132px;
+    padding: 22px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .portfolio-hero-visual,
+  .portfolio-hero-visual img {
+    min-height: 0;
+  }
+
+  .portfolio-hero-visual {
+    height: 330px;
+  }
+
+  .portfolio-product-grid,
+  .campaign-grid,
+  .packaging-grid,
+  .brand-card-grid,
+  .botanics-assets,
+  .dastaan-product-grid,
+  .dastaan-post-grid,
+  .reel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-selector {
+    padding-bottom: 52px;
+  }
+
+  .brand-card,
+  .brand-card img {
+    min-height: 310px;
+  }
+
+  .product-card {
+    grid-template-rows: 210px auto;
+  }
+
+  .portfolio-case {
+    padding: 18px;
+  }
+
+  .case-copy {
+    padding: 8px;
+  }
+
+  .case-points {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .case-image,
+  .campaign-card,
+  .campaign-card.wide {
+    min-height: 0;
+  }
+
+  .campaign-card,
+  .campaign-card.wide {
+    display: grid;
+    grid-template-rows: auto auto;
+    background: #ffffff;
+  }
+
+  .campaign-card img,
+  .campaign-card.wide img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+  }
+
+  .brand-card div {
+    left: 16px;
+    right: 16px;
+  }
+
+  .brand-card strong,
+  .case-points span {
+    justify-content: center;
+  }
+
+  .campaign-card div {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    border-radius: 0;
+    background: #ffffff;
+    padding: 14px 16px 16px;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .botanics-card div,
+  .dastaan-card div {
+    background: #ffffff;
+  }
+
+  .packaging-section {
+    padding-top: 54px;
+  }
+
+  .packaging-card {
+    grid-template-rows: 250px auto;
+  }
+
+  .botanics-logo-panel {
+    min-height: 340px;
+    padding: 0;
+  }
+
+  .botanics-logo-panel img {
+    min-height: 340px;
+  }
+
+  .botanics-hero-panel img {
+    min-height: 520px;
+  }
+
+  .dastaan-dp-panel,
+  .dastaan-cover-panel,
+  .dastaan-cover-panel img {
+    min-height: 340px;
+  }
+
+  .dastaan-product-card {
+    grid-template-rows: 300px auto;
+  }
+
+  .dastaan-assets img {
+    min-height: 320px;
+  }
+
+  .portfolio-floating-card {
+    align-items: flex-start;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+}

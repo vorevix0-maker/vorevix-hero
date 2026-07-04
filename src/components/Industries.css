@@ -1,0 +1,141 @@
+.industries-section {
+  padding: 64px 6vw;
+  background: #fff;
+  color: #111;
+}
+
+.industries-header {
+  max-width: 980px;
+  margin: 0 auto 58px;
+  text-align: center;
+}
+
+.industries-header span {
+  color: #ff6b00;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.industries-header h2 {
+  margin: 18px auto 0;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1.04;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.industries-header p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: #4a4a4a;
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 500;
+}
+
+.industries-grid {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.industry-card {
+  position: relative;
+  min-height: 230px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 20px 55px rgba(17, 17, 17, 0.06);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.industry-card::before {
+  display: none;
+}
+
+.industry-card:hover {
+  transform: translateY(-7px);
+  border-color: #ff6b00;
+  box-shadow: 0 28px 70px rgba(17, 17, 17, 0.11);
+}
+
+.industry-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.industry-top span {
+  color: #ff6b00;
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.industry-top svg {
+  width: 58px;
+  height: 58px;
+  padding: 15px;
+  border-radius: 16px;
+  color: #ff6b00;
+  background: #fff7ec;
+  border: 1px solid rgba(255, 107, 0, 0.18);
+}
+
+.industry-card h3 {
+  margin: auto 0 12px;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 24px;
+  line-height: 1.16;
+}
+
+.industry-card p {
+  margin: 0;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-section {
+    padding: 54px 20px;
+  }
+
+  .industries-header h2 {
+    font-size: 36px;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industry-card {
+    min-height: 210px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .industry-top {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+}

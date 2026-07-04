@@ -1,0 +1,384 @@
+.services-section {
+  padding: 34px 6vw 58px;
+  background: #171717;
+  color: #fff;
+}
+
+.services-intro {
+  width: min(1250px, 100%);
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 24px;
+  align-items: start;
+}
+
+.services-title {
+  max-width: 1000px;
+  margin: 0;
+  color: #fff;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(36px, 3.55vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 900;
+}
+
+.services-title span {
+  display: block;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+
+.services-intro > span {
+  justify-self: end;
+  color: #fff;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.services-side-copy {
+  grid-area: intro;
+  align-self: start;
+  max-width: 330px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.services-grid {
+  width: min(1250px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.92fr 0.92fr 0.92fr;
+  grid-template-areas:
+    "intro brand web"
+    "social seo software";
+  gap: 20px;
+  align-items: end;
+}
+
+.service-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-copy {
+  min-width: 0;
+  padding: 0;
+}
+
+.service-title {
+  max-width: 100%;
+  margin: 18px 0 0;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.service-card p {
+  display: none;
+}
+
+.service-visual {
+  position: relative;
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: #2b2b2b;
+  overflow: hidden;
+}
+
+.service-visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-web {
+  grid-area: web;
+}
+
+.service-brand {
+  grid-area: brand;
+}
+
+.service-tablet {
+  grid-area: social;
+}
+
+.service-seo {
+  grid-area: seo;
+}
+
+.service-software {
+  grid-area: software;
+}
+
+.service-web .service-visual,
+.service-seo .service-visual,
+.service-software .service-visual {
+  background: #fff;
+}
+
+.service-brand .service-visual {
+  background:
+    radial-gradient(circle at 76% 18%, rgba(255, 255, 255, 0.18), transparent 32%),
+    linear-gradient(135deg, #1f1f1f, #3a3a3a);
+}
+
+.service-tablet .service-visual {
+  background:
+    radial-gradient(circle at 80% 42%, rgba(255, 107, 0, 0.55), transparent 28%),
+    #303030;
+}
+
+.service-floating-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 3;
+  color: #ff6b00;
+}
+
+.service-brand .service-floating-icon,
+.service-tablet .service-floating-icon {
+  color: #fff;
+  opacity: 0.78;
+}
+
+.visual-device {
+  position: relative;
+  z-index: 2;
+  width: 72%;
+  height: 52%;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 14px;
+  background: #191919;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
+  transform: perspective(900px) rotateX(0deg);
+}
+
+.visual-device span,
+.visual-device i {
+  display: block;
+  border-radius: 999px;
+}
+
+.visual-device span {
+  width: 58%;
+  height: 8px;
+  background: #ff6b00;
+}
+
+.visual-device strong {
+  color: #fff;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.visual-device i {
+  width: 80%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.service-web .visual-device {
+  width: 76%;
+  height: 55%;
+  transform: perspective(900px) rotateX(4deg);
+}
+
+.service-brand .visual-device {
+  width: 86%;
+  height: 86%;
+  align-items: flex-start;
+  justify-content: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.service-brand .visual-device span,
+.service-brand .visual-device i {
+  display: none;
+}
+
+.service-brand .visual-device strong {
+  color: #fff;
+  font-size: clamp(118px, 14vw, 220px);
+  line-height: 0.75;
+}
+
+.service-tablet .visual-device {
+  width: 70%;
+  height: 58%;
+  transform: rotate(-13deg);
+}
+
+.service-tablet .visual-device::after {
+  content: "CAPTIVATE AND CONNECT";
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  width: 130px;
+  color: #fff;
+  font-size: 19px;
+  line-height: 0.95;
+  font-weight: 950;
+}
+
+.service-seo .visual-device {
+  width: 50%;
+  height: 82%;
+  border-radius: 28px;
+}
+
+.service-seo .visual-device::after {
+  content: "SEO";
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  color: #ff6b00;
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+}
+
+.service-software .visual-device {
+  width: 78%;
+  height: 64%;
+}
+
+.service-software .visual-device::before,
+.service-software .visual-device::after {
+  content: "";
+  position: absolute;
+  bottom: 22px;
+  width: 28%;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(180deg, #ff9f1a, #ff5b00);
+}
+
+.service-software .visual-device::before {
+  right: 26px;
+  height: 48%;
+}
+
+.service-software .visual-device::after {
+  right: 76px;
+  height: 34%;
+}
+
+@media (max-width: 1024px) {
+  .services-intro,
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-intro > span {
+    justify-self: start;
+  }
+
+  .services-grid {
+    grid-template-areas:
+      "copy copy"
+      "brand web"
+      "social seo"
+      "software software";
+  }
+
+  .services-side-copy {
+    grid-area: copy;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 54px 20px;
+    overflow-x: hidden;
+  }
+
+  .services-intro,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-intro {
+    text-align: center;
+  }
+
+  .services-title {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    font-size: clamp(30px, 8.2vw, 38px);
+    line-height: 1.12;
+  }
+
+  .services-title span {
+    white-space: nowrap;
+  }
+
+  .services-intro > span {
+    justify-self: center;
+  }
+
+  .services-grid {
+    grid-template-areas:
+      "copy"
+      "brand"
+      "web"
+      "social"
+      "seo"
+      "software";
+  }
+
+  .service-card {
+    min-height: auto;
+    text-align: center;
+  }
+
+  .service-title {
+    margin-top: 14px;
+    font-size: clamp(17px, 4.4vw, 21px);
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+  }
+
+  .services-side-copy {
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .service-visual {
+    height: 300px;
+  }
+}

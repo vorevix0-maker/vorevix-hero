@@ -1,0 +1,419 @@
+@import "./index.css";
+
+:root {
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --scroll-progress: 0;
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: calc(var(--scroll-progress) * 100%);
+  height: 4px;
+  pointer-events: none;
+  background: linear-gradient(90deg, #ff6b00, #ffb32c);
+  box-shadow: 0 0 24px rgba(255, 107, 0, 0.55);
+}
+
+.pointer-glow {
+  position: fixed;
+  left: var(--cursor-x);
+  top: var(--cursor-y);
+  z-index: 0;
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.14), rgba(255, 107, 0, 0) 62%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  transition: opacity 220ms ease;
+}
+
+.animations-ready .main-header {
+  animation: headerDrop 720ms var(--motion-ease) both;
+}
+
+.animations-ready .hero-section .hero-content > *,
+.animations-ready .hero-section .testimonial-card,
+.animations-ready .hero-section .client-proof,
+.animations-ready .hero-section .hero-socials {
+  animation: heroRise 760ms var(--motion-ease) both;
+}
+
+.animations-ready .hero-section .hero-content > *:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.animations-ready .hero-section .hero-content > *:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.animations-ready .hero-section .hero-content > *:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.animations-ready .hero-section .hero-content > *:nth-child(4) {
+  animation-delay: 320ms;
+}
+
+.animations-ready .hero-section .testimonial-card {
+  animation-delay: 380ms;
+}
+
+.animations-ready .hero-section .client-proof {
+  animation-delay: 460ms;
+}
+
+.animations-ready .hero-section .hero-socials {
+  animation-delay: 520ms;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 760ms var(--motion-ease),
+    transform 760ms var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.service-card,
+.process-card,
+.team-card,
+.pricing-card,
+.insight-card,
+.portfolio-card,
+.brand-choice-card,
+.portfolio-work-card,
+.portfolio-asset-card,
+.portfolio-mobile-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --shine-x: 50%;
+  --shine-y: 50%;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(0);
+  transition:
+    transform 260ms var(--motion-ease),
+    box-shadow 260ms var(--motion-ease),
+    border-color 260ms ease;
+  transform-style: preserve-3d;
+}
+
+.service-card::after,
+.process-card::after,
+.team-card::after,
+.pricing-card::after,
+.insight-card::after,
+.portfolio-card::after,
+.brand-choice-card::after,
+.portfolio-work-card::after,
+.portfolio-asset-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--shine-x) var(--shine-y),
+    rgba(255, 255, 255, 0.26),
+    rgba(255, 255, 255, 0) 34%
+  );
+  transition: opacity 220ms ease;
+}
+
+.service-card > *,
+.process-card > *,
+.team-card > *,
+.pricing-card > *,
+.insight-card > *,
+.portfolio-card > *,
+.brand-choice-card > *,
+.portfolio-work-card > *,
+.portfolio-asset-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card:hover,
+.process-card:hover,
+.team-card:hover,
+.pricing-card:hover,
+.insight-card:hover,
+.portfolio-card:hover,
+.brand-choice-card:hover,
+.portfolio-work-card:hover,
+.portfolio-asset-card:hover,
+.portfolio-mobile-card:hover {
+  transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-10px);
+}
+
+.service-card:hover::after,
+.process-card:hover::after,
+.team-card:hover::after,
+.pricing-card:hover::after,
+.insight-card:hover::after,
+.portfolio-card:hover::after,
+.brand-choice-card:hover::after,
+.portfolio-work-card:hover::after,
+.portfolio-asset-card:hover::after {
+  opacity: 1;
+}
+
+.animations-ready .hero-line {
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  animation: heroTextWipe 950ms var(--motion-ease) both;
+}
+
+.animations-ready .hero-line:nth-child(1) {
+  animation-delay: 180ms;
+}
+
+.animations-ready .hero-line:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.animations-ready .hero-line:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+.animations-ready .hero-line:nth-child(4) {
+  animation-delay: 540ms;
+}
+
+.animations-ready .hero-line-accent {
+  background: linear-gradient(90deg, #ff6b00, #ff9d00, #ff6b00);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation:
+    heroTextWipe 950ms var(--motion-ease) 540ms both,
+    accentFlow 3.8s ease-in-out 1.4s infinite;
+  color: transparent;
+}
+
+.quote-mark {
+  animation: floatBadge 4s ease-in-out infinite;
+}
+
+.client-avatars img {
+  animation: avatarPulse 3.6s ease-in-out infinite;
+}
+
+.client-avatars img:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.client-avatars img:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.hero-cta::before,
+.header-cta::before,
+.header-btn::before,
+.footer-subscribe button::before,
+.contact-form button::before,
+.pricing-cta::before {
+  content: "";
+  position: absolute;
+  top: -80%;
+  left: -45%;
+  width: 40%;
+  height: 260%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52), transparent);
+  transform: rotate(22deg) translateX(-120%);
+}
+
+.hero-cta:hover::before,
+.header-cta:hover::before,
+.header-btn:hover::before,
+.footer-subscribe button:hover::before,
+.contact-form button:hover::before,
+.pricing-cta:hover::before {
+  animation: buttonShine 760ms ease;
+}
+
+.hero-cta,
+.header-cta,
+.footer-subscribe button,
+.contact-form button,
+.pricing-card button,
+.portfolio-card a,
+.brand-choice-card,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-cta,
+.header-cta,
+.header-btn,
+.footer-subscribe button,
+.contact-form button,
+.pricing-card button,
+.pricing-cta {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 220ms var(--motion-ease),
+    box-shadow 220ms var(--motion-ease);
+}
+
+.hero-cta:hover,
+.header-cta:hover,
+.header-btn:hover,
+.footer-subscribe button:hover,
+.contact-form button:hover,
+.pricing-card button:hover,
+.pricing-cta:hover {
+  transform: translateY(-3px);
+}
+
+.hero-cta:active,
+.header-cta:active,
+.header-btn:active,
+.footer-subscribe button:active,
+.contact-form button:active,
+.pricing-card button:active,
+.pricing-cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.hero-socials a,
+.footer-socials a {
+  transition:
+    transform 220ms var(--motion-ease),
+    filter 220ms ease;
+}
+
+.hero-socials a:hover,
+.footer-socials a:hover {
+  transform: translateY(-4px) scale(1.06);
+  filter: drop-shadow(0 12px 18px rgba(255, 107, 0, 0.22));
+}
+
+.portfolio-work-card img,
+.portfolio-asset-card img,
+.portfolio-mobile-card img,
+.brand-choice-card img,
+.team-card img,
+.insight-card img {
+  transition: transform 520ms var(--motion-ease);
+}
+
+.portfolio-work-card:hover img,
+.portfolio-asset-card:hover img,
+.portfolio-mobile-card:hover img,
+.brand-choice-card:hover img,
+.team-card:hover img,
+.insight-card:hover img {
+  transform: scale(1.035);
+}
+
+@keyframes headerDrop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroTextWipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+    transform: translate3d(-18px, 0, 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes accentFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes avatarPulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.05);
+  }
+}
+
+@keyframes buttonShine {
+  from {
+    transform: rotate(22deg) translateX(-120%);
+  }
+  to {
+    transform: rotate(22deg) translateX(420%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pointer-glow,
+  .scroll-progress {
+    display: none;
+  }
+}

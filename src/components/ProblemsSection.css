@@ -1,0 +1,123 @@
+.problems-section {
+  position: relative;
+  padding: 140px 6vw;
+  background: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.section-tag {
+  display: inline-block;
+  color: #f58200;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.problems-section h2 {
+  font-size: clamp(42px, 5vw, 90px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #050505;
+  margin: 0;
+  max-width: 900px;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #666;
+}
+
+.problems-grid {
+  margin-top: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.problem-card {
+  position: relative;
+
+  padding: 45px;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 30px;
+opacity: 70%;
+  background: #fff;
+
+  transition: 0.35s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #f58200;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,0.08);
+}
+
+.problem-number {
+  display: block;
+
+  color: #f58200;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  margin-bottom: 25px;
+}
+
+.problem-card h3 {
+  margin: 0;
+
+  font-size: 38px;
+  font-weight: 900;
+
+  color: #050505;
+}
+
+.problem-card p {
+  margin-top: 18px;
+
+  color: #666;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  max-width: 350px;
+}
+
+@media(max-width:900px){
+
+  .problems-grid{
+    grid-template-columns:1fr;
+  }
+
+  .problems-section{
+    padding:100px 24px;
+  }
+
+  .problem-card{
+    padding:35px;
+  }
+
+  .problem-card h3{
+    font-size:30px;
+  }
+
+  .section-subtitle{
+    font-size:18px;
+  }
+
+}

@@ -1,0 +1,118 @@
+.conversion-section {
+  padding: 52px 6vw 58px;
+  background: #fff;
+  color: #111;
+}
+
+.conversion-wrap {
+  width: min(1450px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 34px;
+  align-items: end;
+  border-block: 1px solid rgba(17, 17, 17, 0.1);
+  padding: 54px 0;
+}
+
+.conversion-title {
+  margin: 0;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: clamp(48px, 7.1vw, 124px);
+  line-height: 1.06;
+  letter-spacing: -0.06em;
+  font-weight: 950;
+}
+
+.conversion-title span {
+  display: block;
+}
+
+.conversion-title .conversion-nowrap {
+  white-space: nowrap;
+}
+
+.conversion-wrap em,
+.conversion-wrap strong {
+  position: relative;
+  display: inline-block;
+  color: #ff5b00;
+  font-style: normal;
+}
+
+.conversion-wrap em::after,
+.conversion-wrap strong::after {
+  content: "";
+  position: absolute;
+  left: 0.04em;
+  right: 0.04em;
+  bottom: -0.04em;
+  height: 0.055em;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.conversion-link {
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5b00, #ffb12a);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 22px 48px rgba(255, 91, 0, 0.24);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.conversion-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 56px rgba(255, 91, 0, 0.34);
+}
+
+@media (max-width: 900px) {
+  .conversion-wrap {
+    grid-template-columns: 1fr;
+    padding: 42px 0;
+    text-align: center;
+  }
+
+  .conversion-link {
+    width: 68px;
+    height: 68px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .conversion-section {
+    padding: 42px 18px 48px;
+    overflow-x: hidden;
+  }
+
+  .conversion-wrap {
+    justify-items: center;
+  }
+
+  .conversion-title {
+    width: 100%;
+    max-width: 405px;
+    margin-inline: auto;
+    font-size: clamp(27px, 7.2vw, 32px);
+    letter-spacing: -0.035em;
+    line-height: 1.14;
+    text-align: center;
+  }
+
+  .conversion-title span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .conversion-title .conversion-nowrap {
+    font-size: clamp(25px, 6.6vw, 30px);
+  }
+}

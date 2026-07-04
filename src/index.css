@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Eurostile Extended";
+  src: url("/fonts/EurostileExtended.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero-section,
+  .why-section,
+  .services-section,
+  .process-section,
+  .growth-process-section,
+  .pricing-section,
+  .insights-section,
+  .team-section,
+  .conversion-section,
+  .contact-section,
+  .footer-section,
+  .portfolio-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+.header-logo,
+.hero-title,
+.about-title,
+.services-title,
+.service-title,
+.process-title,
+.reason-title,
+.team-title,
+.team-card-title,
+.conversion-title,
+.growth-process-title,
+.road-step-title,
+.pricing-title,
+.pricing-card-title,
+.insights-title,
+.insight-title,
+.contact-title,
+.contact-content-title,
+.services-header h2,
+.portfolio-header h2,
+.portfolio-overlay h3 {
+  font-family: "Eurostile Extended", "Montserrat", sans-serif !important;
+}
