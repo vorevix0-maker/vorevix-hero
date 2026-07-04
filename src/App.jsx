@@ -16,11 +16,17 @@ import PageAnimations from "./components/PageAnimations";
 import SEO from "./components/SEO";
 import LegalPage from "./components/LegalPage";
 
+const siteUrl = "https://www.vorevix.com";
+const logoUrl = `${siteUrl}/vorevix-logo.png`;
 const homeTitle =
-  "Vorevix | Digital Marketing, Web Development & Software Agency";
+  "Vorevix | Web Development, Digital Marketing & AI Solutions Agency";
 const homeDescription =
-  "Vorevix helps businesses grow online with digital marketing, SEO, social media marketing, branding, website development, software solutions and AI automation.";
-const homeCanonical = "https://vorevix.com/";
+  "Vorevix helps businesses grow through custom web development, software engineering, AI automation, SEO, branding and digital marketing solutions.";
+const homeCanonical = `${siteUrl}/`;
+const portfolioTitle = "Portfolio | Vorevix";
+const portfolioDescription =
+  "Explore Vorevix's portfolio of web development, software, branding, AI automation and digital marketing projects.";
+const portfolioCanonical = `${siteUrl}/portfolio`;
 
 const legalPages = {
   "/privacy-policy": {
@@ -28,14 +34,14 @@ const legalPages = {
     title: "Privacy Policy | Vorevix",
     description:
       "Read the Vorevix Privacy Policy to learn how we collect, use and protect information shared through our website, forms and agency services.",
-    canonical: "https://vorevix.com/privacy-policy",
+    canonical: `${siteUrl}/privacy-policy`,
   },
   "/terms-and-conditions": {
     type: "terms",
     title: "Terms & Conditions | Vorevix",
     description:
       "Read the Vorevix Terms & Conditions for website use, agency services, proposals, payments, intellectual property and project responsibilities.",
-    canonical: "https://vorevix.com/terms-and-conditions",
+    canonical: `${siteUrl}/terms-and-conditions`,
   },
 };
 
@@ -43,12 +49,39 @@ function App() {
   const legalPage = legalPages[window.location.pathname];
 
   if (window.location.pathname === "/dashboard") {
-    return <BlogDashboard />;
+    return (
+      <>
+        <SEO title="Dashboard | Vorevix" robots="noindex, nofollow" />
+        <BlogDashboard />
+      </>
+    );
   }
 
   if (window.location.pathname === "/portfolio") {
     return (
       <>
+        <SEO
+          title={portfolioTitle}
+          description={portfolioDescription}
+          canonical={portfolioCanonical}
+          robots="index, follow"
+          openGraph={{
+            title: portfolioTitle,
+            description: portfolioDescription,
+            url: portfolioCanonical,
+            type: "website",
+            siteName: "Vorevix",
+            image: logoUrl,
+            imageAlt: "Vorevix",
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title: portfolioTitle,
+            description: portfolioDescription,
+            image: logoUrl,
+            imageAlt: "Vorevix",
+          }}
+        />
         <PageAnimations />
         <Header />
         <PortfolioPage />
@@ -71,14 +104,14 @@ function App() {
             url: legalPage.canonical,
             type: "website",
             siteName: "Vorevix",
-            image: "https://vorevix.com/vorevix-logo.png",
+            image: logoUrl,
             imageAlt: "Vorevix",
           }}
           twitter={{
             card: "summary_large_image",
             title: legalPage.title,
             description: legalPage.description,
-            image: "https://vorevix.com/vorevix-logo.png",
+            image: logoUrl,
             imageAlt: "Vorevix",
           }}
         />
@@ -102,14 +135,14 @@ function App() {
           url: homeCanonical,
           type: "website",
           siteName: "Vorevix",
-          image: "https://vorevix.com/vorevix-logo.png",
+          image: logoUrl,
           imageAlt: "Vorevix",
         }}
         twitter={{
           card: "summary_large_image",
           title: homeTitle,
           description: homeDescription,
-          image: "https://vorevix.com/vorevix-logo.png",
+          image: logoUrl,
           imageAlt: "Vorevix",
         }}
         jsonLd={{
@@ -117,7 +150,7 @@ function App() {
           "@type": "Organization",
           name: "Vorevix",
           url: homeCanonical,
-          logo: "https://vorevix.com/vorevix-logo.png",
+          logo: logoUrl,
           description: homeDescription,
           sameAs: [
             "https://www.facebook.com/profile.php?id=61589562344260",
