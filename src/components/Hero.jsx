@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { ArrowRight, Menu, Quote, X } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 import "./Hero.css";
 
 const socialLinks = [
@@ -10,39 +9,8 @@ const socialLinks = [
 ];
 
 export default function Hero() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <section className="hero-section" id="home">
-      <header className={`hero-header ${isMenuOpen ? "nav-open" : ""}`}>
-        <a href="#home" className="header-logo">
-          <img src="/vorevix-logo.png" alt="Vorevix" />
-        </a>
-
-        <nav className="header-nav" aria-label="Primary navigation">
-          <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-          <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-          <a href="/portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-        </nav>
-
-        <a href="#contact" className="header-btn">
-          Get Started
-          <ArrowRight size={18} />
-        </a>
-
-        <button
-          className="header-menu-toggle"
-          type="button"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? <X size={26} /> : <Menu size={28} />}
-        </button>
-      </header>
-
       <div className="hero-shell">
         <div className="hero-socials" aria-label="Social links">
           {socialLinks.map(({ label, href, icon }) => (

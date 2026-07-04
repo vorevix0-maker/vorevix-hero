@@ -31,8 +31,7 @@ textarea {
 
 h1,
 h2,
-h3,
-.header-logo {
+h3 {
   font-family: "Eurostile Extended", "Montserrat", sans-serif;
 }
 
@@ -306,16 +305,6 @@ h3,
     padding: 118px 20px 46px;
   }
 
- 
-  .hero-header.nav-open .header-nav {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-
-  
-  
   .hero-shell {
     display: flex;
     flex-direction: column;
