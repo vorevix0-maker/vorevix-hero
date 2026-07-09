@@ -1,0 +1,244 @@
+.homepage-seo-section {
+  padding: 74px 6vw 82px;
+  background: #fff;
+  color: #111;
+}
+
+.homepage-seo-header,
+.homepage-seo-block,
+.homepage-seo-cta {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.homepage-seo-header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: start;
+}
+
+.homepage-seo-header span {
+  grid-column: 1 / -1;
+  color: #ff5b00;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.homepage-seo-header h2,
+.homepage-seo-block-heading h2,
+.homepage-seo-cta h2 {
+  margin: 0;
+  color: #111;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.homepage-seo-header h2 {
+  font-size: clamp(38px, 4.8vw, 74px);
+  line-height: 1.04;
+}
+
+.homepage-seo-header p {
+  margin: 0;
+  color: #4f4f56;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 650;
+}
+
+.homepage-seo-header p + p {
+  margin-top: 18px;
+}
+
+.homepage-seo-block {
+  margin-top: 76px;
+}
+
+.homepage-seo-block-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.homepage-seo-block-heading span {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff6b00;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.homepage-seo-block-heading h2,
+.homepage-seo-cta h2 {
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 1.12;
+}
+
+.homepage-service-list,
+.homepage-process-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.homepage-service-item,
+.homepage-process-item,
+.homepage-seo-copy-grid article {
+  padding: 24px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 18px;
+  background: #fff8ef;
+}
+
+.homepage-service-item h3,
+.homepage-process-item h3,
+.homepage-seo-copy-grid h3 {
+  margin: 0;
+  color: #111;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.homepage-service-item p,
+.homepage-process-item p,
+.homepage-seo-copy-grid p,
+.homepage-seo-cta p {
+  margin: 14px 0 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 650;
+}
+
+.homepage-service-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #ff5b00;
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.homepage-seo-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.homepage-benefit-list {
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+}
+
+.homepage-benefit-list li {
+  padding: 18px;
+  border-radius: 16px;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 750;
+}
+
+.homepage-process-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.homepage-seo-cta {
+  margin-top: 76px;
+  padding: clamp(30px, 4vw, 48px);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  background: #101724;
+  color: #fff;
+}
+
+.homepage-seo-cta h2,
+.homepage-seo-cta p {
+  color: #fff;
+}
+
+.homepage-seo-cta p {
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.homepage-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.homepage-cta-links a {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  background: #ff6b00;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .homepage-service-list,
+  .homepage-benefit-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .homepage-process-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .homepage-seo-section {
+    padding: 56px 20px 62px;
+  }
+
+  .homepage-seo-header,
+  .homepage-seo-copy-grid,
+  .homepage-seo-cta {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-service-list,
+  .homepage-benefit-list,
+  .homepage-process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-seo-cta {
+    text-align: center;
+  }
+
+  .homepage-cta-links {
+    justify-content: center;
+  }
+}

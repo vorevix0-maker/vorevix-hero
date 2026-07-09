@@ -16,6 +16,7 @@ import PageAnimations from "./components/PageAnimations";
 import SEO from "./components/SEO";
 import LegalPage from "./components/LegalPage";
 import SeoContentPage from "./components/SeoContentPage";
+import HomepageSeoContent from "./components/HomepageSeoContent";
 
 const siteUrl = "https://www.vorevix.com";
 const logoUrl = `${siteUrl}/logo.png`;
@@ -618,6 +619,7 @@ function App() {
         <main>
           <PageAnimations />
           <Hero />
+          <HomepageSeoContent />
           <WhyVorevix />
           <Services />
           <Process />
