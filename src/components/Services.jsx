@@ -7,12 +7,14 @@ const services = [
     desc: "Logos, identity systems, brand voice and visuals that make your business memorable.",
     visual: "brand",
     image: "/service-branding.png",
+    href: "/services/branding",
   },
   {
     title: "Custom Web Development",
     desc: "Fast, modern and conversion-focused websites built for trust, leads and growth.",
     visual: "web",
     image: "/service-web.png",
+    href: "/services/web-development",
   },
   
   {
@@ -20,18 +22,21 @@ const services = [
     desc: "Content planning, creative campaigns and paid social strategies that bring real attention.",
     visual: "tablet",
     image: "/service-social.png",
+    href: "/services",
   },
   {
     title: "Search Engine Optimization (SEO)",
     desc: "Technical SEO, keyword strategy and content improvements that help your brand rank higher.",
     visual: "seo",
     image: "/service-seo.png",
+    href: "/services/seo-services",
   },
   {
     title: "Software Solutions & App Development",
     desc: "ERP, CRM, dashboards, mobile apps and workflow systems built around your operations.",
     visual: "software",
     image: "/service-software-app.png",
+    href: "/services",
   },
 ];
 
@@ -57,7 +62,7 @@ export default function Services() {
           <article className={`service-card service-${service.visual}`} key={service.title}>
             <div className="service-visual" aria-hidden="true">
               {service.image ? (
-                <img src={service.image} alt="" loading="lazy" decoding="async" />
+                <img src={service.image} alt={`${service.title} service visual`} loading="lazy" decoding="async" />
               ) : (
                 <>
                   <Icon className="service-floating-icon" size={28} />
@@ -70,7 +75,9 @@ export default function Services() {
               )}
             </div>
             <div className="service-copy">
-              <h3 className="service-title">{service.title}</h3>
+              <h3 className="service-title">
+                <a href={service.href}>{service.title}</a>
+              </h3>
               <p>{service.desc}</p>
             </div>
           </article>

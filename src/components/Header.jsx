@@ -8,18 +8,18 @@ export default function Header() {
   return (
     <header className={`hero-header ${isMenuOpen ? "nav-open" : ""}`}>
       <a href="/" className="header-logo">
-        <img src="/vorevix-logo.png" alt="Vorevix" />
+        <img src="/vorevix-logo.png" alt="Vorevix logo" />
       </a>
 
       <nav className="header-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/#about">About</a>
-        <a href="/#services">Services</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
         <a href="/portfolio">Portfolio</a>
-        <a href="/#contact">Contact</a>
+        <a href="/contact">Contact</a>
       </nav>
 
-      <a href="/#contact" className="header-btn">
+      <a href="/contact" className="header-btn">
         Get Started <ArrowRight size={18} />
       </a>
 

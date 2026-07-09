@@ -5,17 +5,17 @@ import "./Footer.css";
 
 const quickLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const services = [
-  "Branding",
-  "Website Development",
-  "Digital Marketing",
-  "Software Solutions",
+  { label: "Branding", href: "/services/branding" },
+  { label: "Website Development", href: "/services/web-development" },
+  { label: "SEO Services", href: "/services/seo-services" },
+  { label: "UI/UX Design", href: "/services/ui-ux-design" },
 ];
 
 const socialLinks = [
@@ -90,7 +90,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <a href="/#home" className="footer-logo">
-              <img src="/footer-logo-white.png" alt="Vorevix" />
+              <img src="/footer-logo-white.png" alt="Vorevix logo" />
             </a>
             <p>
               Vorevix is a growth-focused digital agency helping businesses
@@ -119,8 +119,8 @@ export default function Footer() {
           <nav className="footer-column" aria-label="Footer services">
             <p className="footer-column-title">Services We Offer</p>
             {services.map((service) => (
-              <a href="/#services" key={service}>
-                {service}
+              <a href={service.href} key={service.href}>
+                {service.label}
               </a>
             ))}
           </nav>

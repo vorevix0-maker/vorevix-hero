@@ -5,42 +5,55 @@ function SEO({
   description,
   canonical,
   robots,
+  noindex,
+  ogTitle,
+  ogDescription,
+  ogUrl,
+  ogType,
+  ogImage,
+  twitterCard,
+  schema,
   openGraph = {},
   twitter = {},
   jsonLd,
 }) {
-  const ogTitle = openGraph.title || title;
-  const ogDescription = openGraph.description || description;
-  const ogUrl = openGraph.url || canonical;
+  const resolvedRobots = noindex ? "noindex, nofollow" : robots;
+  const resolvedOgTitle = ogTitle || openGraph.title || title;
+  const resolvedOgDescription = ogDescription || openGraph.description || description;
+  const resolvedOgUrl = ogUrl || openGraph.url || canonical;
+  const resolvedOgType = ogType || openGraph.type;
+  const resolvedOgImage = ogImage || openGraph.image;
   const twitterTitle = twitter.title || title;
   const twitterDescription = twitter.description || description;
-  const twitterCard = twitter.card || "summary_large_image";
-  const schemas = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+  const resolvedTwitterCard = twitterCard || twitter.card || "summary_large_image";
+  const resolvedTwitterImage = twitter.image || resolvedOgImage;
+  const schemaData = schema || jsonLd;
+  const schemas = Array.isArray(schemaData) ? schemaData : schemaData ? [schemaData] : [];
 
   return (
     <Helmet>
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
       {canonical && <link rel="canonical" href={canonical} />}
-      {robots && <meta name="robots" content={robots} />}
+      {resolvedRobots && <meta name="robots" content={resolvedRobots} />}
 
-      {ogTitle && <meta property="og:title" content={ogTitle} />}
-      {ogDescription && (
-        <meta property="og:description" content={ogDescription} />
+      {resolvedOgTitle && <meta property="og:title" content={resolvedOgTitle} />}
+      {resolvedOgDescription && (
+        <meta property="og:description" content={resolvedOgDescription} />
       )}
-      {openGraph.type && <meta property="og:type" content={openGraph.type} />}
-      {ogUrl && <meta property="og:url" content={ogUrl} />}
+      {resolvedOgType && <meta property="og:type" content={resolvedOgType} />}
+      {resolvedOgUrl && <meta property="og:url" content={resolvedOgUrl} />}
       {openGraph.siteName && (
         <meta property="og:site_name" content={openGraph.siteName} />
       )}
-      {openGraph.image && (
-        <meta property="og:image" content={openGraph.image} />
+      {resolvedOgImage && (
+        <meta property="og:image" content={resolvedOgImage} />
       )}
       {openGraph.imageAlt && (
         <meta property="og:image:alt" content={openGraph.imageAlt} />
       )}
 
-      {twitterCard && <meta name="twitter:card" content={twitterCard} />}
+      {resolvedTwitterCard && <meta name="twitter:card" content={resolvedTwitterCard} />}
       {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
       {twitterDescription && (
         <meta name="twitter:description" content={twitterDescription} />
@@ -49,7 +62,7 @@ function SEO({
       {twitter.creator && (
         <meta name="twitter:creator" content={twitter.creator} />
       )}
-      {twitter.image && <meta name="twitter:image" content={twitter.image} />}
+      {resolvedTwitterImage && <meta name="twitter:image" content={resolvedTwitterImage} />}
       {twitter.imageAlt && (
         <meta name="twitter:image:alt" content={twitter.imageAlt} />
       )}

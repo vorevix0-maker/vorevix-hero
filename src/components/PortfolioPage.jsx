@@ -172,7 +172,7 @@ export default function PortfolioPage() {
             <a className="portfolio-primary-link" href="#brand-selector">
               Select Brand <ArrowRight size={18} />
             </a>
-            <a href="/#contact" className="portfolio-secondary-link">
+            <a href="/contact" className="portfolio-secondary-link">
               Start a Project
             </a>
           </div>
@@ -378,7 +378,7 @@ export default function PortfolioPage() {
       <section className="portfolio-cta">
         <span>Need designs like these?</span>
         <h2>Let's make your product look ready for market.</h2>
-        <a href="/#contact">
+        <a href="/contact">
           Start Project <ArrowRight size={18} />
         </a>
       </section>

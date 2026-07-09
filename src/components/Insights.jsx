@@ -81,7 +81,7 @@ export default function Insights() {
           {posts.map((post) => (
             <article className={`insight-card ${post.className}`} key={post.title}>
               <div className="insight-image">
-                <img src={post.image} alt="" loading="lazy" decoding="async" />
+                <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
               </div>
               <time>{post.date}</time>
               <h3 className="insight-title">{post.title}</h3>

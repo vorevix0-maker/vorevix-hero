@@ -157,7 +157,7 @@ export default function BlogDashboard() {
     <main className="blog-dashboard">
       <header className="dashboard-header">
         <a className="dashboard-brand" href="/">
-          <img src="/logo.png" alt="Vorevix" />
+          <img src="/logo.png" alt="Vorevix logo" />
         </a>
         <div className="dashboard-actions">
           {session ? (

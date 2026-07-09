@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /dashboard
-
 Sitemap: https://www.vorevix.com/sitemap.xml
