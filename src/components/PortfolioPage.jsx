@@ -161,7 +161,7 @@ export default function PortfolioPage() {
       <section className="portfolio-hero" id="portfolio">
         <div className="portfolio-hero-copy">
           <span className="portfolio-eyebrow">Brand Portfolio</span>
-          <h1>Arshi, A&S Botanics and Dastaan creative work.</h1>
+          <h1>Our Portfolio</h1>
           <p>
             Choose a brand to view the complete portfolio. Arshi covers food
             packaging, A&S Botanics covers perfume visuals, and Dastaan brings a

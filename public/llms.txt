@@ -1,0 +1,39 @@
+# Vorevix
+
+Vorevix is a digital agency offering web development, SEO, UI/UX design, branding, and digital marketing services.
+
+## Website
+
+https://www.vorevix.com
+
+## Services
+
+- Web Development
+- SEO Services
+- UI/UX Design
+- Branding
+- Digital Marketing
+
+## Target Regions
+
+- Australia
+- New Zealand
+- United Arab Emirates
+- Pakistan
+
+## Important Pages
+
+- Home: https://www.vorevix.com/
+- Services: https://www.vorevix.com/services
+- Web Development: https://www.vorevix.com/services/web-development
+- SEO Services: https://www.vorevix.com/services/seo-services
+- UI/UX Design: https://www.vorevix.com/services/ui-ux-design
+- Branding: https://www.vorevix.com/services/branding
+- Portfolio: https://www.vorevix.com/portfolio
+- About: https://www.vorevix.com/about
+- Contact: https://www.vorevix.com/contact
+
+## Contact
+
+For business inquiries, use the contact page:
+https://www.vorevix.com/contact

@@ -118,6 +118,24 @@ const services = [
     body:
       "Build fast, secure, and conversion-focused websites for your business with Vorevix. Our web development work is structured for performance, usability, SEO, and long-term scalability.",
     serviceName: "Web Development Services",
+    sections: [
+      {
+        title: "Who This Service Is For",
+        body: "This service is for startups, service businesses, ecommerce brands, and growing companies that need a website that looks professional, loads quickly, and supports real business goals. Vorevix focuses on clear page structure, responsive design, search-friendly foundations, and user journeys that make it easier for visitors to understand your offer and contact your team.",
+      },
+      {
+        title: "What We Build",
+        body: "We plan and build modern business websites, landing pages, portfolio sites, lead generation pages, and custom web interfaces. Each project is shaped around your content, brand direction, target audience, and conversion goals. The result is a site that is easier to manage, easier to crawl, and easier for customers to trust.",
+      },
+    {
+      title: "Process and Benefits",
+      body: "Our web development process covers discovery, planning, design direction, development, testing, and launch support. We pay attention to mobile responsiveness, technical performance, clean navigation, metadata, image handling, and the details that help a website feel reliable. After launch, your website can become the foundation for SEO, marketing campaigns, automation, and future service pages.",
+    },
+    {
+      title: "Next Step",
+      body: "If you are not sure whether you need a new website or improvements to your current one, Vorevix can help review your goals, audience, content, and technical gaps. From there, we can recommend a practical development path and connect the website with your SEO, branding, portfolio, and contact strategy.",
+    },
+    ],
   },
   {
     path: "/services/seo-services",
@@ -128,6 +146,24 @@ const services = [
     body:
       "Improve search visibility with technical SEO, on-page optimization, keyword strategy, content planning, and performance-focused recommendations built around sustainable organic growth.",
     serviceName: "SEO Services",
+    sections: [
+      {
+        title: "Who This Service Is For",
+        body: "SEO services are useful for businesses that want more qualified organic traffic and a stronger presence on Google without relying only on paid ads. Vorevix helps companies improve technical crawlability, page-level relevance, metadata quality, internal linking, and content structure so search engines can understand the website more clearly.",
+      },
+      {
+        title: "What We Improve",
+        body: "Our SEO work can include technical audits, on-page optimization, keyword mapping, title and description improvements, heading reviews, image alt text, sitemap checks, schema markup, and content recommendations. We focus on practical improvements that support both users and search engines instead of keyword stuffing or shortcuts.",
+      },
+    {
+      title: "Process and Benefits",
+      body: "The process starts with understanding your services, audience, competitors, and existing website issues. From there, we prioritize fixes that can improve crawlability, indexability, page clarity, and conversion paths. A stronger SEO foundation helps your website become easier to discover, easier to navigate, and better prepared for future regional SEO campaigns.",
+    },
+    {
+      title: "Next Step",
+      body: "If your website is being crawled but not performing well, Vorevix can help identify whether the issue is technical structure, weak metadata, thin content, poor internal linking, unclear service pages, or missing schema. The goal is to create a clean SEO foundation before scaling content into new regions.",
+    },
+    ],
   },
   {
     path: "/services/ui-ux-design",
@@ -138,6 +174,24 @@ const services = [
     body:
       "Create clean, modern, and user-friendly digital experiences that help visitors understand your offer, trust your brand, and take the next step with confidence.",
     serviceName: "UI/UX Design Services",
+    sections: [
+      {
+        title: "Who This Service Is For",
+        body: "UI/UX design is for businesses that want their website, app, dashboard, or digital product to feel clear, modern, and easy to use. Vorevix designs interfaces for users who need to scan information quickly, compare options, take action, and feel confident that they are dealing with a credible brand.",
+      },
+      {
+        title: "What We Design",
+        body: "We work on website interfaces, landing pages, product flows, dashboard screens, mobile layouts, and conversion-focused page structures. The design process considers hierarchy, spacing, content clarity, responsive behavior, navigation, forms, calls to action, and trust signals so the interface supports the business goal instead of just looking attractive.",
+      },
+    {
+      title: "Process and Benefits",
+      body: "Our UI/UX process starts with goals, users, and page priorities. We then organize content, create layouts, refine visual direction, and prepare designs that can move smoothly into development. Strong UI/UX helps reduce confusion, improve engagement, support conversions, and make your brand feel more professional across every digital touchpoint.",
+    },
+    {
+      title: "Next Step",
+      body: "If your current website or app feels difficult to use, Vorevix can help review page hierarchy, calls to action, visual consistency, mobile behavior, and form flow. These improvements can support stronger SEO engagement signals, clearer customer journeys, and better lead generation.",
+    },
+    ],
   },
   {
     path: "/services/branding",
@@ -148,6 +202,24 @@ const services = [
     body:
       "Build a professional brand identity with visual systems, logo direction, messaging foundations, and brand strategy that help your business stand out clearly.",
     serviceName: "Branding Services",
+    sections: [
+      {
+        title: "Who This Service Is For",
+        body: "Branding services are for businesses that need a clearer identity, stronger first impression, or more consistent presentation across digital channels. Vorevix helps new and growing brands define how they should look, sound, and feel so customers can recognize them and understand their value faster.",
+      },
+      {
+        title: "What We Create",
+        body: "Branding work can include logo direction, visual identity, color systems, typography guidance, brand voice, social media styling, and practical design assets for websites and campaigns. The goal is to create a brand system that looks professional and can be used consistently by your team.",
+      },
+    {
+      title: "Process and Benefits",
+      body: "We begin by understanding your audience, offer, competitors, and positioning. From there, we develop a visual direction and supporting assets that make the brand easier to remember and easier to trust. A strong brand identity improves website presentation, marketing consistency, social content, and long-term customer recognition.",
+    },
+    {
+      title: "Next Step",
+      body: "If your business has a logo but no clear identity system, Vorevix can help turn scattered visuals into a more consistent brand presence. That foundation can then support website design, service pages, social media campaigns, portfolios, proposals, and future digital marketing activity.",
+    },
+    ],
   },
 ];
 
@@ -156,14 +228,28 @@ const servicesPage = {
   title: "Digital Services | Vorevix",
   description:
     "Explore Vorevix digital services including web development, SEO, UI/UX design, branding, and digital marketing solutions.",
-  h1: "Digital Services",
+  h1: "Digital Services for Growing Businesses",
   body:
-    "Explore Vorevix digital services across web development, SEO, UI/UX design, branding, and digital marketing solutions for growing businesses.",
-  sections: services.map((service) => ({
-    title: service.h1,
-    body: service.description,
-    href: service.path,
-  })),
+    "Explore Vorevix digital services across web development, SEO, UI/UX design, branding, and digital marketing solutions for growing businesses. Our services are planned to work together, so your website, brand identity, content, and marketing channels support the same business goals instead of feeling disconnected.",
+  sections: [
+    {
+      title: "What Vorevix Offers",
+      body: "Vorevix brings together web development, SEO, UI/UX design, branding, and digital marketing for businesses that want a stronger online presence. We help clients create professional websites, clearer service pages, search-friendly content structures, visual identity systems, and marketing assets that can support long-term growth.",
+    },
+    {
+      title: "Who Our Services Help",
+      body: "Our services are useful for startups, local businesses, ecommerce brands, service providers, and growing companies that need practical digital systems. Whether you are launching a new brand, improving an existing website, or preparing for SEO campaigns in future regions, we focus on clear foundations first.",
+    },
+    {
+      title: "How the Work Connects",
+      body: "A strong digital presence is not only one page or one campaign. Your brand identity should support your website, your website should support your SEO, and your content should support customer trust. Vorevix connects these pieces through planning, design, development, optimization, and ongoing improvement.",
+    },
+    ...services.map((service) => ({
+      title: service.h1,
+      body: service.description,
+      href: service.path,
+    })),
+  ],
 };
 
 const aboutPage = {
@@ -174,6 +260,24 @@ const aboutPage = {
   h1: "About Vorevix",
   body:
     "Vorevix is a digital agency helping businesses build a stronger online presence through design, development, SEO, branding, and digital marketing systems.",
+  sections: [
+    {
+      title: "What Vorevix Offers",
+      body: "Vorevix helps businesses turn ideas into practical digital systems. Our work covers websites, SEO foundations, UI/UX design, brand identity, digital marketing, automation, and software planning. We focus on clean execution, clear communication, and digital assets that support measurable business goals.",
+    },
+    {
+      title: "Who We Work With",
+      body: "We work with ambitious businesses that want a more professional online presence and a clearer path for growth. This includes startups, service providers, product brands, ecommerce projects, and teams preparing to expand into new markets. Our approach is flexible, but the priority is always the same: make the brand easier to understand, trust, and contact.",
+    },
+    {
+      title: "How We Approach Projects",
+      body: "Every project starts with understanding the business, audience, offer, and current digital gaps. From there, we plan the right mix of design, development, SEO, branding, and marketing support. This helps avoid disconnected work and gives each page, campaign, and asset a clearer role in the customer journey.",
+    },
+    {
+      title: "What Makes the Work Practical",
+      body: "We keep the focus on useful outcomes: clearer pages, stronger calls to action, better technical foundations, consistent brand presentation, and content that supports real customer decisions. This makes the website easier to maintain, easier to optimize, and easier to expand when new service or regional pages are added later.",
+    },
+  ],
 };
 
 const contactPage = {
@@ -184,6 +288,24 @@ const contactPage = {
   h1: "Contact Vorevix",
   body:
     "Contact Vorevix to discuss your website, SEO, branding, UI/UX, or digital marketing project. Share your goals and our team will help you plan the next step.",
+  sections: [
+    {
+      title: "Start Your Digital Project With Vorevix",
+      body: "If you are planning a new website, improving an existing brand, fixing SEO issues, or preparing a digital marketing campaign, you can contact Vorevix to discuss the next practical step. Share your goals, current challenges, target audience, and timeline so our team can understand what kind of support will be most useful.",
+    },
+    {
+      title: "What You Can Contact Us For",
+      body: "You can reach out for web development, SEO services, UI/UX design, branding, digital marketing, automation planning, software solutions, or a complete digital growth system. We can also review whether your current website needs technical improvements, clearer service pages, better calls to action, or stronger content structure.",
+    },
+    {
+      title: "How We Help Businesses Grow Online",
+      body: "Our process is built around clarity. We identify what your business offers, who you want to reach, and what your website or marketing system needs to do. Then we help plan digital assets that improve trust, search visibility, user experience, lead generation, and long-term scalability without overcomplicating the project.",
+    },
+    {
+      title: "What Happens After You Reach Out",
+      body: "After you contact us, we review your message and look at the most relevant next step. That may be a website plan, an SEO review, a branding direction, a UI/UX improvement, or a broader digital strategy. The first goal is to understand the problem clearly before suggesting a solution.",
+    },
+  ],
 };
 
 const legalPages = {
@@ -366,12 +488,7 @@ function App() {
           eyebrow="Service"
           title={servicePage.h1}
           description={servicePage.body}
-          sections={[
-            {
-              title: "How Vorevix Helps",
-              body: servicePage.description,
-            },
-          ]}
+          sections={servicePage.sections}
           links={[
             { label: "All Services", href: "/services" },
             { label: "View Portfolio", href: "/portfolio" },
@@ -416,12 +533,7 @@ function App() {
           eyebrow="About"
           title={aboutPage.h1}
           description={aboutPage.body}
-          sections={[
-            {
-              title: "Digital Growth Partner",
-              body: "Our team brings together brand thinking, development, SEO, creative direction, and marketing systems to help businesses improve how they show up online.",
-            },
-          ]}
+          sections={aboutPage.sections}
           links={[
             { label: "Explore Services", href: "/services" },
             { label: "Contact Vorevix", href: "/contact" },
@@ -468,6 +580,7 @@ function App() {
           eyebrow="Contact"
           title={contactPage.h1}
           description={contactPage.body}
+          sections={contactPage.sections}
           links={[
             { label: "Explore Services", href: "/services" },
             { label: "Email Vorevix", href: "mailto:contact@vorevix.com" },

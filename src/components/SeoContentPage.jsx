@@ -26,6 +26,12 @@ export default function SeoContentPage({ eyebrow, title, description, sections =
             <article className="seo-page-section" key={section.title}>
               <h2>{section.title}</h2>
               <p>{section.body}</p>
+              {section.href && (
+                <a className="seo-page-section-link" href={section.href}>
+                  Learn more
+                  <ArrowRight size={16} />
+                </a>
+              )}
             </article>
           ))}
         </section>

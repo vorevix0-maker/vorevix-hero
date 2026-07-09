@@ -109,6 +109,22 @@
   font-weight: 600;
 }
 
+.seo-page-section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #ff5b00;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.seo-page-section-link:hover {
+  color: #111;
+}
+
 @media (max-width: 800px) {
   .seo-page {
     padding: 128px 20px 64px;

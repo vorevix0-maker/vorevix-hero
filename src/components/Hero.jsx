@@ -28,10 +28,9 @@ export default function Hero() {
           </p>
 
           <h1 className="hero-title">
-            <span className="hero-line">Revolutionizing</span>
-            <span className="hero-line">the Way Brands</span>
-            <span className="hero-line">Connect, Engage</span>
-            <span className="hero-line hero-line-accent">&amp; Grow Online</span>
+            <span className="hero-line">Web Development,</span>
+            <span className="hero-line">SEO &amp; Digital</span>
+            <span className="hero-line hero-line-accent">Branding Agency</span>
           </h1>
 
           <a href="#contact" className="hero-cta">
