@@ -23,11 +23,11 @@ const logoUrl = `${siteUrl}/logo.png`;
 const homeTitle =
   "Vorevix | Web Development, SEO & Digital Branding Agency";
 const homeDescription =
-  "Vorevix helps businesses grow online with web development, SEO, UI/UX design, branding, and digital marketing services.";
+  "Grow with Vorevix web design, web development and SEO services for ambitious businesses across Australia, New Zealand and the UAE. Book a consultation.";
 const homeCanonical = `${siteUrl}/`;
 const portfolioTitle = "Portfolio | Vorevix";
 const portfolioDescription =
-  "View Vorevix portfolio projects across web development, branding, UI/UX design, and digital growth solutions.";
+  "See Vorevix web, branding and digital marketing projects, with practical case studies showing creative execution, measurable results and business growth.";
 const portfolioCanonical = `${siteUrl}/portfolio`;
 const brandDescription =
   "Vorevix is a digital agency offering web development, SEO, UI/UX design, branding, and digital marketing services.";
@@ -114,7 +114,7 @@ const services = [
     path: "/services/web-development",
     title: "Web Development Services | Vorevix",
     description:
-      "Build fast, modern, and SEO-friendly websites with Vorevix web development services for businesses and startups.",
+      "Launch a fast, scalable and responsive business website with Vorevix. Get conversion-focused web development built for performance and future growth.",
     h1: "Web Development Services",
     body:
       "Build fast, secure, and conversion-focused websites for your business with Vorevix. Our web development work is structured for performance, usability, SEO, and long-term scalability.",
@@ -142,7 +142,7 @@ const services = [
     path: "/services/seo-services",
     title: "SEO Services | Vorevix",
     description:
-      "Improve your Google visibility with Vorevix SEO services including technical SEO, on-page SEO, keyword strategy, and content optimization.",
+      "Grow qualified organic traffic with Vorevix technical SEO, on-page optimization and keyword strategy designed to improve rankings, visibility and leads.",
     h1: "SEO Services",
     body:
       "Improve search visibility with technical SEO, on-page optimization, keyword strategy, content planning, and performance-focused recommendations built around sustainable organic growth.",
@@ -170,7 +170,7 @@ const services = [
     path: "/services/ui-ux-design",
     title: "UI/UX Design Services | Vorevix",
     description:
-      "Create clean, modern, and user-friendly digital experiences with Vorevix UI/UX design services.",
+      "Turn complex journeys into intuitive interfaces with Vorevix UI/UX design, improving usability, engagement and conversions across web and mobile products.",
     h1: "UI/UX Design Services",
     body:
       "Create clean, modern, and user-friendly digital experiences that help visitors understand your offer, trust your brand, and take the next step with confidence.",
@@ -198,7 +198,7 @@ const services = [
     path: "/services/branding",
     title: "Branding Services | Vorevix",
     description:
-      "Build a professional brand identity with Vorevix branding services including logo design, visual identity, and brand strategy.",
+      "Build a distinctive brand identity with Vorevix through strategic positioning, cohesive visual systems and practical brand strategy that supports growth.",
     h1: "Branding Services",
     body:
       "Build a professional brand identity with visual systems, logo direction, messaging foundations, and brand strategy that help your business stand out clearly.",
@@ -228,7 +228,7 @@ const servicesPage = {
   path: "/services",
   title: "Digital Services | Vorevix",
   description:
-    "Explore Vorevix digital services including web development, SEO, UI/UX design, branding, and digital marketing solutions.",
+    "Choose integrated web development, SEO, UI/UX design, branding and digital marketing services from Vorevix to attract customers and accelerate growth.",
   h1: "Digital Services for Growing Businesses",
   body:
     "Explore Vorevix digital services across web development, SEO, UI/UX design, branding, and digital marketing solutions for growing businesses. Our services are planned to work together, so your website, brand identity, content, and marketing channels support the same business goals instead of feeling disconnected.",
@@ -257,7 +257,7 @@ const aboutPage = {
   path: "/about",
   title: "About Vorevix | Digital Agency",
   description:
-    "Learn about Vorevix, a digital agency helping businesses build stronger online presence through design, development, SEO, and branding.",
+    "Meet Vorevix, a digital agency combining strategy, design, development and SEO to help ambitious international businesses compete and grow online.",
   h1: "About Vorevix",
   body:
     "Vorevix is a digital agency helping businesses build a stronger online presence through design, development, SEO, branding, and digital marketing systems.",
@@ -285,7 +285,7 @@ const contactPage = {
   path: "/contact",
   title: "Contact Vorevix | Start Your Digital Project",
   description:
-    "Contact Vorevix to discuss your website, SEO, branding, UI/UX, or digital marketing project.",
+    "Request a consultation with Vorevix to discuss your website, SEO, UI/UX, branding or digital marketing goals and plan the right path to sustainable growth.",
   h1: "Contact Vorevix",
   body:
     "Contact Vorevix to discuss your website, SEO, branding, UI/UX, or digital marketing project. Share your goals and our team will help you plan the next step.",
@@ -314,14 +314,14 @@ const legalPages = {
     type: "privacy",
     title: "Privacy Policy | Vorevix",
     description:
-      "Read the Vorevix Privacy Policy to learn how we collect, use and protect information shared through our website, forms and agency services.",
+      "Read the Vorevix Privacy Policy to learn how information submitted through our website, contact forms and agency services is collected, used and protected.",
     canonical: `${siteUrl}/privacy-policy`,
   },
   "/terms-and-conditions": {
     type: "terms",
     title: "Terms & Conditions | Vorevix",
     description:
-      "Read the Vorevix Terms & Conditions for website use, agency services, proposals, payments, intellectual property and project responsibilities.",
+      "Review the Vorevix Terms and Conditions covering website use, agency services, project responsibilities, payments, intellectual property and client agreements.",
     canonical: `${siteUrl}/terms-and-conditions`,
   },
 };
