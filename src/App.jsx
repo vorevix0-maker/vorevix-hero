@@ -20,6 +20,7 @@ import HomepageSeoContent from "./components/HomepageSeoContent";
 import ArchitecturePage from "./components/ArchitecturePage";
 import { architecturePages } from "./architecturePages";
 import WebDevelopmentPage from "./components/WebDevelopmentPage";
+import WebDesignPage from "./components/WebDesignPage";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -341,6 +342,48 @@ function App() {
       <>
         <SEO title="Dashboard | Vorevix" robots="noindex, nofollow" />
         <BlogDashboard />
+      </>
+    );
+  }
+
+  if (pathname === "/services/web-design") {
+    const canonical = `${siteUrl}/services/web-design`;
+    const title = "7 Powerful Web Design Services for Business and eCommerce";
+    const description =
+      "Vorevix provides web design services for responsive business websites, eCommerce stores and custom digital experiences built around your brand and users.";
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title,
+            description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={[
+            serviceSchema("Web Design Services", description, canonical),
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "Web Design", url: canonical },
+            ]),
+          ]}
+        />
+        <Header />
+        <WebDesignPage />
+        <Footer />
       </>
     );
   }

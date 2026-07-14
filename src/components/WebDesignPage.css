@@ -1,0 +1,86 @@
+.web-design-page .web-design-visual {
+  aspect-ratio: 1;
+}
+
+.web-design-content .web-design-prose {
+  max-width: 850px;
+}
+
+.web-design-prose p,
+.web-design-faq-grid p,
+.web-design-why p {
+  color: var(--wd-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.web-design-prose a,
+.web-design-why a {
+  color: #0d5c26;
+  font-weight: 800;
+}
+
+.web-design-why,
+.web-design-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.web-design-why article,
+.web-design-faq-grid article {
+  padding: 28px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.055);
+}
+
+.web-design-why svg {
+  color: var(--wd-orange);
+}
+
+.web-design-why h3,
+.web-design-faq-grid h3 {
+  margin: 18px 0 12px;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.web-design-faq-grid p:last-child,
+.web-design-why p:last-child {
+  margin-bottom: 0;
+}
+
+.web-design-callout {
+  width: min(1280px, calc(100% - 32px));
+  padding-right: 50px;
+  padding-left: 50px;
+  border-radius: 32px;
+  background: #f7f8f4;
+}
+
+.web-design-page blockquote {
+  max-width: 850px;
+  margin: 30px 0 0;
+  padding-left: 22px;
+  border-left: 4px solid var(--wd-orange);
+  color: var(--wd-green);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .web-design-why,
+  .web-design-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .web-design-callout {
+    width: min(100% - 24px, 1180px);
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
