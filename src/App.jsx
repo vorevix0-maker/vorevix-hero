@@ -23,6 +23,8 @@ import WebDevelopmentPage from "./components/WebDevelopmentPage";
 import WebDesignPage from "./components/WebDesignPage";
 import SeoServicesPage from "./components/SeoServicesPage";
 import { seoServiceFaqs } from "./seoServiceFaqs";
+import BrandingPage from "./components/BrandingPage";
+import { brandingFaqs } from "./brandingFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -439,6 +441,60 @@ function App() {
         />
         <Header />
         <SeoServicesPage />
+        <Footer />
+      </>
+    );
+  }
+
+  if (pathname === "/services/branding") {
+    const canonical = `${siteUrl}/services/branding`;
+    const title = "Branding Services for Strategy, Identity and Growth | Vorevix";
+    const description =
+      "Strategic branding services covering research, positioning, messaging, visual identity, brand guidelines, rebranding and rollout for growing businesses.";
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title,
+            description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={[
+            serviceSchema("Branding Services", description, canonical),
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "Branding", url: canonical },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: brandingFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer.join(" "),
+                },
+              })),
+            },
+          ]}
+        />
+        <Header />
+        <BrandingPage />
         <Footer />
       </>
     );
