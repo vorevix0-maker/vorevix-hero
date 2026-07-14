@@ -1,0 +1,63 @@
+.seo-services-page .seo-prose {
+  max-width: 860px;
+}
+
+.seo-services-page .seo-prose p,
+.seo-services-page .seo-section-intro,
+.seo-faq-grid p,
+.seo-why-grid p {
+  color: var(--wd-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.seo-services-page .seo-prose a,
+.seo-services-page .wd-card a {
+  color: #0d5c26;
+  font-weight: 800;
+}
+
+.seo-section-intro {
+  max-width: 850px;
+  margin: -18px 0 36px;
+}
+
+.seo-why-grid,
+.seo-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.seo-why-grid article,
+.seo-faq-grid article {
+  padding: 28px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(17, 17, 17, 0.055);
+}
+
+.seo-why-grid h3,
+.seo-faq-grid h3 {
+  margin: 0 0 12px;
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.seo-why-grid p,
+.seo-faq-grid p {
+  margin-bottom: 0;
+}
+
+.seo-why-grid + .seo-prose {
+  margin-top: 32px;
+}
+
+@media (max-width: 760px) {
+  .seo-why-grid,
+  .seo-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,6 +21,8 @@ import ArchitecturePage from "./components/ArchitecturePage";
 import { architecturePages } from "./architecturePages";
 import WebDevelopmentPage from "./components/WebDevelopmentPage";
 import WebDesignPage from "./components/WebDesignPage";
+import SeoServicesPage from "./components/SeoServicesPage";
+import { seoServiceFaqs } from "./seoServiceFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -383,6 +385,60 @@ function App() {
         />
         <Header />
         <WebDesignPage />
+        <Footer />
+      </>
+    );
+  }
+
+  if (pathname === "/services/seo-services") {
+    const canonical = "https://vorevix.com/services/seo-services";
+    const title = "SEO Services for Sustainable Organic Growth | Vorevix";
+    const description =
+      "Professional SEO services covering technical SEO, content, local search, eCommerce, authority building, and reporting to support sustainable business growth.";
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title,
+            description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={[
+            serviceSchema("SEO Services", description, canonical),
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "SEO Services", url: canonical },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: seoServiceFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ]}
+        />
+        <Header />
+        <SeoServicesPage />
         <Footer />
       </>
     );
