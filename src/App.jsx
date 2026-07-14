@@ -17,6 +17,10 @@ import SEO from "./components/SEO";
 import LegalPage from "./components/LegalPage";
 import SeoContentPage from "./components/SeoContentPage";
 import HomepageSeoContent from "./components/HomepageSeoContent";
+import ArchitecturePage from "./components/ArchitecturePage";
+import { architecturePages } from "./architecturePages";
+import WebDevelopmentPage from "./components/WebDevelopmentPage";
+import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
 const logoUrl = `${siteUrl}/logo.png`;
@@ -330,12 +334,49 @@ function App() {
   const pathname = window.location.pathname;
   const legalPage = legalPages[window.location.pathname];
   const servicePage = services.find((page) => page.path === pathname);
+  const architecturePage = architecturePages.find((page) => page.path === pathname);
 
   if (pathname === "/dashboard") {
     return (
       <>
         <SEO title="Dashboard | Vorevix" robots="noindex, nofollow" />
         <BlogDashboard />
+      </>
+    );
+  }
+
+  if (architecturePage) {
+    const canonical = `${siteUrl}${architecturePage.path}`;
+    const breadcrumbItems = architecturePage.breadcrumbs.map((item) => ({
+      name: item.label,
+      url: item.href ? `${siteUrl}${item.href === "/" ? "/" : item.href}` : canonical,
+    }));
+
+    return (
+      <>
+        <SEO
+          title={architecturePage.title}
+          description={architecturePage.description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title: architecturePage.title,
+            description: architecturePage.description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title: architecturePage.title,
+            description: architecturePage.description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={breadcrumbSchema(breadcrumbItems)}
+        />
+        <Header />
+        <ArchitecturePage page={architecturePage} />
+        <Footer />
       </>
     );
   }
@@ -447,6 +488,71 @@ function App() {
             { label: "Contact Vorevix", href: "/contact" },
           ]}
         />
+        <Footer />
+      </>
+    );
+  }
+
+  if (pathname === "/services/web-development") {
+    const canonical = `${siteUrl}/services/web-development`;
+    const title = "Web Development Services for Business, eCommerce and SaaS";
+    const description = "Vorevix provides web development services for custom websites, eCommerce stores, web applications, SaaS platforms, integrations and ongoing support.";
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title,
+            description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={[
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: title,
+              description,
+              url: canonical,
+              isPartOf: {
+                "@type": "WebSite",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+            },
+            serviceSchema("Web Development Services", description, canonical),
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "Web Development", url: canonical },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: webDevelopmentFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ]}
+        />
+        <Header />
+        <WebDevelopmentPage />
         <Footer />
       </>
     );

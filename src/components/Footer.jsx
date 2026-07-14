@@ -3,19 +3,32 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { subscribeToNewsletter } from "../lib/newsletter";
 import "./Footer.css";
 
-const quickLinks = [
+const companyLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 const services = [
-  { label: "Branding", href: "/services/branding" },
-  { label: "Website Development", href: "/services/web-development" },
+  { label: "Web Design", href: "/services/web-design" },
+  { label: "Web Development", href: "/services/web-development" },
   { label: "SEO Services", href: "/services/seo-services" },
   { label: "UI/UX Design", href: "/services/ui-ux-design" },
+  { label: "Branding", href: "/services/branding" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
+];
+
+const locations = [
+  { label: "Australia", href: "/locations/australia" },
+  { label: "New Zealand", href: "/locations/new-zealand" },
+  { label: "United Arab Emirates", href: "/locations/united-arab-emirates" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
 ];
 
 const socialLinks = [
@@ -87,7 +100,7 @@ export default function Footer() {
 
         <div className="footer-divider" />
 
-        <div className="footer-grid">
+        <div className="footer-overview">
           <div className="footer-brand">
             <a href="/#home" className="footer-logo">
               <img src="/footer-logo-white.png" alt="Vorevix logo" />
@@ -107,47 +120,55 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="footer-column" aria-label="Footer quick links">
-            <p className="footer-column-title">Quick Links</p>
-            {quickLinks.map((link) => (
-              <a href={link.href} key={link.label}>
-                {link.label}
-              </a>
+          <address className="footer-contact">
+            <p className="footer-column-title">Contact Info</p>
+            <a href="mailto:contact@vorevix.com">
+              <Mail size={22} aria-hidden="true" />
+              <span>contact@vorevix.com</span>
+            </a>
+            <a href="tel:+923000000000">
+              <Phone size={22} aria-hidden="true" />
+              <span>+92 300 0000000</span>
+            </a>
+            <p>
+              <MapPin size={23} aria-hidden="true" />
+              <span>Mansehra, Pakistan</span>
+            </p>
+          </address>
+        </div>
+
+        <div className="footer-grid">
+          <nav className="footer-column" aria-label="Footer company links">
+            <p className="footer-column-title">Company</p>
+            {companyLinks.map((link) => (
+              <a href={link.href} key={link.href}>{link.label}</a>
             ))}
           </nav>
 
           <nav className="footer-column" aria-label="Footer services">
-            <p className="footer-column-title">Services We Offer</p>
+            <p className="footer-column-title">Services</p>
             {services.map((service) => (
-              <a href={service.href} key={service.href}>
-                {service.label}
-              </a>
+              <a href={service.href} key={service.href}>{service.label}</a>
             ))}
           </nav>
 
-          <address className="footer-column footer-contact">
-            <p className="footer-column-title">Contact Info</p>
-            <a href="mailto:contact@vorevix.com">
-              <Mail size={22} />
-              <span>contact@vorevix.com</span>
-            </a>
-            <a href="tel:+923000000000">
-              <Phone size={22} />
-              <span>+92 300 0000000</span>
-            </a>
-            <p>
-              <MapPin size={23} />
-              <span>Mansehra, Pakistan</span>
-            </p>
-            <div className="footer-legal-links" aria-label="Legal links">
-              <a href="/privacy-policy">Privacy Policy</a>
-              <a href="/terms-and-conditions">Terms &amp; Conditions</a>
-            </div>
-          </address>
+          <nav className="footer-column" aria-label="Footer locations">
+            <p className="footer-column-title">Locations</p>
+            {locations.map((location) => (
+              <a href={location.href} key={location.href}>{location.label}</a>
+            ))}
+          </nav>
+
+          <nav className="footer-column" aria-label="Footer legal links">
+            <p className="footer-column-title">Legal</p>
+            {legalLinks.map((link) => (
+              <a href={link.href} key={link.href}>{link.label}</a>
+            ))}
+          </nav>
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Vorevix. All rights reserved.</p>
+          <p>Â© 2026 Vorevix. All rights reserved.</p>
         </div>
       </div>
     </footer>
