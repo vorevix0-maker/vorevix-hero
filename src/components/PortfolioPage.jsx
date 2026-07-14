@@ -1,4 +1,5 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ExternalLink, X } from "lucide-react";
 import "./PortfolioPage.css";
 
 const brandCards = [
@@ -156,6 +157,32 @@ const dastaanReels = [
 ];
 
 export default function PortfolioPage() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const openerRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedProject && dialogRef.current && !dialogRef.current.open) {
+      dialogRef.current.showModal();
+      closeButtonRef.current?.focus();
+    }
+  }, [selectedProject]);
+
+  const openProject = (project, event) => {
+    openerRef.current = event.currentTarget;
+    setSelectedProject(project);
+  };
+
+  const closeProject = () => {
+    dialogRef.current?.close();
+  };
+
+  const handleDialogClose = () => {
+    setSelectedProject(null);
+    openerRef.current?.focus();
+  };
+
   return (
     <main className="portfolio-page">
       <section className="portfolio-hero" id="portfolio">
@@ -229,13 +256,45 @@ export default function PortfolioPage() {
             <div className="product-card-copy">
               <span>{project.category}</span>
               <h3>{project.title}</h3>
-              <a href={project.image} target="_blank" rel="noreferrer">
+              <button
+                className="product-design-button"
+                type="button"
+                onClick={(event) => openProject(project, event)}
+                aria-label={`Open full-size view of ${project.title}`}
+              >
                 Open Design <ExternalLink size={16} />
-              </a>
+              </button>
             </div>
           </article>
         ))}
       </section>
+
+      <dialog
+        className="portfolio-lightbox"
+        ref={dialogRef}
+        onClose={handleDialogClose}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) closeProject();
+        }}
+        aria-labelledby="portfolio-lightbox-title"
+      >
+        {selectedProject && (
+          <div className="portfolio-lightbox-content">
+            <div className="portfolio-lightbox-header">
+              <h2 id="portfolio-lightbox-title">{selectedProject.title}</h2>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={closeProject}
+                aria-label="Close full-size design"
+              >
+                <X size={22} aria-hidden="true" />
+              </button>
+            </div>
+            <img src={selectedProject.image} alt={selectedProject.title} />
+          </div>
+        )}
+      </dialog>
 
       <section className="campaign-grid">
         {arshiCampaigns.map((project) => (
