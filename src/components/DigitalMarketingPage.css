@@ -1,0 +1,132 @@
+.digital-marketing-page .dm-prose {
+  max-width: 860px;
+}
+
+.digital-marketing-page .dm-prose p,
+.digital-marketing-page .dm-note,
+.dm-faq p {
+  color: var(--wd-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.digital-marketing-page .dm-prose a,
+.digital-marketing-page .wd-card a,
+.dm-faq a {
+  color: #0d5c26;
+  font-weight: 800;
+}
+
+.dm-note {
+  max-width: 860px;
+  margin: -16px 0 36px;
+}
+
+.dm-trust {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dm-trust li {
+  position: relative;
+  padding-left: 18px;
+  color: #34383c;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.dm-trust li::before {
+  content: "";
+  position: absolute;
+  top: 0.45em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--wd-orange);
+}
+
+.dm-faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.dm-faq {
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.dm-faq h3 {
+  margin: 0;
+}
+
+.dm-faq button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  border: 0;
+  background: transparent;
+  color: var(--wd-ink);
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dm-faq button:focus-visible {
+  outline: 3px solid var(--wd-orange);
+  outline-offset: -3px;
+}
+
+.dm-faq button svg {
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.dm-faq button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.dm-faq > div {
+  padding: 0 24px 22px;
+}
+
+.dm-faq p {
+  margin: 0 0 10px;
+}
+
+.dm-faq p:last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-faq button svg {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .dm-trust {
+    grid-template-columns: 1fr;
+  }
+
+  .dm-faq button {
+    padding: 19px 18px;
+    font-size: 15px;
+  }
+
+  .dm-faq > div {
+    padding: 0 18px 19px;
+  }
+}

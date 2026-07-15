@@ -1,0 +1,119 @@
+.uiux-hero-art {
+  display: grid;
+  place-items: center;
+}
+
+.uiux-hero-art svg {
+  width: 44%;
+  height: 44%;
+  color: var(--wd-orange);
+}
+
+.uiux-prose {
+  max-width: 860px;
+}
+
+.uiux-prose p,
+.uiux-note,
+.uiux-faq p {
+  color: var(--wd-muted);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.uiux-page .wd-card a,
+.uiux-prose a {
+  color: #0d5c26;
+  font-weight: 800;
+}
+
+.uiux-note {
+  max-width: 860px;
+  margin: 30px 0 0;
+}
+
+.uiux-content-image {
+  width: min(100%, 860px);
+  height: auto;
+  display: block;
+  margin: 38px auto 0;
+  border-radius: 24px;
+  background: #fff4e6;
+}
+
+.uiux-pricing-link {
+  margin-top: 30px;
+}
+
+.uiux-faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.uiux-faq {
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.uiux-faq h3 {
+  margin: 0;
+}
+
+.uiux-faq button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  border: 0;
+  background: transparent;
+  color: var(--wd-ink);
+  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.uiux-faq button:focus-visible {
+  outline: 3px solid var(--wd-orange);
+  outline-offset: -3px;
+}
+
+.uiux-faq button svg {
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.uiux-faq button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.uiux-faq > div {
+  padding: 0 24px 22px;
+}
+
+.uiux-faq p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uiux-faq button svg {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .uiux-faq button {
+    padding: 19px 18px;
+    font-size: 15px;
+  }
+
+  .uiux-faq > div {
+    padding: 0 18px 19px;
+  }
+}

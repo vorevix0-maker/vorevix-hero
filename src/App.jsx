@@ -25,6 +25,10 @@ import SeoServicesPage from "./components/SeoServicesPage";
 import { seoServiceFaqs } from "./seoServiceFaqs";
 import BrandingPage from "./components/BrandingPage";
 import { brandingFaqs } from "./brandingFaqs";
+import UiUxDesignPage from "./components/UiUxDesignPage";
+import { uiUxFaqs } from "./uiUxFaqs";
+import DigitalMarketingPage from "./components/DigitalMarketingPage";
+import { digitalMarketingFaqs } from "./digitalMarketingFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -346,6 +350,146 @@ function App() {
       <>
         <SEO title="Dashboard | Vorevix" robots="noindex, nofollow" />
         <BlogDashboard />
+      </>
+    );
+  }
+
+  if (pathname === "/services/ui-ux-design") {
+    window.location.replace("/services/ui-ux-design-services");
+    return null;
+  }
+
+  if (pathname === "/services/ui-ux-design-services") {
+    const canonical = "https://vorevix.com/services/ui-ux-design-services";
+    const title = "Better UI UX Design Services for Websites, Apps and SaaS | Vorevix";
+    const description =
+      "UI UX design services for websites, mobile apps and SaaS products, including research, user flows, wireframes, interface design, prototypes and usability testing.";
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow"
+          openGraph={{
+            title,
+            description,
+            url: canonical,
+            ...defaultOpenGraph,
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: logoUrl,
+            imageAlt: "Vorevix logo",
+          }}
+          schema={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "UI UX Design Services",
+              serviceType: "UI UX Design Services",
+              description,
+              url: canonical,
+              provider: {
+                "@type": "Organization",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+            },
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "UI UX Design Services", url: canonical },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: uiUxFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ]}
+        />
+        <Header />
+        <UiUxDesignPage />
+        <Footer />
+      </>
+    );
+  }
+
+  if (pathname === "/services/digital-marketing") {
+    const canonical = "https://vorevix.com/services/digital-marketing";
+    const title = "Digital Marketing Services for Campaigns, Leads and Growth";
+    const description =
+      "Digital marketing services for paid media, social media, content, email, lead generation, conversion tracking and campaign optimisation.";
+    const socialImage = `${siteUrl}/service-social.png`;
+
+    return (
+      <>
+        <SEO
+          title={title}
+          description={description}
+          canonical={canonical}
+          robots="index, follow, max-image-preview:large"
+          openGraph={{
+            ...defaultOpenGraph,
+            title,
+            description,
+            url: canonical,
+            image: socialImage,
+            imageAlt: "Vorevix digital campaign strategy",
+          }}
+          twitter={{
+            card: "summary_large_image",
+            title,
+            description,
+            image: socialImage,
+            imageAlt: "Vorevix digital campaign strategy",
+          }}
+          schema={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "Digital Marketing Services",
+              serviceType: "Digital Marketing Services",
+              url: canonical,
+              description,
+              provider: {
+                "@type": "Organization",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+            },
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: `${siteUrl}/services` },
+              { name: "Digital Marketing", url: canonical },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: digitalMarketingFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer.join(" "),
+                },
+              })),
+            },
+          ]}
+        />
+        <Header />
+        <DigitalMarketingPage />
+        <Footer />
       </>
     );
   }
