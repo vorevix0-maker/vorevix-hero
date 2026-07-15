@@ -33,6 +33,8 @@ import WebDevelopmentAustraliaPage from "./components/WebDevelopmentAustraliaPag
 import { webDevelopmentAustraliaFaqs } from "./webDevelopmentAustraliaFaqs";
 import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
+import SeoAustraliaPage from "./components/SeoAustraliaPage";
+import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -277,6 +279,11 @@ const servicesPage = {
       body: "Explore custom, responsive and conversion-aware website design support for businesses across Australia.",
       href: "/services/web-design-australia",
     },
+    {
+      title: "SEO Services Australia",
+      body: "Explore technical SEO, content, local search, ecommerce optimisation and reporting support for businesses across Australia.",
+      href: "/services/seo-services-australia",
+    },
   ],
 };
 
@@ -482,6 +489,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><WebDesignAustraliaPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/services/seo-services-australia") {
+    const canonical = "https://vorevix.com/services/seo-services-australia";
+    const title = "SEO Services Australia for Traffic, Leads and Growth";
+    const description = "SEO services Australia for technical SEO, content, local search, ecommerce, link building, audits, reporting and ongoing optimisation.";
+    const socialImage = `${siteUrl}/service-seo.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix search performance analysis" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix search performance analysis" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
+          { "@context": "https://schema.org", "@type": "Service", name: "SEO Services Australia", serviceType: "Search Engine Optimisation Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "SEO Services Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
+        ]}/>
+      <Header/><SeoAustraliaPage/><Footer/>
     </>;
   }
 
@@ -850,6 +876,10 @@ function App() {
             {
               label: "Web Design Australia",
               href: "/services/web-design-australia",
+            },
+            {
+              label: "SEO Services Australia",
+              href: "/services/seo-services-australia",
             },
             { label: "View Portfolio", href: "/portfolio" },
             { label: "Contact Vorevix", href: "/contact" },
