@@ -265,6 +265,11 @@ const servicesPage = {
       body: service.description,
       href: service.path,
     })),
+    {
+      title: "Web Development Australia",
+      body: "Explore custom website, ecommerce, CMS and web application development support for businesses across Australia.",
+      href: "/services/web-development-australia",
+    },
   ],
 };
 
@@ -812,6 +817,10 @@ function App() {
           sections={servicesPage.sections}
           links={[
             ...services.map((service) => ({ label: service.h1, href: service.path })),
+            {
+              label: "Web Development Australia",
+              href: "/services/web-development-australia",
+            },
             { label: "View Portfolio", href: "/portfolio" },
             { label: "Contact Vorevix", href: "/contact" },
           ]}
