@@ -31,6 +31,8 @@ import DigitalMarketingPage from "./components/DigitalMarketingPage";
 import { digitalMarketingFaqs } from "./digitalMarketingFaqs";
 import WebDevelopmentAustraliaPage from "./components/WebDevelopmentAustraliaPage";
 import { webDevelopmentAustraliaFaqs } from "./webDevelopmentAustraliaFaqs";
+import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
+import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -270,6 +272,11 @@ const servicesPage = {
       body: "Explore custom website, ecommerce, CMS and web application development support for businesses across Australia.",
       href: "/services/web-development-australia",
     },
+    {
+      title: "Web Design Australia",
+      body: "Explore custom, responsive and conversion-aware website design support for businesses across Australia.",
+      href: "/services/web-design-australia",
+    },
   ],
 };
 
@@ -457,6 +464,25 @@ function App() {
         <Footer />
       </>
     );
+  }
+
+  if (pathname === "/services/web-design-australia") {
+    const canonical = "https://vorevix.com/services/web-design-australia";
+    const title = "Web Design Australia for Business and Ecommerce";
+    const description = "Web design Australia services for custom business websites, ecommerce, responsive layouts, UX, conversion-focused design and ongoing improvements.";
+    const socialImage = `${siteUrl}/service-web.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix responsive website design" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix responsive website design" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
+          { "@context": "https://schema.org", "@type": "Service", name: "Web Design Australia", serviceType: "Web Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "Web Design Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
+        ]}/>
+      <Header/><WebDesignAustraliaPage/><Footer/>
+    </>;
   }
 
   if (pathname === "/services/digital-marketing") {
@@ -820,6 +846,10 @@ function App() {
             {
               label: "Web Development Australia",
               href: "/services/web-development-australia",
+            },
+            {
+              label: "Web Design Australia",
+              href: "/services/web-design-australia",
             },
             { label: "View Portfolio", href: "/portfolio" },
             { label: "Contact Vorevix", href: "/contact" },
