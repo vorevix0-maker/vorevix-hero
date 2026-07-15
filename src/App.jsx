@@ -29,6 +29,8 @@ import UiUxDesignPage from "./components/UiUxDesignPage";
 import { uiUxFaqs } from "./uiUxFaqs";
 import DigitalMarketingPage from "./components/DigitalMarketingPage";
 import { digitalMarketingFaqs } from "./digitalMarketingFaqs";
+import WebDevelopmentAustraliaPage from "./components/WebDevelopmentAustraliaPage";
+import { webDevelopmentAustraliaFaqs } from "./webDevelopmentAustraliaFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -420,6 +422,33 @@ function App() {
         />
         <Header />
         <UiUxDesignPage />
+        <Footer />
+      </>
+    );
+  }
+
+  if (pathname === "/services/web-development-australia") {
+    const canonical = "https://vorevix.com/services/web-development-australia";
+    const title = "Web Development Australia for Business and Ecommerce";
+    const description =
+      "Web development Australia services for custom websites, ecommerce, web applications, CMS development, integrations and ongoing support.";
+    const socialImage = `${siteUrl}/service-web.png`;
+
+    return (
+      <>
+        <SEO title={title} description={description} canonical={canonical}
+          robots="index, follow, max-image-preview:large"
+          openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix web development project" }}
+          twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix web development project" }}
+          schema={[
+            { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
+            { "@context": "https://schema.org", "@type": "Service", name: "Web Development Australia", serviceType: "Web Development Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+            breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "Web Development Australia", url: canonical }]),
+            { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
+          ]}
+        />
+        <Header />
+        <WebDevelopmentAustraliaPage />
         <Footer />
       </>
     );
