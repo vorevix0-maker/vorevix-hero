@@ -35,6 +35,8 @@ import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
+import DigitalMarketingAustraliaPage from "./components/DigitalMarketingAustraliaPage";
+import { digitalMarketingAustraliaFaqs } from "./digitalMarketingAustraliaFaqs";
 import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
@@ -284,6 +286,11 @@ const servicesPage = {
       body: "Explore technical SEO, content, local search, ecommerce optimisation and reporting support for businesses across Australia.",
       href: "/services/seo-services-australia",
     },
+    {
+      title: "Digital Marketing Services Australia",
+      body: "Explore connected SEO, paid media, social, content, email, analytics and campaign support for businesses across Australia.",
+      href: "/services/digital-marketing-australia",
+    },
   ],
 };
 
@@ -508,6 +515,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><SeoAustraliaPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/services/digital-marketing-australia") {
+    const canonical = "https://vorevix.com/services/digital-marketing-australia";
+    const title = "Digital Marketing Services Australia for Leads and Growth";
+    const description = "Digital marketing services Australia for SEO, Google Ads, social media, content, email, lead generation, analytics and campaign optimisation.";
+    const socialImage = `${siteUrl}/service-social.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix campaign analytics" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix campaign analytics" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
+          { "@context": "https://schema.org", "@type": "Service", name: "Digital Marketing Services Australia", serviceType: "Digital Marketing Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "Digital Marketing Services Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: digitalMarketingAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
+        ]}/>
+      <Header/><DigitalMarketingAustraliaPage/><Footer/>
     </>;
   }
 
@@ -880,6 +906,10 @@ function App() {
             {
               label: "SEO Services Australia",
               href: "/services/seo-services-australia",
+            },
+            {
+              label: "Digital Marketing Services Australia",
+              href: "/services/digital-marketing-australia",
             },
             { label: "View Portfolio", href: "/portfolio" },
             { label: "Contact Vorevix", href: "/contact" },
