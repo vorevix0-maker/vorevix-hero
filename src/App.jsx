@@ -588,10 +588,10 @@ function App() {
   }
 
   if (pathname === "/services/digital-marketing") {
-    const canonical = "https://vorevix.com/services/digital-marketing";
-    const title = "Digital Marketing Services for Campaigns, Leads and Growth";
+    const canonical = "https://www.vorevix.com/services/digital-marketing";
+    const title = "Digital Marketing Services for Measurable Growth | Vorevix";
     const description =
-      "Digital marketing services for paid media, social media, content, email, lead generation, conversion tracking and campaign optimisation.";
+      "Build an integrated digital strategy with SEO, paid media, content, social, email, CRO, analytics and ongoing campaign optimization.";
     const socialImage = `${siteUrl}/service-social.png`;
 
     return (
@@ -617,6 +617,7 @@ function App() {
             imageAlt: "Vorevix digital campaign strategy",
           }}
           schema={[
+            organizationSchema,
             {
               "@context": "https://schema.org",
               "@type": "Service",
@@ -629,6 +630,7 @@ function App() {
                 name: "Vorevix",
                 url: siteUrl,
               },
+              areaServed: "Global",
             },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },
