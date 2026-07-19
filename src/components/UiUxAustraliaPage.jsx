@@ -8,7 +8,7 @@ import "./WebDevelopmentAustraliaPage.css";
 const links = [
   ["WCAG accessibility guidelines", "https://www.w3.org/WAI/standards-guidelines/wcag/", true],
   ["general UI/UX design services", "/services/ui-ux-design-services"],
-  ["Web Development Australia", "/services/web-development-australia"],
+  ["Web Development Australia", "/australia/web-development"],
   ["Digital Marketing Australia", "/services/digital-marketing-australia"],
   ["Branding Services Australia", "/services/branding-australia"],
   ["Web Design Australia", "/australia/web-design"],

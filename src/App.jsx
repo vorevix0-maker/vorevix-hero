@@ -279,7 +279,7 @@ const servicesPage = {
     {
       title: "Web Development Australia",
       body: "Explore custom website, ecommerce, CMS and web application development support for businesses across Australia.",
-      href: "/services/web-development-australia",
+      href: "/australia/web-development",
     },
     {
       title: "Web Design Australia",
@@ -465,23 +465,24 @@ function App() {
     );
   }
 
-  if (pathname === "/services/web-development-australia") {
-    const canonical = "https://vorevix.com/services/web-development-australia";
-    const title = "Web Development Australia for Business and Ecommerce";
+  if (pathname === "/australia/web-development") {
+    const canonical = "https://www.vorevix.com/australia/web-development";
+    const title = "Web Development Australia for Growing Businesses | Vorevix";
     const description =
-      "Web development Australia services for custom websites, ecommerce, web applications, CMS development, integrations and ongoing support.";
+      "Custom web development for Australian businesses, including scalable websites, eCommerce, web applications, CMS platforms, integrations and ongoing support.";
     const socialImage = `${siteUrl}/service-web.png`;
 
     return (
       <>
         <SEO title={title} description={description} canonical={canonical}
-          robots="index, follow, max-image-preview:large"
+          robots="index, follow" language="en-AU"
           openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix web development project" }}
           twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix web development project" }}
           schema={[
+            organizationSchema,
             { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
-            { "@context": "https://schema.org", "@type": "Service", name: "Web Development Australia", serviceType: "Web Development Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
-            breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "Web Development Australia", url: canonical }]),
+            { "@context": "https://schema.org", "@type": "Service", name: "Web Development Services for Australian Businesses", serviceType: "Web Development", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+            breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Web Development", url: `${siteUrl}/services/web-development-services` }, { name: "Australia", url: canonical }]),
             { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
           ]}
         />
@@ -967,7 +968,7 @@ function App() {
             ...services.map((service) => ({ label: service.h1, href: service.path })),
             {
               label: "Web Development Australia",
-              href: "/services/web-development-australia",
+              href: "/australia/web-development",
             },
             {
               label: "Web Design Australia",

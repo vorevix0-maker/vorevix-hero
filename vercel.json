@@ -14,6 +14,11 @@
       "source": "/services/web-design-australia",
       "destination": "/australia/web-design",
       "permanent": true
+    },
+    {
+      "source": "/services/web-development-australia",
+      "destination": "/australia/web-development",
+      "permanent": true
     }
   ],
   "rewrites": [
