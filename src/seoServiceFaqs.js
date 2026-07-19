@@ -1,34 +1,11 @@
 export const seoServiceFaqs = [
-  {
-    question: "What are SEO services?",
-    answer: "SEO services are professional activities designed to improve how a website is discovered, understood, and evaluated through organic search. They can include technical SEO, keyword research, on-page optimisation, content strategy, local SEO, eCommerce SEO, authority development, auditing, consulting, and reporting.",
-  },
-  {
-    question: "What is included in professional SEO services?",
-    answer: "The exact scope depends on your website and goals. A typical engagement may include an SEO audit, keyword research, competitor analysis, technical recommendations, on-page optimisation, content planning, internal linking, reporting, and ongoing strategy updates.",
-  },
-  {
-    question: "How long does SEO take to show progress?",
-    answer: "SEO timelines vary according to website condition, competition, implementation speed, market demand, and the type of work required. Some technical or on-page improvements may produce earlier signs of progress, while competitive growth usually requires consistent work over a longer period. We set realistic expectations based on the project rather than promising a fixed outcome.",
-  },
-  {
-    question: "How much do SEO services cost?",
-    answer: "SEO pricing depends on factors such as website size, technical complexity, competition, content requirements, target markets, and implementation support. After reviewing your goals and website, we can recommend a suitable scope and provide a project estimate.",
-  },
-  {
-    question: "Do you provide technical SEO services?",
-    answer: "Yes. Our technical SEO services can include crawlability, indexation, website architecture, canonicalisation, redirects, structured data, internal linking, sitemap reviews, technical audits, and migration support.",
-  },
-  {
-    question: "Can you help with local and eCommerce SEO?",
-    answer: "Yes. We provide local SEO services for businesses targeting specific service areas or locations, and eCommerce SEO services for online stores requiring stronger category, product, technical, and commercial search visibility.",
-  },
-  {
-    question: "Do you work with existing websites?",
-    answer: "Yes. We can audit and optimise existing websites, support redesigns, review development work, improve content, or help teams plan migrations. The recommendations are adapted to the current platform, structure, and available resources.",
-  },
-  {
-    question: "How do you measure and report SEO performance?",
-    answer: "Reporting may include organic visibility, keyword movement, qualified traffic, landing-page performance, conversions, technical issues, completed work, and upcoming priorities. The exact metrics depend on your goals and tracking setup.",
-  },
+  { question: "What is included in professional SEO services?", answer: "A campaign may include auditing, keyword research, technical SEO, on-page optimisation, content planning, internal linking, authority analysis, reporting and implementation support." },
+  { question: "How long does SEO take?", answer: "Some improvements may be recognised within weeks, while meaningful growth in competitive markets often takes several months. Timelines depend on competition, authority, content quality and implementation speed." },
+  { question: "How much do SEO services cost?", answer: "Cost varies according to website size, competition, required content, technical complexity and whether implementation is included. A review is needed before an accurate scope and price can be provided." },
+  { question: "Do you guarantee first-page rankings?", answer: "No. Search engines control their results, and rankings change continuously. We provide evidence-led strategy without making guarantees that cannot be responsibly supported." },
+  { question: "What is the difference between SEO and paid advertising?", answer: "SEO aims to improve organic visibility over time, while paid advertising purchases immediate placement. Both can support growth, but they use different budgets and timelines." },
+  { question: "Can you work with our existing developers?", answer: "Yes. We can provide technical requirements, answer implementation questions and review completed work. Responsibilities are agreed at the start." },
+  { question: "Do you provide content optimisation?", answer: "Yes. We can assess existing pages, recommend improvements and create briefs for new content. Writing and publishing can be included where agreed." },
+  { question: "How do you measure SEO performance?", answer: "Measurement may include qualified organic traffic, conversions, keyword visibility, indexation, technical health and content performance." },
+  { question: "Is AI SEO different from traditional SEO?", answer: "AI discovery creates additional visibility opportunities, but it still depends on accessible websites, useful content, clear information and authority. It does not replace traditional SEO foundations." },
 ];

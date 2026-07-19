@@ -708,10 +708,10 @@ function App() {
   }
 
   if (pathname === "/services/seo-services") {
-    const canonical = "https://vorevix.com/services/seo-services";
-    const title = "SEO Services for Sustainable Organic Growth | Vorevix";
+    const canonical = "https://www.vorevix.com/services/seo-services";
+    const title = "Professional SEO Services for Sustainable Growth | Vorevix";
     const description =
-      "Professional SEO services covering technical SEO, content, local search, eCommerce, authority building, and reporting to support sustainable business growth.";
+      "Grow qualified organic traffic with professional SEO services covering strategy, technical SEO, content optimisation and authority building for global businesses.";
 
     return (
       <>
@@ -734,7 +734,11 @@ function App() {
             imageAlt: "Vorevix logo",
           }}
           schema={[
-            serviceSchema("SEO Services", description, canonical),
+            organizationSchema,
+            {
+              ...serviceSchema("Professional SEO Services", description, canonical),
+              areaServed: "Global",
+            },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },
               { name: "Services", url: `${siteUrl}/services` },
