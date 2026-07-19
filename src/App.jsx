@@ -25,6 +25,7 @@ import WebDevelopmentAustraliaPage from "./components/WebDevelopmentAustraliaPag
 import { webDevelopmentAustraliaFaqs } from "./webDevelopmentAustraliaFaqs";
 import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
+import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
 import DigitalMarketingAustraliaPage from "./components/DigitalMarketingAustraliaPage";
@@ -655,9 +656,9 @@ function App() {
 
   if (pathname === "/services/web-design") {
     const canonical = `${siteUrl}/services/web-design`;
-    const title = "7 Powerful Web Design Services for Business and eCommerce";
+    const title = "Web Design Services for Modern Businesses | Vorevix";
     const description =
-      "Vorevix provides web design services for responsive business websites, eCommerce stores and custom digital experiences built around your brand and users.";
+      "Custom web design services for responsive, user-focused and conversion-ready websites. Explore strategy, UI/UX, redesign and development-ready design.";
 
     return (
       <>
@@ -686,6 +687,15 @@ function App() {
               { name: "Services", url: `${siteUrl}/services` },
               { name: "Web Design", url: canonical },
             ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: webDesignFaqs.map(([name, text]) => ({
+                "@type": "Question",
+                name,
+                acceptedAnswer: { "@type": "Answer", text },
+              })),
+            },
           ]}
         />
         <Header />
