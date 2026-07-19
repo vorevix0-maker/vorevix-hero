@@ -19,6 +19,11 @@
       "source": "/services/web-development-australia",
       "destination": "/australia/web-development",
       "permanent": true
+    },
+    {
+      "source": "/services/ui-ux-design-services-australia",
+      "destination": "/australia/ui-ux-design",
+      "permanent": true
     }
   ],
   "rewrites": [

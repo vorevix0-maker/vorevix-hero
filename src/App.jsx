@@ -304,7 +304,7 @@ const servicesPage = {
     {
       title: "UI UX Design Services Australia",
       body: "Explore UX research, user journeys, wireframes, interface design, prototypes, usability testing and design systems for businesses across Australia.",
-      href: "/services/ui-ux-design-services-australia",
+      href: "/australia/ui-ux-design",
     },
   ],
 };
@@ -570,19 +570,20 @@ function App() {
     </>;
   }
 
-  if (pathname === "/services/ui-ux-design-services-australia") {
-    const canonical = "https://vorevix.com/services/ui-ux-design-services-australia";
-    const title = "UI UX Design Services Australia for Web and Product";
-    const description = "UI UX design services Australia for UX research, wireframes, interface design, prototyping, usability testing, design systems and product improvement.";
+  if (pathname === "/australia/ui-ux-design") {
+    const canonical = "https://www.vorevix.com/australia/ui-ux-design";
+    const title = "UI UX Design Australia for Digital Products | Vorevix";
+    const description = "UI/UX design for Australian businesses and product teams, covering research, user flows, wireframes, prototypes, interface design, testing and developer handoff.";
     const socialImage = `${siteUrl}/service-software-app.png`;
     return <>
-      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AU"
         openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix UI and UX design process" }}
         twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix UI and UX design process" }}
         schema={[
+          organizationSchema,
           { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
-          { "@context": "https://schema.org", "@type": "Service", name: "UI UX Design Services Australia", serviceType: "UI and UX Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
-          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "UI UX Design Services Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "Service", name: "UI/UX Design Services for Australian Businesses", serviceType: "UI/UX Design", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "UI/UX Design", url: `${siteUrl}/services/ui-ux-design-services` }, { name: "Australia", url: canonical }]),
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: uiUxAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><UiUxAustraliaPage/><Footer/>
@@ -988,7 +989,7 @@ function App() {
             },
             {
               label: "UI UX Design Services Australia",
-              href: "/services/ui-ux-design-services-australia",
+              href: "/australia/ui-ux-design",
             },
             { label: "View Portfolio", href: "/portfolio" },
             { label: "Contact Vorevix", href: "/contact" },
