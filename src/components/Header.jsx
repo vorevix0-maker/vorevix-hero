@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <header className={`hero-header ${isMenuOpen ? "nav-open" : ""}`}>
       <a href="/" className="header-logo" aria-label="Vorevix home">
-        <img src="/vorevix-logo.png" alt="Vorevix logo" />
+        <img src="/vorevix-logo.png" alt="Vorevix" />
       </a>
 
       <nav className="header-nav" id="primary-navigation" aria-label="Primary navigation">

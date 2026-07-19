@@ -58,6 +58,9 @@
   margin-top: 76px;
 }
 
+.homepage-seo-block > p { color: #555; font-size: 15px; line-height: 1.75; font-weight: 650; }
+.homepage-seo-block > p + p { margin-top: 14px; }
+
 .homepage-seo-block-heading {
   display: flex;
   align-items: center;
@@ -163,6 +166,16 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.homepage-text-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: #ff5b00; font-size: 12px; font-weight: 950; text-decoration: none; text-transform: uppercase; }
+.homepage-feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 28px; align-items: center; }
+.homepage-feature img { width: 100%; height: auto; border-radius: 18px; }
+.homepage-feature p { color: #555; font-size: 15px; line-height: 1.75; font-weight: 650; }
+.homepage-faq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.homepage-faq-item { border: 1px solid rgba(17,17,17,.1); border-radius: 16px; padding: 20px; background: #fff8ef; }
+.homepage-faq-item button { width: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; color: #111; text-align: left; font-family: "Eurostile Extended", "Montserrat", sans-serif; font-size: 16px; font-weight: 900; }
+.homepage-faq-item button:focus-visible { outline: 3px solid #ff6b00; outline-offset: 5px; }
+.homepage-faq-item p { margin: 14px 0 0; color: #555; font-size: 15px; line-height: 1.7; font-weight: 650; }
+
 .homepage-seo-cta {
   margin-top: 76px;
   padding: clamp(30px, 4vw, 48px);
@@ -224,7 +237,9 @@
 
   .homepage-seo-header,
   .homepage-seo-copy-grid,
-  .homepage-seo-cta {
+  .homepage-seo-cta,
+  .homepage-feature,
+  .homepage-faq-list {
     grid-template-columns: 1fr;
   }
 

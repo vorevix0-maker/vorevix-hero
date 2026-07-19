@@ -1,71 +1,25 @@
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import "./Hero.css";
-
-const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61589562344260", icon: "/social-facebook.png" },
-  { label: "Instagram", href: "https://www.instagram.com/vorevix.io", icon: "/social-instagram.png" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/vorevix/", icon: "/social-linkedin.png" },
-  { label: "TikTok", href: "https://www.tiktok.com/@vorevix.io", icon: "/social-tiktok.png" },
-];
 
 export default function Hero() {
   return (
     <section className="hero-section" id="home">
-      <div className="hero-shell">
-        <div className="hero-socials" aria-label="Social links">
-          {socialLinks.map(({ label, href, icon }) => (
-            <a href={href} aria-label={label} key={label} target="_blank" rel="noreferrer">
-              <span className="social-icon-box">
-                <img src={icon} alt="" loading="eager" decoding="async" />
-              </span>
-            </a>
-          ))}
-        </div>
-
+      <div className="hero-shell hero-shell-approved">
         <div className="hero-content">
-          <p className="hero-kicker">
-          We design digital experiences that capture attention drive conversions and deliver lasting results.
+          <h1 className="hero-title">Digital Solutions for Businesses Ready to Grow</h1>
+          <p className="hero-kicker hero-intro">
+            Vorevix is a full-service digital agency combining strategy, branding, UI/UX design, web development, SEO and digital marketing to help businesses build stronger brands, improve digital experiences and grow online.
           </p>
-
-          <h1 className="hero-title">
-            <span className="hero-line">Web Design,</span>
-            <span className="hero-line">Web Development &amp; SEO</span>
-            <span className="hero-line hero-line-accent">Agency in Pakistan</span>
-          </h1>
-
-          <a href="#contact" className="hero-cta">
-         Schedule Your Free Strategy Call
-            <ArrowRight size={20} />
-          </a>
+          <p className="hero-copy">Whether you are launching a new business, rebuilding an outdated website or trying to improve your online visibility, we bring the right digital capabilities together around your goals.</p>
+          <p className="hero-copy">Instead of treating branding, design, development, SEO and marketing as separate activities, we connect them through one clear strategy. This creates a more consistent customer experience and a stronger foundation for sustainable digital growth.</p>
+          <div className="hero-actions">
+            <a href="/contact" className="hero-cta">Start Your Project <ArrowRight size={20} /></a>
+            <a href="/portfolio" className="hero-cta hero-cta-secondary">View Our Work</a>
+          </div>
         </div>
-
-        <aside className="hero-proof" aria-label="Client proof">
-          <div className="quote-mark">
-            <Quote size={28} />
-          </div>
-
-          <div className="testimonial-card">
-            <p>
-Every successful business is driven by a clear vision and the right digital strategy. 
-At Vorevix, we turn ambitious ideas into measurable results through innovation, precision, and execution.
-
-            </p>
-            <strong>Aqib Hussain Shah </strong>
-            <span>Marketing Director</span>
-          </div>
-
-          <div className="client-proof">
-            <div className="client-avatars" aria-hidden="true">
-              <img src="/client-1.png" alt="" loading="eager" decoding="async" />
-              <img src="/client-2.png" alt="" loading="eager" decoding="async" />
-              <img src="/client-3.png" alt="" loading="eager" decoding="async" />
-            </div>
-            <div>
-              <strong>450+</strong>
-              <span>Clients Served</span>
-            </div>
-          </div>
-        </aside>
+        <div className="hero-image-wrap">
+          <img src="/images/vorevix-laptop.png" alt="Full-service digital agency supporting business growth" width="620" height="470" decoding="async" />
+        </div>
       </div>
     </section>
   );

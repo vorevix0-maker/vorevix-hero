@@ -1,14 +1,5 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import WhyVorevix from "./components/WhyVorevix";
-import Process from "./components/Process";
-import Team from "./components/Team";
-import ConversionStatement from "./components/ConversionStatement";
-import Pricing from "./components/Pricing";
-import Insights from "./components/Insights";
-import GrowthProcess from "./components/GrowthProcess";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BlogDashboard from "./components/BlogDashboard";
 import PortfolioPage from "./components/PortfolioPage";
@@ -17,6 +8,7 @@ import SEO from "./components/SEO";
 import LegalPage from "./components/LegalPage";
 import SeoContentPage from "./components/SeoContentPage";
 import HomepageSeoContent from "./components/HomepageSeoContent";
+import { homepageFaqs } from "./homepageFaqs";
 import ArchitecturePage from "./components/ArchitecturePage";
 import { architecturePages } from "./architecturePages";
 import WebDevelopmentPage from "./components/WebDevelopmentPage";
@@ -45,10 +37,8 @@ import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 
 const siteUrl = "https://www.vorevix.com";
 const logoUrl = `${siteUrl}/logo.png`;
-const homeTitle =
-  "Vorevix | Web Development, SEO & Digital Branding Agency";
-const homeDescription =
-  "Grow with Vorevix web design, web development and SEO services for ambitious businesses across Australia, New Zealand and the UAE. Book a consultation.";
+const homeTitle = "Full-Service Digital Agency for Growing Businesses | Vorevix";
+const homeDescription = "Vorevix is a full-service digital agency providing branding, UI/UX design, web development, SEO and digital marketing solutions for growing businesses.";
 const homeCanonical = `${siteUrl}/`;
 const portfolioTitle = "Portfolio | Vorevix";
 const portfolioDescription =
@@ -115,6 +105,16 @@ const websiteSchema = {
   name: "Vorevix",
   url: siteUrl,
   description: brandDescription,
+};
+
+const homepageFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homepageFaqs.map(([name, text]) => ({
+    "@type": "Question",
+    name,
+    acceptedAnswer: { "@type": "Answer", text },
+  })),
 };
 
 const localBusinessSchema = {
@@ -1201,22 +1201,13 @@ function App() {
             image: logoUrl,
             imageAlt: "Vorevix logo",
           }}
-          schema={[organizationSchema, websiteSchema]}
+          schema={[organizationSchema, websiteSchema, homepageFaqSchema]}
         />
         <Header />
         <main>
           <PageAnimations />
           <Hero />
           <HomepageSeoContent />
-          <WhyVorevix />
-          <Services />
-          <Process />
-          <Team />
-          <ConversionStatement />
-          <GrowthProcess />
-          <Pricing />
-          <Insights />
-          <Contact />
         </main>
         <Footer />
       </>

@@ -103,7 +103,7 @@ export default function Footer() {
         <div className="footer-overview">
           <div className="footer-brand">
             <a href="/#home" className="footer-logo">
-              <img src="/footer-logo-white.png" alt="Vorevix logo" />
+              <img src="/footer-logo-white.png" alt="Vorevix" />
             </a>
             <p>
               Vorevix is a growth-focused digital agency helping businesses
