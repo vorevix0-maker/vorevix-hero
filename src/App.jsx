@@ -299,7 +299,7 @@ const servicesPage = {
     {
       title: "Branding Services Australia",
       body: "Explore brand strategy, positioning, identity design, guidelines, rebranding and digital brand support for businesses across Australia.",
-      href: "/services/branding-australia",
+      href: "/australia/branding-services",
     },
     {
       title: "UI UX Design Services Australia",
@@ -552,19 +552,20 @@ function App() {
     </>;
   }
 
-  if (pathname === "/services/branding-australia") {
-    const canonical = "https://vorevix.com/services/branding-australia";
-    const title = "Branding Services Australia for Strategy and Identity";
-    const description = "Branding services Australia for brand strategy, identity design, positioning, messaging, guidelines, rebranding and digital brand applications.";
+  if (pathname === "/australia/branding-services") {
+    const canonical = "https://www.vorevix.com/australia/branding-services";
+    const title = "Branding Services Australia for Strategy and Identity | Vorevix";
+    const description = "Branding services for Australian businesses, covering research, strategy, positioning, messaging, visual identity, guidelines and rebranding support.";
     const socialImage = `${siteUrl}/service-branding.png`;
     return <>
-      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AU"
         openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix brand identity system" }}
         twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix brand identity system" }}
         schema={[
+          organizationSchema,
           { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
-          { "@context": "https://schema.org", "@type": "Service", name: "Branding Services Australia", serviceType: "Branding Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
-          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "Branding Services Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "Service", name: "Branding Services for Australian Businesses", serviceType: "Branding Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Branding", url: `${siteUrl}/services/branding` }, { name: "Australia", url: canonical }]),
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: brandingAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><BrandingAustraliaPage/><Footer/>
@@ -986,7 +987,7 @@ function App() {
             },
             {
               label: "Branding Services Australia",
-              href: "/services/branding-australia",
+              href: "/australia/branding-services",
             },
             {
               label: "UI UX Design Services Australia",

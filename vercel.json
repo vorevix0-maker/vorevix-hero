@@ -29,6 +29,11 @@
       "source": "/services/seo-services-australia",
       "destination": "/australia/seo-services",
       "permanent": true
+    },
+    {
+      "source": "/services/branding-australia",
+      "destination": "/australia/branding-services",
+      "permanent": true
     }
   ],
   "rewrites": [
