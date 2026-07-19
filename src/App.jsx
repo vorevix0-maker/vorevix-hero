@@ -769,7 +769,7 @@ function App() {
     const canonical = `${siteUrl}/services/branding`;
     const title = "Branding Services for Strategy, Identity and Growth | Vorevix";
     const description =
-      "Strategic branding services covering research, positioning, messaging, visual identity, brand guidelines, rebranding and rollout for growing businesses.";
+      "Build a clear, consistent brand through research, strategy, positioning, messaging, visual identity and practical brand guidelines.";
 
     return (
       <>
@@ -792,7 +792,11 @@ function App() {
             imageAlt: "Vorevix logo",
           }}
           schema={[
-            serviceSchema("Branding Services", description, canonical),
+            organizationSchema,
+            {
+              ...serviceSchema("Branding Services", description, canonical),
+              areaServed: "Global",
+            },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },
               { name: "Services", url: `${siteUrl}/services` },
