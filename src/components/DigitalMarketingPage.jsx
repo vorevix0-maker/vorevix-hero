@@ -72,6 +72,8 @@ export default function DigitalMarketingPage() {
 
     <Section title="Timelines and Communication" tinted><p>Timelines depend on scope, access to accounts, approval speed, tracking readiness and creative requirements.</p><p>Communication expectations, approval responsibilities and reporting cadence are agreed before work begins.</p></Section>
 
+    <section className="wd-section dm-section"><div className="dm-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/digital-marketing">digital marketing services across Australia</a>, New Zealand and the United Arab Emirates.</p></div></section>
+
     <section className="wd-section dm-section"><div className="wd-section-heading"><h2>Frequently Asked Questions</h2></div><div className="dm-faq-list">{digitalMarketingFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
 
     <section className="wd-final-cta"><h2>Build a More Connected Digital Strategy</h2><p>Vorevix provides digital marketing services for businesses that want clearer priorities, better coordination and more useful performance insight.</p><p>We can review your current activity, identify gaps and recommend a practical scope across strategy, channels, tracking and optimisation.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Digital Marketing Goals <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></section>

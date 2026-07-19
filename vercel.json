@@ -34,6 +34,11 @@
       "source": "/services/branding-australia",
       "destination": "/australia/branding-services",
       "permanent": true
+    },
+    {
+      "source": "/services/digital-marketing-australia",
+      "destination": "/australia/digital-marketing",
+      "permanent": true
     }
   ],
   "rewrites": [
