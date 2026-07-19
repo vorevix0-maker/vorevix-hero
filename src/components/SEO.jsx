@@ -16,6 +16,7 @@ function SEO({
   openGraph = {},
   twitter = {},
   jsonLd,
+  language,
 }) {
   const resolvedRobots = noindex ? "noindex, nofollow" : robots;
   const resolvedOgTitle = ogTitle || openGraph.title || title;
@@ -32,6 +33,7 @@ function SEO({
 
   return (
     <Helmet>
+      {language && <html lang={language} />}
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
       {canonical && <link rel="canonical" href={canonical} />}

@@ -53,6 +53,9 @@
   margin-bottom: 0;
 }
 
+.web-design-regional-note { margin: 24px 0 0; color: var(--wd-muted); font-size: 15px; font-weight: 600; line-height: 1.7; }
+.web-design-regional-note a { color: #0d5c26; font-weight: 800; }
+
 .web-design-callout {
   width: min(1280px, calc(100% - 32px));
   padding-right: 50px;

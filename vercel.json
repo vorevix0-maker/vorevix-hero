@@ -9,6 +9,11 @@
       "source": "/services/ui-ux-design",
       "destination": "/services/ui-ux-design-services",
       "permanent": true
+    },
+    {
+      "source": "/services/web-design-australia",
+      "destination": "/australia/web-design",
+      "permanent": true
     }
   ],
   "rewrites": [
