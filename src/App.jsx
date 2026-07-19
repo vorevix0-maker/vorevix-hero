@@ -193,7 +193,7 @@ const services = [
     ],
   },
   {
-    path: "/services/ui-ux-design",
+    path: "/services/ui-ux-design-services",
     title: "UI/UX Design Services | Vorevix",
     description:
       "Turn complex journeys into intuitive interfaces with Vorevix UI/UX design, improving usability, engagement and conversions across web and mobile products.",
@@ -397,11 +397,11 @@ function App() {
     );
   }
 
-  if (pathname === "/services/ui-ux-design" || pathname === "/services/ui-ux-design-services") {
-    const canonical = "https://vorevix.com/services/ui-ux-design-services";
-    const title = "Better UI UX Design Services for Websites, Apps and SaaS | Vorevix";
+  if (pathname === "/services/ui-ux-design-services") {
+    const canonical = "https://www.vorevix.com/services/ui-ux-design-services";
+    const title = "UI UX Design Services for Digital Products | Vorevix";
     const description =
-      "UI UX design services for websites, mobile apps and SaaS products, including research, user flows, wireframes, interface design, prototypes and usability testing.";
+      "UI UX design services for intuitive websites, web applications and digital products. Explore UX research, wireframes, prototypes and interface design.";
 
     return (
       <>
@@ -424,6 +424,7 @@ function App() {
             imageAlt: "Vorevix logo",
           }}
           schema={[
+            organizationSchema,
             {
               "@context": "https://schema.org",
               "@type": "Service",
@@ -436,6 +437,7 @@ function App() {
                 name: "Vorevix",
                 url: siteUrl,
               },
+              areaServed: "Global",
             },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },

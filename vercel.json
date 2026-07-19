@@ -4,6 +4,11 @@
       "source": "/services/web-development",
       "destination": "/services/web-development-services",
       "permanent": true
+    },
+    {
+      "source": "/services/ui-ux-design",
+      "destination": "/services/ui-ux-design-services",
+      "permanent": true
     }
   ],
   "rewrites": [
