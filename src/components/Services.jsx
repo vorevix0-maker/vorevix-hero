@@ -14,7 +14,7 @@ const services = [
     desc: "Fast, modern and conversion-focused websites built for trust, leads and growth.",
     visual: "web",
     image: "/service-web.png",
-    href: "/services/web-development",
+    href: "/services/web-development-services",
   },
   
   {

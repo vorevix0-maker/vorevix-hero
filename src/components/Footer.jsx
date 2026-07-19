@@ -13,7 +13,7 @@ const companyLinks = [
 
 const services = [
   { label: "Web Design", href: "/services/web-design" },
-  { label: "Web Development", href: "/services/web-development" },
+  { label: "Web Development", href: "/services/web-development-services" },
   { label: "SEO Services", href: "/services/seo-services" },
   { label: "UI/UX Design", href: "/services/ui-ux-design-services" },
   { label: "Branding", href: "/services/branding" },

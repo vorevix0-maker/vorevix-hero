@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/services/web-development",
+      "destination": "/services/web-development-services",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",

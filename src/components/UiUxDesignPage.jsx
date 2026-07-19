@@ -27,7 +27,7 @@ const services = [
   ["Usability Testing", "Task-based observation can reveal unclear labels, unexpected navigation, misunderstood features, difficult forms, missing feedback, workflow interruptions and differences between expected and actual behaviour."],
   ["Design Systems and Component Libraries", "Design systems organise colours, typography, spacing, buttons, inputs, cards, navigation, data components, states, responsive behaviour, tokens, guidance and reusable patterns for greater consistency."],
   ["Accessibility and Inclusive Design", <>We consider contrast, structure, keyboard interaction, focus states, labels, errors, target size, readability, text alternatives, navigation and experiences that do not rely on colour alone. Our approach is informed by the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines</a>. Formal compliance may require technical testing and specialist review.</>],
-  ["Developer Handoff and Design Support", <>Handoff may include organised Figma files, responsive layouts, component variants, spacing, assets, interaction notes, prototypes, implementation collaboration and design QA. Our <a href="/services/web-development">web development services</a> can support implementation.</>],
+  ["Developer Handoff and Design Support", <>Handoff may include organised Figma files, responsive layouts, component variants, spacing, assets, interaction notes, prototypes, implementation collaboration and design QA. Our <a href="/services/web-development-services">web development services</a> can support implementation.</>],
 ];
 
 const platforms = [

@@ -25,7 +25,7 @@ https://www.vorevix.com
 
 - Home: https://www.vorevix.com/
 - Services: https://www.vorevix.com/services
-- Web Development: https://www.vorevix.com/services/web-development
+- Web Development: https://www.vorevix.com/services/web-development-services
 - SEO Services: https://www.vorevix.com/services/seo-services
 - UI/UX Design: https://www.vorevix.com/services/ui-ux-design
 - Branding: https://www.vorevix.com/services/branding

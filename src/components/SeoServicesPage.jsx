@@ -11,7 +11,7 @@ const coreServices = [
       "We review the technical foundations that can influence organic visibility and identify issues that may prevent important pages from being discovered or understood correctly. This can include problems caused by website architecture, redirects, duplicate content, canonical tags, indexation rules, or inconsistent internal linking.",
     ],
     items: ["Crawlability and indexation reviews", "Website architecture analysis", "Sitemap and robots.txt assessment", "Canonical and duplicate-content checks", "Redirect and broken-link reviews", "Structured data recommendations", "Internal linking analysis", "Page experience and Core Web Vitals coordination", "Technical issue prioritisation", "Migration and redevelopment support"],
-    closing: <>Technical recommendations are organised by priority and business impact. This gives your development team a clearer path forward and helps prevent low-value technical tasks from distracting from more important opportunities. Our <a href="/services/web-development">web development services</a> can support implementation where required.</>,
+    closing: <>Technical recommendations are organised by priority and business impact. This gives your development team a clearer path forward and helps prevent low-value technical tasks from distracting from more important opportunities. Our <a href="/services/web-development-services">web development services</a> can support implementation where required.</>,
   },
   {
     title: "On-Page SEO",
@@ -35,7 +35,7 @@ const coreServices = [
     title: "eCommerce SEO",
     paragraphs: ["eCommerce SEO helps online stores improve product and category discovery through organic search.", "Store websites often have complex structures, large product catalogues, filters, duplicated URLs, seasonal inventory, and changing availability. Without a clear SEO strategy, these elements can create crawling issues, dilute page relevance, or make important categories difficult to find."],
     items: ["Category-page optimisation", "Product-page recommendations", "Faceted navigation reviews", "Duplicate URL analysis", "eCommerce keyword research", "Commercial search intent mapping", "Internal linking improvements", "Product and category metadata", "Out-of-stock content guidance", "Technical store audits", "Structured data recommendations", "Content opportunities for commercial journeys"],
-    closing: <>We focus on the pages most likely to influence product discovery, category visibility, and commercially relevant traffic. Our <a href="/services/web-development">web development services</a> can support store implementation.</>,
+    closing: <>We focus on the pages most likely to influence product discovery, category visibility, and commercially relevant traffic. Our <a href="/services/web-development-services">web development services</a> can support store implementation.</>,
   },
   {
     title: "Off-Page SEO and Digital Authority",

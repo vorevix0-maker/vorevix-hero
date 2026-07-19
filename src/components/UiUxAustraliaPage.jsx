@@ -12,7 +12,7 @@ const links = [
   ["Digital Marketing Australia", "/services/digital-marketing-australia"],
   ["Branding Services Australia", "/services/branding-australia"],
   ["Web Design Australia", "/services/web-design-australia"],
-  ["web development services", "/services/web-development"],
+  ["web development services", "/services/web-development-services"],
   ["Digital marketing services", "/services/digital-marketing"],
   ["Branding services", "/services/branding"],
   ["web design services", "/services/web-design"],

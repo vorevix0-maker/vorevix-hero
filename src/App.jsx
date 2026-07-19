@@ -137,7 +137,7 @@ const localBusinessSchema = {
 
 const services = [
   {
-    path: "/services/web-development",
+    path: "/services/web-development-services",
     title: "Web Development Services | Vorevix",
     description:
       "Launch a fast, scalable and responsive business website with Vorevix. Get conversion-focused web development built for performance and future growth.",
@@ -985,10 +985,10 @@ function App() {
     );
   }
 
-  if (pathname === "/services/web-development") {
-    const canonical = `${siteUrl}/services/web-development`;
-    const title = "Web Development Services for Business, eCommerce and SaaS";
-    const description = "Vorevix provides web development services for custom websites, eCommerce stores, web applications, SaaS platforms, integrations and ongoing support.";
+  if (pathname === "/services/web-development-services") {
+    const canonical = `${siteUrl}/services/web-development-services`;
+    const title = "Web Development Services for Modern Businesses | Vorevix";
+    const description = "Custom web development services for fast, scalable and maintainable websites and web applications. Explore frontend, backend, CMS and eCommerce development.";
 
     return (
       <>
@@ -1011,6 +1011,7 @@ function App() {
             imageAlt: "Vorevix logo",
           }}
           schema={[
+            organizationSchema,
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
