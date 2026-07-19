@@ -289,7 +289,7 @@ const servicesPage = {
     {
       title: "SEO Services Australia",
       body: "Explore technical SEO, content, local search, ecommerce optimisation and reporting support for businesses across Australia.",
-      href: "/services/seo-services-australia",
+      href: "/australia/seo-services",
     },
     {
       title: "Digital Marketing Services Australia",
@@ -513,19 +513,20 @@ function App() {
     </>;
   }
 
-  if (pathname === "/services/seo-services-australia") {
-    const canonical = "https://vorevix.com/services/seo-services-australia";
-    const title = "SEO Services Australia for Traffic, Leads and Growth";
-    const description = "SEO services Australia for technical SEO, content, local search, ecommerce, link building, audits, reporting and ongoing optimisation.";
+  if (pathname === "/australia/seo-services") {
+    const canonical = "https://www.vorevix.com/australia/seo-services";
+    const title = "SEO Services Australia for Sustainable Growth | Vorevix";
+    const description = "SEO services for Australian businesses, covering strategy, technical SEO, on-page optimisation, content planning, authority building and transparent reporting.";
     const socialImage = `${siteUrl}/service-seo.png`;
     return <>
-      <SEO title={title} description={description} canonical={canonical} robots="index, follow, max-image-preview:large"
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AU"
         openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix search performance analysis" }}
         twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix search performance analysis" }}
         schema={[
+          organizationSchema,
           { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical },
-          { "@context": "https://schema.org", "@type": "Service", name: "SEO Services Australia", serviceType: "Search Engine Optimisation Services", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
-          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Services", url: `${siteUrl}/services` }, { name: "SEO Services Australia", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "Service", name: "SEO Services for Australian Businesses", serviceType: "Search Engine Optimisation", url: canonical, description, areaServed: { "@type": "Country", name: "Australia" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "SEO Services", url: `${siteUrl}/services/seo-services` }, { name: "Australia", url: canonical }]),
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><SeoAustraliaPage/><Footer/>
@@ -977,7 +978,7 @@ function App() {
             },
             {
               label: "SEO Services Australia",
-              href: "/services/seo-services-australia",
+              href: "/australia/seo-services",
             },
             {
               label: "Digital Marketing Services Australia",

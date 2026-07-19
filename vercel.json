@@ -24,6 +24,11 @@
       "source": "/services/ui-ux-design-services-australia",
       "destination": "/australia/ui-ux-design",
       "permanent": true
+    },
+    {
+      "source": "/services/seo-services-australia",
+      "destination": "/australia/seo-services",
+      "permanent": true
     }
   ],
   "rewrites": [
