@@ -33,6 +33,8 @@ import UiUxNewZealandPage from "./components/UiUxNewZealandPage";
 import { uiUxNewZealandFaqs } from "./uiUxNewZealandFaqs";
 import BrandingNewZealandPage from "./components/BrandingNewZealandPage";
 import { brandingNewZealandFaqs } from "./brandingNewZealandFaqs";
+import DigitalMarketingNewZealandPage from "./components/DigitalMarketingNewZealandPage";
+import { digitalMarketingNewZealandFaqs } from "./digitalMarketingNewZealandFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -594,6 +596,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: brandingNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><BrandingNewZealandPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/digital-marketing") {
+    const canonical = "https://www.vorevix.com/new-zealand/digital-marketing";
+    const title = "Digital Marketing Agency NZ | Multi-Channel Marketing | Vorevix";
+    const description = "Digital marketing services for New Zealand businesses, including strategy, paid media, social campaigns, content, email, lead generation, analytics and reporting.";
+    const socialImage = `${siteUrl}/service-social.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix digital campaign analytics" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix digital campaign analytics" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Digital Marketing Services for New Zealand Businesses", serviceType: "Digital Marketing Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Digital Marketing", url: `${siteUrl}/services/digital-marketing` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: digitalMarketingNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><DigitalMarketingNewZealandPage/><Footer/>
     </>;
   }
 
