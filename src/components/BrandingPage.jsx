@@ -64,9 +64,9 @@ export default function BrandingPage() {
 
     <Section title="Ownership and File Handoff" tinted><p>Final approved files are delivered according to the contract, scope and payment terms. Editable files are included only where specified. Third-party materials remain subject to their own licences, and legal trademark clearance is not included unless separately arranged.</p></Section>
 
-    <section className="wd-section branding-section"><div className="branding-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/branding-services">branding services in Australia</a> and <a href="/new-zealand/branding-services">branding services in New Zealand</a>, alongside companies in other international markets.</p></div></section>
-
     <section className="wd-section branding-section"><div className="wd-section-heading"><h2>Frequently Asked Questions</h2></div><div className="branding-faq-list">{brandingFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
+
+    <section className="wd-section branding-section"><div className="branding-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/branding-services">branding services in Australia</a>, <a href="/new-zealand/branding-services">branding services in New Zealand</a> and <a href="/united-arab-emirates/branding-services">branding services in the United Arab Emirates</a>.</p></div></section>
 
     <section className="wd-final-cta"><h2>Build a Clearer, More Consistent Brand</h2><p>Vorevix provides branding services for businesses that need stronger positioning, clearer communication and a visual identity built for real-world use.</p><p>We can review your current brand, identify what needs to change and recommend a practical scope for strategy, identity and rollout.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Branding Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></section>
   </main>;

@@ -39,8 +39,12 @@ import UiUxUaePage from "./components/UiUxUaePage";
 import { uiUxUaeFaqs } from "./uiUxUaeFaqs";
 import BrandingNewZealandPage from "./components/BrandingNewZealandPage";
 import { brandingNewZealandFaqs } from "./brandingNewZealandFaqs";
+import BrandingUaePage from "./components/BrandingUaePage";
+import { brandingUaeFaqs } from "./brandingUaeFaqs";
 import DigitalMarketingNewZealandPage from "./components/DigitalMarketingNewZealandPage";
 import { digitalMarketingNewZealandFaqs } from "./digitalMarketingNewZealandFaqs";
+import DigitalMarketingUaePage from "./components/DigitalMarketingUaePage";
+import { digitalMarketingUaeFaqs } from "./digitalMarketingUaeFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -742,6 +746,25 @@ function App() {
     </>;
   }
 
+  if (pathname === "/united-arab-emirates/digital-marketing") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/digital-marketing";
+    const title = "Digital Marketing Agency UAE | Campaign Strategy | Vorevix";
+    const description = "Vorevix provides digital marketing services for UAE businesses, including paid search, paid social, content, email, lead generation, analytics, reporting and ongoing campaign optimisation.";
+    const socialImage = `${siteUrl}/service-social.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix digital campaign planning" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix digital campaign planning" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Digital Marketing Services for UAE Businesses", serviceType: "Digital Marketing Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Digital Marketing", url: `${siteUrl}/services/digital-marketing` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: digitalMarketingUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><DigitalMarketingUaePage/><Footer/>
+    </>;
+  }
+
   if (pathname === "/australia/branding-services") {
     const canonical = "https://www.vorevix.com/australia/branding-services";
     const title = "Branding Services Australia for Strategy and Identity | Vorevix";
@@ -759,6 +782,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: brandingAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><BrandingAustraliaPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/united-arab-emirates/branding-services") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/branding-services";
+    const title = "Branding Company UAE | Brand Strategy & Identity | Vorevix";
+    const description = "Vorevix provides branding services for UAE businesses, including brand strategy, positioning, messaging, visual identity, logo systems, brand guidelines and rebranding support.";
+    const socialImage = `${siteUrl}/service-branding.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix brand identity system" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix brand identity system" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Branding Services for UAE Businesses", serviceType: "Branding Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Branding Services", url: `${siteUrl}/services/branding` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: brandingUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><BrandingUaePage/><Footer/>
     </>;
   }
 
