@@ -64,7 +64,7 @@ export default function BrandingPage() {
 
     <Section title="Ownership and File Handoff" tinted><p>Final approved files are delivered according to the contract, scope and payment terms. Editable files are included only where specified. Third-party materials remain subject to their own licences, and legal trademark clearance is not included unless separately arranged.</p></Section>
 
-    <section className="wd-section branding-section"><div className="branding-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/branding-services">branding services across Australia</a>, New Zealand and the United Arab Emirates.</p></div></section>
+    <section className="wd-section branding-section"><div className="branding-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/branding-services">branding services in Australia</a> and <a href="/new-zealand/branding-services">branding services in New Zealand</a>, alongside companies in other international markets.</p></div></section>
 
     <section className="wd-section branding-section"><div className="wd-section-heading"><h2>Frequently Asked Questions</h2></div><div className="branding-faq-list">{brandingFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
 

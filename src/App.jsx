@@ -31,6 +31,8 @@ import WebDevelopmentNewZealandPage from "./components/WebDevelopmentNewZealandP
 import { webDevelopmentNewZealandFaqs } from "./webDevelopmentNewZealandFaqs";
 import UiUxNewZealandPage from "./components/UiUxNewZealandPage";
 import { uiUxNewZealandFaqs } from "./uiUxNewZealandFaqs";
+import BrandingNewZealandPage from "./components/BrandingNewZealandPage";
+import { brandingNewZealandFaqs } from "./brandingNewZealandFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -573,6 +575,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: uiUxNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><UiUxNewZealandPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/branding-services") {
+    const canonical = "https://www.vorevix.com/new-zealand/branding-services";
+    const title = "Brand Design NZ | Branding Strategy & Identity | Vorevix";
+    const description = "Branding services for New Zealand businesses, including brand strategy, positioning, messaging, visual identity, guidelines, rebranding and rollout support.";
+    const socialImage = `${siteUrl}/service-branding.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix brand identity system" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix brand identity system" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Branding Services for New Zealand Businesses", serviceType: "Branding Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Branding", url: `${siteUrl}/services/branding` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: brandingNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><BrandingNewZealandPage/><Footer/>
     </>;
   }
 
