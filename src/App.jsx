@@ -27,8 +27,12 @@ import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
 import WebDesignNewZealandPage from "./components/WebDesignNewZealandPage";
 import { webDesignNewZealandFaqs } from "./webDesignNewZealandFaqs";
+import WebDesignUaePage from "./components/WebDesignUaePage";
+import { webDesignUaeFaqs } from "./webDesignUaeFaqs";
 import WebDevelopmentNewZealandPage from "./components/WebDevelopmentNewZealandPage";
 import { webDevelopmentNewZealandFaqs } from "./webDevelopmentNewZealandFaqs";
+import WebDevelopmentUaePage from "./components/WebDevelopmentUaePage";
+import { webDevelopmentUaeFaqs } from "./webDevelopmentUaeFaqs";
 import UiUxNewZealandPage from "./components/UiUxNewZealandPage";
 import { uiUxNewZealandFaqs } from "./uiUxNewZealandFaqs";
 import BrandingNewZealandPage from "./components/BrandingNewZealandPage";
@@ -542,6 +546,25 @@ function App() {
     </>;
   }
 
+  if (pathname === "/united-arab-emirates/web-design") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/web-design";
+    const title = "Web Design Company UAE | Website Design Services | Vorevix";
+    const description = "Professional website design for UAE businesses, including strategy, responsive layouts, corporate websites, eCommerce design, redesign and development handoff.";
+    const socialImage = `${siteUrl}/service-web.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix responsive website design" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix responsive website design" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Website Design for UAE Businesses", serviceType: "Web Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Web Design", url: `${siteUrl}/services/web-design` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><WebDesignUaePage/><Footer/>
+    </>;
+  }
+
   if (pathname === "/new-zealand/web-development") {
     const canonical = "https://www.vorevix.com/new-zealand/web-development";
     const title = "Website Development NZ | Custom Web Development | Vorevix";
@@ -558,6 +581,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><WebDevelopmentNewZealandPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/united-arab-emirates/web-development") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/web-development";
+    const title = "Web Development Company UAE | Custom Website Development | Vorevix";
+    const description = "Professional web development for UAE businesses, including front-end, back-end, CMS, eCommerce, integrations, testing, deployment and maintenance.";
+    const socialImage = `${siteUrl}/service-software-app.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix website development interface" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix website development interface" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Website Development for UAE Businesses", serviceType: "Web Development Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Web Development", url: `${siteUrl}/services/web-development-services` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><WebDevelopmentUaePage/><Footer/>
     </>;
   }
 
