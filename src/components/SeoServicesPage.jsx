@@ -49,9 +49,9 @@ export default function SeoServicesPage() {
 
     <Section title="SEO Timelines and Realistic Expectations"><p>SEO is a long-term channel, but timing varies. Technical corrections may be processed quickly, while competitive commercial terms can require sustained content, authority and website improvements.</p><p>New websites often need time to establish relevance and trust. Professional seo services should support steady improvement through prioritised work, but no honest provider can promise a fixed ranking date.</p></Section>
 
-    <section className="wd-section seo-section"><div className="seo-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/seo-services">SEO services across Australia</a>, New Zealand and the United Arab Emirates.</p></div></section>
-
     <section className="wd-section seo-section wd-tinted"><div className="wd-section-heading"><h2>Frequently Asked Questions</h2></div><div className="seo-faq-grid">{seoServiceFaqs.map(faq=><article key={faq.question}><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div></section>
+
+    <section className="wd-section seo-section"><div className="seo-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/seo-services">SEO services in Australia</a>, New Zealand and the <a href="/united-arab-emirates/seo-services">United Arab Emirates</a>.</p></div></section>
 
     <section className="wd-final-cta"><h2>Build a Stronger Foundation for Organic Growth</h2><p>Vorevix provides professional seo services for businesses that need clearer strategy, stronger technical foundations and content built around genuine search demand.</p><p>We can review your website, identify practical priorities and recommend a scope that matches your goals, resources and current stage of growth.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your SEO Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></section>
   </main>;

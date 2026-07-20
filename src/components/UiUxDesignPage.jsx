@@ -56,9 +56,9 @@ export default function UiUxDesignPage() {
 
     <Section title="Ownership and Editable Files" tinted><p>Final approved design files, agreed assets and relevant access are handed over according to the approved scope, contract and payment terms. Where Figma is used, agreed file or project access can be transferred or shared at handoff.</p><p>Third-party fonts, assets and plugins remain subject to their own licence terms.</p></Section>
 
-    <section className="wd-section uiux-section"><div className="uiux-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/ui-ux-design">UI/UX design services in Australia</a> and <a href="/new-zealand/ui-ux-design">UI/UX design services in New Zealand</a>, alongside teams in other international markets.</p></div></section>
-
     <section className="wd-section uiux-section"><div className="wd-section-heading"><h2>Frequently Asked Questions About UI UX Design Services</h2></div><div className="uiux-faq-list">{uiUxFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
+
+    <section className="wd-section uiux-section"><div className="uiux-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/ui-ux-design">UI/UX design services in Australia</a>, <a href="/new-zealand/ui-ux-design">UI/UX design services in New Zealand</a> and <a href="/united-arab-emirates/ui-ux-design">UI/UX design services in the United Arab Emirates</a>.</p></div></section>
 
     <section className="wd-final-cta"><h2>Create a Clearer Digital Experience</h2><p>Strong digital experiences are built around real tasks, clear information and consistent interaction patterns. Vorevix provides ui ux design services for businesses that need a new product, a more usable website or a thoughtful redesign of an existing platform.</p><p>Discuss your users, goals and technical requirements with our team to see how our ui ux design services can support the right design scope.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></section>
   </main>;

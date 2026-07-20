@@ -35,6 +35,8 @@ import WebDevelopmentUaePage from "./components/WebDevelopmentUaePage";
 import { webDevelopmentUaeFaqs } from "./webDevelopmentUaeFaqs";
 import UiUxNewZealandPage from "./components/UiUxNewZealandPage";
 import { uiUxNewZealandFaqs } from "./uiUxNewZealandFaqs";
+import UiUxUaePage from "./components/UiUxUaePage";
+import { uiUxUaeFaqs } from "./uiUxUaeFaqs";
 import BrandingNewZealandPage from "./components/BrandingNewZealandPage";
 import { brandingNewZealandFaqs } from "./brandingNewZealandFaqs";
 import DigitalMarketingNewZealandPage from "./components/DigitalMarketingNewZealandPage";
@@ -42,6 +44,8 @@ import { digitalMarketingNewZealandFaqs } from "./digitalMarketingNewZealandFaqs
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
+import SeoUaePage from "./components/SeoUaePage";
+import { seoUaeFaqs } from "./seoUaeFaqs";
 import DigitalMarketingAustraliaPage from "./components/DigitalMarketingAustraliaPage";
 import { digitalMarketingAustraliaFaqs } from "./digitalMarketingAustraliaFaqs";
 import BrandingAustraliaPage from "./components/BrandingAustraliaPage";
@@ -622,6 +626,25 @@ function App() {
     </>;
   }
 
+  if (pathname === "/united-arab-emirates/ui-ux-design") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/ui-ux-design";
+    const title = "UX Design UAE | UI/UX Design Services | Vorevix";
+    const description = "UI/UX design for UAE businesses, including user research, UX audits, journeys, wireframes, prototypes, usability testing, interface design and developer handoff.";
+    const socialImage = `${siteUrl}/service-software-app.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix UI and UX interface design" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix UI and UX interface design" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "UI/UX Design for UAE Businesses", serviceType: "UI/UX Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "UI/UX Design", url: `${siteUrl}/services/ui-ux-design-services` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: uiUxUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><UiUxUaePage/><Footer/>
+    </>;
+  }
+
   if (pathname === "/new-zealand/branding-services") {
     const canonical = "https://www.vorevix.com/new-zealand/branding-services";
     const title = "Brand Design NZ | Branding Strategy & Identity | Vorevix";
@@ -677,6 +700,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><SeoAustraliaPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/united-arab-emirates/seo-services") {
+    const canonical = "https://www.vorevix.com/united-arab-emirates/seo-services";
+    const title = "SEO Services UAE | Organic Search Strategy | Vorevix";
+    const description = "Vorevix provides SEO services for UAE businesses, including keyword research, technical SEO, content optimisation, local and eCommerce SEO, reporting and ongoing organic-search support.";
+    const socialImage = `${siteUrl}/service-seo.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-AE"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix SEO strategy and reporting" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix SEO strategy and reporting" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-AE" },
+          { "@context": "https://schema.org", "@type": "Service", name: "SEO Services for UAE Businesses", serviceType: "SEO Services", url: canonical, description, areaServed: { "@type": "Country", name: "United Arab Emirates" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "SEO Services", url: `${siteUrl}/services/seo-services` }, { name: "United Arab Emirates", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><SeoUaePage/><Footer/>
     </>;
   }
 
