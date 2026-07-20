@@ -25,6 +25,8 @@ import WebDevelopmentAustraliaPage from "./components/WebDevelopmentAustraliaPag
 import { webDevelopmentAustraliaFaqs } from "./webDevelopmentAustraliaFaqs";
 import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
+import WebDesignNewZealandPage from "./components/WebDesignNewZealandPage";
+import { webDesignNewZealandFaqs } from "./webDesignNewZealandFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -510,6 +512,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignAustraliaFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer.join(" ") } })) },
         ]}/>
       <Header/><WebDesignAustraliaPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/web-design") {
+    const canonical = "https://www.vorevix.com/new-zealand/web-design";
+    const title = "Website Design NZ | Web Design for New Zealand Businesses | Vorevix";
+    const description = "Strategy-led website design for New Zealand businesses, including responsive design, UX planning, website redesign, eCommerce and development coordination.";
+    const socialImage = `${siteUrl}/service-web.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix web design interface" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix web design interface" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Website Design for New Zealand Businesses", serviceType: "Website Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Web Design", url: `${siteUrl}/services/web-design` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><WebDesignNewZealandPage/><Footer/>
     </>;
   }
 
