@@ -29,6 +29,8 @@ import WebDesignNewZealandPage from "./components/WebDesignNewZealandPage";
 import { webDesignNewZealandFaqs } from "./webDesignNewZealandFaqs";
 import WebDevelopmentNewZealandPage from "./components/WebDevelopmentNewZealandPage";
 import { webDevelopmentNewZealandFaqs } from "./webDevelopmentNewZealandFaqs";
+import UiUxNewZealandPage from "./components/UiUxNewZealandPage";
+import { uiUxNewZealandFaqs } from "./uiUxNewZealandFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -552,6 +554,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><WebDevelopmentNewZealandPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/ui-ux-design") {
+    const canonical = "https://www.vorevix.com/new-zealand/ui-ux-design";
+    const title = "UX Design NZ | UI/UX Design Services | Vorevix";
+    const description = "UI/UX design for New Zealand businesses, including user research, UX strategy, wireframes, prototypes, interface design, usability testing and developer handoff.";
+    const socialImage = `${siteUrl}/service-software-app.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix UI and UX design interface" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix UI and UX design interface" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "UI/UX Design for New Zealand Businesses", serviceType: "UI/UX Design Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "UI/UX Design", url: `${siteUrl}/services/ui-ux-design-services` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: uiUxNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><UiUxNewZealandPage/><Footer/>
     </>;
   }
 

@@ -56,7 +56,7 @@ export default function UiUxDesignPage() {
 
     <Section title="Ownership and Editable Files" tinted><p>Final approved design files, agreed assets and relevant access are handed over according to the approved scope, contract and payment terms. Where Figma is used, agreed file or project access can be transferred or shared at handoff.</p><p>Third-party fonts, assets and plugins remain subject to their own licence terms.</p></Section>
 
-    <section className="wd-section uiux-section"><div className="uiux-prose"><p>Vorevix works with businesses worldwide and also provides <a href="/australia/ui-ux-design">UI/UX design services to organisations across Australia</a>, New Zealand and the United Arab Emirates.</p></div></section>
+    <section className="wd-section uiux-section"><div className="uiux-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/ui-ux-design">UI/UX design services in Australia</a> and <a href="/new-zealand/ui-ux-design">UI/UX design services in New Zealand</a>, alongside teams in other international markets.</p></div></section>
 
     <section className="wd-section uiux-section"><div className="wd-section-heading"><h2>Frequently Asked Questions About UI UX Design Services</h2></div><div className="uiux-faq-list">{uiUxFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
 
