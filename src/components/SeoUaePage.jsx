@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Search } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { seoUaeFaqs } from "../seoUaeFaqs";
 import "./WebDevelopmentPage.css";
 import "./WebDevelopmentAustraliaPage.css";
