@@ -27,6 +27,8 @@ import WebDesignAustraliaPage from "./components/WebDesignAustraliaPage";
 import { webDesignAustraliaFaqs } from "./webDesignAustraliaFaqs";
 import WebDesignNewZealandPage from "./components/WebDesignNewZealandPage";
 import { webDesignNewZealandFaqs } from "./webDesignNewZealandFaqs";
+import WebDevelopmentNewZealandPage from "./components/WebDevelopmentNewZealandPage";
+import { webDevelopmentNewZealandFaqs } from "./webDevelopmentNewZealandFaqs";
 import { webDesignFaqs } from "./webDesignFaqs";
 import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
@@ -531,6 +533,25 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDesignNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><WebDesignNewZealandPage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/web-development") {
+    const canonical = "https://www.vorevix.com/new-zealand/web-development";
+    const title = "Website Development NZ | Custom Web Development | Vorevix";
+    const description = "Custom website development for New Zealand businesses, including front-end and back-end development, CMS implementation, integrations, testing and launch support.";
+    const socialImage = `${siteUrl}/service-software-app.png`;
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow"
+        openGraph={{ ...defaultOpenGraph, title, description, url: canonical, image: socialImage, imageAlt: "Vorevix website development interface" }}
+        twitter={{ card: "summary_large_image", title, description, image: socialImage, imageAlt: "Vorevix website development interface" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "Website Development for New Zealand Businesses", serviceType: "Website Development Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "Web Development", url: `${siteUrl}/services/web-development-services` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: webDevelopmentNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><WebDevelopmentNewZealandPage/><Footer/>
     </>;
   }
 

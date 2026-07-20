@@ -56,7 +56,7 @@ export default function WebDevelopmentPage() {
 
     <Section title="Code Ownership, Handover and Maintenance"><p>Final project files, agreed credentials and source-code access are handed over according to the approved scope, contract and payment terms. Third-party tools, licensed software and subscription platforms remain subject to their own provider terms.</p><p>A website continues to require attention after deployment. Maintenance may include updates, backups, monitoring, security improvements, bug fixes, performance reviews and new features. The initial build and long-term maintenance are treated as separate scopes unless the proposal states otherwise.</p></Section>
 
-    <section className="wd-section"><div className="wd-prose"><p>Vorevix works with businesses worldwide and also provides <a href="/australia/web-development">web development services to organisations across Australia</a>, New Zealand and the United Arab Emirates.</p></div></section>
+    <section className="wd-section"><div className="wd-prose"><p>Vorevix works with businesses worldwide, including organisations seeking <a href="/australia/web-development">web development services in Australia</a> and <a href="/new-zealand/web-development">web development services in New Zealand</a>, alongside companies in other international markets.</p></div></section>
 
     <section className="wd-section wd-faq"><div className="wd-section-heading"><h2>Frequently Asked Questions About Web Development Services</h2></div><div className="wd-faq-list">{webDevelopmentFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
 
