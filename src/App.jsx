@@ -1308,6 +1308,8 @@ function App() {
     const canonical = `${siteUrl}/services/web-development-services`;
     const title = "Web Development Services for Modern Businesses | Vorevix";
     const description = "Custom web development services for fast, scalable and maintainable websites and web applications. Explore frontend, backend, CMS and eCommerce development.";
+    const openGraphTitle = "Web Development Services Built for Performance and Growth | Vorevix";
+    const openGraphDescription = "Explore custom frontend, backend, CMS, eCommerce, API and web application development for scalable digital platforms.";
 
     return (
       <>
@@ -1317,8 +1319,8 @@ function App() {
           canonical={canonical}
           robots="index, follow"
           openGraph={{
-            title,
-            description,
+            title: openGraphTitle,
+            description: openGraphDescription,
             url: canonical,
             ...defaultOpenGraph,
           }}
@@ -1343,7 +1345,20 @@ function App() {
                 url: siteUrl,
               },
             },
-            serviceSchema("Web Development Services", description, canonical),
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "Web Development Services",
+              serviceType: "Web Development Services",
+              description,
+              url: canonical,
+              provider: {
+                "@type": "Organization",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+              areaServed: "Global",
+            },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },
               { name: "Services", url: `${siteUrl}/services` },
