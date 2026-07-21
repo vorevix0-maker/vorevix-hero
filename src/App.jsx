@@ -941,6 +941,9 @@ function App() {
     const title = "Web Design Services for Modern Businesses | Vorevix";
     const description =
       "Custom web design services for responsive, user-focused and conversion-ready websites. Explore strategy, UI/UX, redesign and development-ready design.";
+    const openGraphTitle = "Web Design Services for Growing Businesses | Vorevix";
+    const openGraphDescription =
+      "Explore strategic web design covering responsive layouts, UI/UX, redesigns, design systems and development-ready website experiences.";
 
     return (
       <>
@@ -950,8 +953,8 @@ function App() {
           canonical={canonical}
           robots="index, follow"
           openGraph={{
-            title,
-            description,
+            title: openGraphTitle,
+            description: openGraphDescription,
             url: canonical,
             ...defaultOpenGraph,
           }}
@@ -963,7 +966,33 @@ function App() {
             imageAlt: "Vorevix logo",
           }}
           schema={[
-            serviceSchema("Web Design Services", description, canonical),
+            organizationSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: title,
+              description,
+              url: canonical,
+              isPartOf: {
+                "@type": "WebSite",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "Web Design Services",
+              serviceType: "Web Design Services",
+              description,
+              url: canonical,
+              provider: {
+                "@type": "Organization",
+                name: "Vorevix",
+                url: siteUrl,
+              },
+              areaServed: "Global",
+            },
             breadcrumbSchema([
               { name: "Home", url: `${siteUrl}/` },
               { name: "Services", url: `${siteUrl}/services` },
