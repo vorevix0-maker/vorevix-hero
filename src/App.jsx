@@ -50,6 +50,8 @@ import SeoAustraliaPage from "./components/SeoAustraliaPage";
 import { seoAustraliaFaqs } from "./seoAustraliaFaqs";
 import SeoUaePage from "./components/SeoUaePage";
 import { seoUaeFaqs } from "./seoUaeFaqs";
+import SeoNewZealandPage from "./components/SeoNewZealandPage";
+import { seoNewZealandFaqs } from "./seoNewZealandFaqs";
 import DigitalMarketingAustraliaPage from "./components/DigitalMarketingAustraliaPage";
 import { digitalMarketingAustraliaFaqs } from "./digitalMarketingAustraliaFaqs";
 import BrandingAustraliaPage from "./components/BrandingAustraliaPage";
@@ -61,7 +63,7 @@ import { webDevelopmentFaqs } from "./webDevelopmentFaqs";
 const siteUrl = "https://www.vorevix.com";
 const logoUrl = `${siteUrl}/logo.png`;
 const homeTitle = "Full-Service Digital Agency for Growing Businesses | Vorevix";
-const homeDescription = "Vorevix is a full-service digital agency providing branding, UI/UX design, web development, SEO and digital marketing solutions for growing businesses.";
+const homeDescription = "Vorevix is a full-service digital agency providing branding, UI/UX design, web design, development, SEO and digital marketing for growing businesses.";
 const homeCanonical = `${siteUrl}/`;
 const portfolioTitle = "Portfolio | Vorevix";
 const portfolioDescription =
@@ -128,6 +130,24 @@ const websiteSchema = {
   name: "Vorevix",
   url: siteUrl,
   description: brandDescription,
+};
+
+const homepageWebPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: homeTitle,
+  description: homeDescription,
+  url: homeCanonical,
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Vorevix",
+    url: siteUrl,
+  },
+  about: {
+    "@type": "Organization",
+    name: "Vorevix",
+    url: siteUrl,
+  },
 };
 
 const homepageFaqSchema = {
@@ -723,6 +743,27 @@ function App() {
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoUaeFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
         ]}/>
       <Header/><SeoUaePage/><Footer/>
+    </>;
+  }
+
+  if (pathname === "/new-zealand/seo-services") {
+    const canonical = "https://www.vorevix.com/new-zealand/seo-services";
+    const title = "SEO Company New Zealand | SEO Services for NZ Businesses | Vorevix";
+    const description = "Vorevix provides SEO services for New Zealand businesses, including keyword research, technical SEO, on-page optimisation, content planning, reporting and ongoing organic-search support.";
+    const socialImage = `${siteUrl}/service-seo.png`;
+    const socialTitle = "SEO Services for New Zealand Businesses | Vorevix";
+    const socialDescription = "Vorevix provides technical SEO, content optimisation, keyword research and ongoing organic-search support for New Zealand businesses.";
+    return <>
+      <SEO title={title} description={description} canonical={canonical} robots="index, follow" language="en-NZ"
+        openGraph={{ ...defaultOpenGraph, title: socialTitle, description: socialDescription, url: canonical, image: socialImage, imageAlt: "Vorevix SEO strategy and reporting" }}
+        twitter={{ card: "summary_large_image", title: socialTitle, description: socialDescription, image: socialImage, imageAlt: "Vorevix SEO strategy and reporting" }}
+        schema={[
+          { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: canonical, inLanguage: "en-NZ" },
+          { "@context": "https://schema.org", "@type": "Service", name: "SEO Services for New Zealand Businesses", serviceType: "SEO Services", url: canonical, description, areaServed: { "@type": "Country", name: "New Zealand" }, provider: { "@type": "Organization", name: "Vorevix", url: siteUrl } },
+          breadcrumbSchema([{ name: "Home", url: `${siteUrl}/` }, { name: "SEO Services", url: `${siteUrl}/services/seo-services` }, { name: "New Zealand", url: canonical }]),
+          { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: seoNewZealandFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+        ]}/>
+      <Header/><SeoNewZealandPage/><Footer/>
     </>;
   }
 
@@ -1449,8 +1490,8 @@ function App() {
           canonical={homeCanonical}
           robots="index, follow"
           openGraph={{
-            title: homeTitle,
-            description: homeDescription,
+            title: "Digital Solutions for Growing Businesses | Vorevix",
+            description: "Explore connected branding, design, development, SEO and digital marketing services from Vorevix.",
             url: homeCanonical,
             ...defaultOpenGraph,
           }}
@@ -1461,7 +1502,7 @@ function App() {
             image: logoUrl,
             imageAlt: "Vorevix logo",
           }}
-          schema={[organizationSchema, websiteSchema, homepageFaqSchema]}
+          schema={[organizationSchema, websiteSchema, homepageWebPageSchema, homepageFaqSchema]}
         />
         <Header />
         <main>
