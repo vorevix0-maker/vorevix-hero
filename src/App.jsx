@@ -7,6 +7,8 @@ import PageAnimations from "./components/PageAnimations";
 import SEO from "./components/SEO";
 import LegalPage from "./components/LegalPage";
 import SeoContentPage from "./components/SeoContentPage";
+import ServicesPage from "./components/ServicesPage";
+import { servicesPageFaqs } from "./servicesPageFaqs";
 import HomepageSeoContent from "./components/HomepageSeoContent";
 import { homepageFaqs } from "./homepageFaqs";
 import ArchitecturePage from "./components/ArchitecturePage";
@@ -294,61 +296,9 @@ const services = [
 
 const servicesPage = {
   path: "/services",
-  title: "Digital Services | Vorevix",
+  title: "Digital Agency Services for Businesses Worldwide | Vorevix",
   description:
-    "Choose integrated web development, SEO, UI/UX design, branding and digital marketing services from Vorevix to attract customers and accelerate growth.",
-  h1: "Digital Services for Growing Businesses",
-  body:
-    "Explore Vorevix digital services across web development, SEO, UI/UX design, branding, and digital marketing solutions for growing businesses. Our services are planned to work together, so your website, brand identity, content, and marketing channels support the same business goals instead of feeling disconnected.",
-  sections: [
-    {
-      title: "What Vorevix Offers",
-      body: "Vorevix brings together web development, SEO, UI/UX design, branding, and digital marketing for businesses that want a stronger online presence. We help clients create professional websites, clearer service pages, search-friendly content structures, visual identity systems, and marketing assets that can support long-term growth.",
-    },
-    {
-      title: "Who Our Services Help",
-      body: "Our services are useful for startups, local businesses, ecommerce brands, service providers, and growing companies that need practical digital systems. Whether you are launching a new brand, improving an existing website, or preparing for SEO campaigns in future regions, we focus on clear foundations first.",
-    },
-    {
-      title: "How the Work Connects",
-      body: "A strong digital presence is not only one page or one campaign. Your brand identity should support your website, your website should support your SEO, and your content should support customer trust. Vorevix connects these pieces through planning, design, development, optimization, and ongoing improvement.",
-    },
-    ...services.map((service) => ({
-      title: service.h1,
-      body: service.description,
-      href: service.path,
-    })),
-    {
-      title: "Web Development Australia",
-      body: "Explore custom website, ecommerce, CMS and web application development support for businesses across Australia.",
-      href: "/australia/web-development",
-    },
-    {
-      title: "Web Design Australia",
-      body: "Explore custom, responsive and conversion-aware website design support for businesses across Australia.",
-      href: "/australia/web-design",
-    },
-    {
-      title: "SEO Services Australia",
-      body: "Explore technical SEO, content, local search, ecommerce optimisation and reporting support for businesses across Australia.",
-      href: "/australia/seo-services",
-    },
-    {
-      title: "Digital Marketing Services Australia",
-      body: "Explore connected SEO, paid media, social, content, email, analytics and campaign support for businesses across Australia.",
-      href: "/australia/digital-marketing",
-    },
-    {
-      title: "Branding Services Australia",
-      body: "Explore brand strategy, positioning, identity design, guidelines, rebranding and digital brand support for businesses across Australia.",
-      href: "/australia/branding-services",
-    },
-    {
-      title: "UI UX Design Services Australia",
-      body: "Explore UX research, user journeys, wireframes, interface design, prototypes, usability testing and design systems for businesses across Australia.",
-      href: "/australia/ui-ux-design",
-    },
-  ],
+    "Explore Vorevix web design, development, SEO, UI/UX, branding and online marketing solutions for startups, companies and growing brands worldwide.",
 };
 
 const aboutPage = {
@@ -1235,8 +1185,52 @@ function App() {
     );
   }
 
-  if (pathname === servicesPage.path) {
-    const canonical = `${siteUrl}${servicesPage.path}`;
+  if (pathname === servicesPage.path || pathname === `${servicesPage.path}/`) {
+    const canonical = `${siteUrl}${servicesPage.path}/`;
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Digital Agency Services",
+      url: canonical,
+      description: servicesPage.description,
+      provider: {
+        "@type": "Organization",
+        name: "Vorevix",
+        url: siteUrl,
+      },
+      areaServed: "Worldwide",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Vorevix Digital Agency Services",
+        itemListElement: [
+          ["Web Design", "/services/web-design"],
+          ["Web Development", "/services/web-development-services"],
+          ["Search Engine Optimisation", "/services/seo-services"],
+          ["UI/UX Design", "/services/ui-ux-design-services"],
+          ["Branding", "/services/branding"],
+          ["Digital Marketing", "/services/digital-marketing"],
+        ].map(([name, path]) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name,
+            url: `${siteUrl}${path}`,
+          },
+        })),
+      },
+    };
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: servicesPageFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
 
     return (
       <>
@@ -1258,47 +1252,17 @@ function App() {
             image: logoUrl,
             imageAlt: "Vorevix logo",
           }}
-          schema={breadcrumbSchema([
-            { name: "Home", url: `${siteUrl}/` },
-            { name: "Services", url: canonical },
-          ])}
-        />
-        <Header />
-        <SeoContentPage
-          eyebrow="Services"
-          title={servicesPage.h1}
-          description={servicesPage.body}
-          sections={servicesPage.sections}
-          links={[
-            ...services.map((service) => ({ label: service.h1, href: service.path })),
-            {
-              label: "Web Development Australia",
-              href: "/australia/web-development",
-            },
-            {
-              label: "Web Design Australia",
-              href: "/australia/web-design",
-            },
-            {
-              label: "SEO Services Australia",
-              href: "/australia/seo-services",
-            },
-            {
-              label: "Digital Marketing Services Australia",
-              href: "/australia/digital-marketing",
-            },
-            {
-              label: "Branding Services Australia",
-              href: "/australia/branding-services",
-            },
-            {
-              label: "UI UX Design Services Australia",
-              href: "/australia/ui-ux-design",
-            },
-            { label: "View Portfolio", href: "/portfolio" },
-            { label: "Contact Vorevix", href: "/contact" },
+          schema={[
+            breadcrumbSchema([
+              { name: "Home", url: `${siteUrl}/` },
+              { name: "Services", url: canonical },
+            ]),
+            serviceSchema,
+            faqSchema,
           ]}
         />
+        <Header />
+        <ServicesPage />
         <Footer />
       </>
     );
