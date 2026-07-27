@@ -58,7 +58,11 @@ export default function Header() {
     <header className={`hero-header ${isHome ? "home-header" : ""} ${isMenuOpen ? "nav-open" : ""}`}>
       <a href="/" className="header-logo" aria-label="Vorevix home">
         {isHome ? (
-          <img className="home-wordmark-image" src="/images/vorevix-header-logo.png" alt="Vorevix — Smart Solutions. Real Growth" />
+          <img
+            className="home-wordmark-image"
+            src={isMenuOpen ? "/images/vorevix-header-logo-white.png" : "/images/vorevix-header-logo.png"}
+            alt="Vorevix — Smart Solutions. Real Growth"
+          />
         ) : (
           <img src="/vorevix-logo.png" alt="Vorevix" />
         )}

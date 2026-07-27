@@ -336,6 +336,15 @@
   z-index: 3;
 }
 
+.home-header.nav-open .header-menu-toggle,
+.home-header.nav-open .header-btn {
+  color: #ffffff;
+}
+
+.home-header.nav-open .header-menu-toggle svg {
+  color: #111111;
+}
+
 @media (max-width: 640px) {
   .hero-header.home-header {
     width: 100%;
