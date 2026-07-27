@@ -1,6 +1,6 @@
 .web-development-page {
   --wd-orange: #ff6b00;
-  --wd-green: #102512;
+  --wd-green: #111111;
   --wd-ink: #111111;
   --wd-muted: #555b61;
   min-height: 100vh;
@@ -32,7 +32,7 @@
 }
 
 .wd-breadcrumbs a {
-  color: #0d5c26;
+  color: var(--wd-orange);
   text-decoration: none;
 }
 
@@ -58,8 +58,10 @@
 .wd-section-heading h2,
 .wd-projects h2,
 .wd-final-cta h2 {
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
-  letter-spacing: -0.04em;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
 }
 
 .wd-hero h1 {
@@ -82,8 +84,9 @@
   aspect-ratio: 1;
   border-radius: 28px;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 34%, #ffffff, #fff1df 72%);
-  box-shadow: 0 30px 80px rgba(65, 45, 25, 0.14);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(17, 17, 17, 0.08);
 }
 
 .wd-hero-visual img,
@@ -134,7 +137,8 @@
   width: min(1280px, calc(100% - 32px));
   padding: 82px 50px;
   border-radius: 32px;
-  background: #f7f8f4;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #ffffff;
 }
 
 .wd-section-heading {
@@ -200,7 +204,8 @@
 .wd-process-card h3,
 .wd-why-grid h3,
 .wd-faq-item h3 {
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
 }
 
 .wd-goals-grid h3 {
@@ -268,7 +273,7 @@
 .wd-card a,
 .wd-process-card a,
 .wd-section > p a {
-  color: #0d5c26;
+  color: var(--wd-orange);
   font-weight: 850;
 }
 
@@ -280,8 +285,9 @@
   margin-top: 28px;
   padding: 24px 28px;
   border-radius: 18px;
-  background: var(--wd-green);
-  color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  color: var(--wd-ink);
 }
 
 .wd-process-grid {
@@ -314,15 +320,16 @@
 .wd-technologies {
   margin-top: 80px;
   border-radius: 28px;
-  background: var(--wd-green);
-  color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  color: var(--wd-ink);
 }
 
 .wd-technologies .wd-section-heading h2,
 .wd-technologies .wd-section-heading p,
 .wd-technologies > p,
 .wd-technologies .wd-checklist li {
-  color: #ffffff;
+  color: inherit;
 }
 
 .wd-technologies .wd-checklist {
@@ -350,8 +357,8 @@
 .wd-text-link {
   width: fit-content;
   margin-top: 24px;
-  border-color: var(--wd-green);
-  background: var(--wd-green);
+  border-color: var(--wd-orange);
+  background: var(--wd-orange);
   color: #ffffff;
 }
 
@@ -429,8 +436,9 @@
   margin-top: 70px;
   padding: 62px;
   border-radius: 30px;
-  background: linear-gradient(135deg, #102512, #183e20);
-  color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  color: var(--wd-ink);
 }
 
 .wd-final-cta h2 {
@@ -438,12 +446,12 @@
 }
 
 .wd-final-cta p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--wd-muted);
 }
 
 .wd-final-cta .wd-actions a:not(.primary) {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff;
+  border-color: rgba(17, 17, 17, 0.18);
+  color: var(--wd-ink);
 }
 
 @media (max-width: 1024px) {

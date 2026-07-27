@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, BadgeCheck, ClipboardList, Headphones, LayoutTemplate, MessageSquareText, Network, Plus, RefreshCw, Rocket, Search, Target, TrendingUp, Wrench } from "lucide-react";
 import { homepageFaqs as faqs } from "../homepageFaqs";
 import "./HomepageSeoContent.css";
 
@@ -30,6 +30,8 @@ const reasons = [
   ["Continued Support", "Where required, we can continue supporting websites, campaigns and digital platforms after launch under an agreed scope."],
 ];
 
+const reasonIcons = [Target, MessageSquareText, Network, TrendingUp, BadgeCheck, Headphones];
+
 const process = [
   ["1. Discover", "We learn about the business, audience, current assets, competitors, challenges and project goals.", "This helps clarify what the project needs to solve and which outcomes should guide the work."],
   ["2. Define", "We establish the scope, priorities, content requirements, technical needs, responsibilities and practical constraints.", "Clear definition helps reduce uncertainty and prevents avoidable changes later in the process."],
@@ -38,6 +40,8 @@ const process = [
   ["5. Review and Launch", "We review the work, test relevant functionality and responsive behaviour, resolve agreed issues and prepare the final delivery or launch."],
   ["6. Improve", "Where included in the scope, we continue supporting technical updates, content changes, SEO, performance improvements and digital marketing activity."],
 ];
+
+const processIcons = [Search, ClipboardList, LayoutTemplate, Wrench, Rocket, RefreshCw];
 
 const businessTypes = [
   ["New Businesses", "Build a clear brand, professional website and dependable digital foundation from the beginning."],
@@ -48,46 +52,265 @@ const businessTypes = [
   ["Professional-Service Firms", "Communicate expertise clearly, strengthen credibility and support more relevant enquiries."],
 ];
 
-function Cards({ items, links = false, linkLabel }) {
-  return <div className="homepage-service-list">{items.map(([title, hrefOrBody, ...paragraphs]) => <article className="homepage-service-item" key={title}><h3>{title}</h3>{(links ? paragraphs : [hrefOrBody, ...paragraphs]).filter(Boolean).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{links && <a href={hrefOrBody}>{linkLabel ? linkLabel(title) : `Explore ${title}`}<ArrowRight size={16} aria-hidden="true"/></a>}</article>)}</div>;
-}
+const internationalMarkets = [
+  ["Australia", "/locations/australia", "Connected strategy, branding, design, development, SEO and digital marketing support for Australian businesses.", "/images/flag-australia.svg"],
+  ["New Zealand", "/locations/new-zealand", "Digital services for New Zealand organisations seeking stronger brands, websites, customer experiences and online visibility.", "/images/flag-new-zealand.jpg"],
+  ["United Arab Emirates", "/locations/united-arab-emirates", "Digital solutions for businesses building, improving or expanding their presence in the UAE.", "/images/flag-uae.png"],
+];
+
+const performanceBenefits = [
+  "Mobile responsiveness",
+  "Website performance",
+  "Technical SEO",
+  "Accessibility",
+  "Scalable content management",
+  "Security practices",
+  "Analytics integration",
+  "Conversion-focused structure",
+  "Browser compatibility",
+  "Maintainable development",
+  "Third-party integrations",
+  "Ongoing support",
+];
 
 function Block({ number, title, children, className = "" }) {
   return <section className={`homepage-seo-block ${className}`}><div className="homepage-seo-block-heading"><span>{number}</span><h2>{title}</h2></div>{children}</section>;
 }
 
+function ServicesScroller() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const viewportRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    if (isPaused) return undefined;
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % services.length);
+    }, 4000);
+    return () => window.clearInterval(timer);
+  }, [isPaused]);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    const card = cardRefs.current[activeIndex];
+    if (!viewport || !card) return;
+    const track = card.parentElement;
+    const cardPosition = card.offsetLeft - (track?.offsetLeft ?? 0);
+    viewport.scrollTo({ left: cardPosition, behavior: "smooth" });
+  }, [activeIndex]);
+
+  return <section
+    className="homepage-services-scroller"
+    aria-labelledby="homepage-services-title"
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
+    onFocusCapture={() => setIsPaused(true)}
+    onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false); }}
+  >
+    <div className="homepage-services-heading">
+      <span>Services We Provide</span>
+      <h2 id="homepage-services-title">Digital Services Built Around Business Growth</h2>
+      <p>Focused digital capabilities designed around your goals, audience and next stage of growth.</p>
+    </div>
+
+    <div className="homepage-services-carousel" ref={viewportRef}>
+      <div className="homepage-services-track">
+        {services.map(([title, href, description], index) => <article
+          className={`homepage-services-card ${index === activeIndex ? "is-active" : ""}`}
+          ref={(node) => { cardRefs.current[index] = node; }}
+          key={title}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <a href={href}>Read More <ArrowRight size={16} aria-hidden="true" /></a>
+        </article>)}
+      </div>
+    </div>
+
+    <div className="homepage-services-dots" aria-label="Choose a service">
+      {services.map(([title], index) => <button
+        className={index === activeIndex ? "is-active" : ""}
+        type="button"
+        aria-label={`Show ${title}`}
+        aria-current={index === activeIndex ? "true" : undefined}
+        onClick={() => setActiveIndex(index)}
+        key={title}
+      />)}
+    </div>
+  </section>;
+}
+
 function FaqList() {
   const [openIndex, setOpenIndex] = useState(null);
-  return <div className="homepage-faq-list">{faqs.map(([question, answer], index) => { const open = openIndex === index; const panelId = `homepage-faq-${index}`; return <div className="homepage-faq-item" key={question}><button type="button" aria-expanded={open} aria-controls={panelId} onClick={() => setOpenIndex(open ? null : index)}>{question}</button><div id={panelId} hidden={!open}><p>{answer}</p></div></div>; })}</div>;
+  return <div className="homepage-faq-list">{faqs.map(([question, answer], index) => { const open = openIndex === index; const panelId = `homepage-faq-${index}`; return <div className={`homepage-faq-item ${open ? "is-open" : ""}`} key={question}><button type="button" aria-expanded={open} aria-controls={panelId} onClick={() => setOpenIndex(open ? null : index)}><span className="homepage-faq-number">{String(index + 1).padStart(2, "0")}</span><span className="homepage-faq-question">{question}</span><span className="homepage-faq-toggle"><Plus size={16} aria-hidden="true" /></span></button><div id={panelId} hidden={!open}><p>{answer}</p></div></div>; })}</div>;
 }
 
 export default function HomepageSeoContent() {
   return <div className="homepage-seo-section">
-    <section className="homepage-seo-header"><span>( A Connected Digital Partner )</span><h2>What Does Vorevix Do?</h2><div><p>Vorevix helps businesses plan, design, build and improve their digital presence. Our services include branding, UI/UX design, web design, web development, SEO and digital marketing. These capabilities can be delivered individually or combined into one coordinated solution based on the organisation's goals, current challenges and stage of growth.</p></div></section>
+    <ServicesScroller />
 
-    <Block number="01" title="A Digital Partner Focused on What Your Business Needs Next"><p>Every business has different priorities, audiences, resources and levels of digital maturity. That is why we do not begin with a fixed package or force every project into the same process.</p><p>We first look at what the business is trying to achieve, where its current digital experience is creating friction and which improvements can make the clearest practical difference.</p><p>That may involve strengthening the brand, improving the website, simplifying customer journeys, resolving technical limitations, increasing organic visibility or supporting a broader marketing strategy.</p><p>As a full-service digital agency, Vorevix connects strategy, design, technology and marketing around shared objectives. Your brand identity, website, search presence, content and campaigns can therefore support one another instead of operating as disconnected parts.</p><p>Our role is not limited to delivering individual services. We help businesses understand what should be improved, what should be prioritised and how each digital decision can support a wider commercial objective.</p></Block>
+    <section className="homepage-connections" aria-labelledby="homepage-connections-title">
+      <div className="homepage-connections-heading">
+        <span>Connected Digital Services</span>
+        <h2 id="homepage-connections-title">How Do Our Digital Services Work Together?</h2>
+        <p>Successful digital work connects branding, design, development, SEO and marketing around one shared direction.</p>
+      </div>
+      <div className="homepage-connections-grid">
+        {connections.map(([title, ...paragraphs], index) => (
+          <article className="homepage-connection-item" key={title}>
+            <span className="homepage-connection-number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{title}</h3>
+            {paragraphs.filter(Boolean).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <span className="homepage-connection-mark" aria-hidden="true" />
+          </article>
+        ))}
+      </div>
+      <p className="homepage-connections-summary">A full-service digital agency can help coordinate these capabilities so that every part of the customer experience supports a shared direction.</p>
+    </section>
 
-    <Block number="02" title="Why Do Disconnected Digital Services Create Problems?"><p>A website can look attractive while still failing to communicate the offer clearly or generate meaningful enquiries.</p><p>A marketing campaign can bring visitors to a website, while confusing navigation or weak landing pages prevent those visitors from taking action.</p><p>A strong brand identity can also lose its impact when it is applied inconsistently across websites, content, campaigns and social platforms.</p><p>Working with several disconnected providers may lead to:</p><ul className="homepage-benefit-list">{["Inconsistent messaging", "Duplicated work", "Slower communication", "Unclear responsibilities", "Fragmented user journeys", "Technical limitations", "Short-term fixes that are difficult to scale"].map((item) => <li key={item}>{item}</li>)}</ul><p>Vorevix helps businesses replace fragmented digital activity with a more coordinated approach.</p><p>We consider how strategy, branding, content, user experience, technology, SEO and marketing can work together to support the same objective.</p><p>Working with one full-service digital agency can reduce unnecessary handovers and help important decisions remain aligned throughout the project.</p></Block>
-
-    <Block number="03" title="Digital Services Built Around Business Growth"><p>Our services can be delivered separately or combined into a broader digital solution.</p><Cards items={services} links/></Block>
-
-    <Block number="04" title="How Do Our Digital Services Work Together?"><p>Successful digital work is rarely created by treating branding, design, development, SEO and marketing as unrelated activities.</p><p>A full-service digital agency can help coordinate these capabilities so that every part of the customer experience supports a shared direction.</p><Cards items={connections}/></Block>
-
-    <Block number="05" title="Why Do Businesses Work With Vorevix?"><p>Working with one full-service digital agency can help reduce fragmented communication and keep the different parts of a business's digital presence aligned.</p><Cards items={reasons}/><p>As a full-service digital agency, Vorevix can support both individual projects and broader digital-improvement programmes.</p><a className="homepage-text-link" href="/about">Learn More About Vorevix <ArrowRight size={16} aria-hidden="true"/></a></Block>
+    <section className="homepage-reasons" aria-labelledby="homepage-reasons-title">
+      <div className="homepage-reasons-heading">
+        <span>Why Vorevix</span>
+        <h2 id="homepage-reasons-title">Why Do Businesses Work With Vorevix?</h2>
+        <p>Working with one full-service digital agency can reduce fragmented communication and keep every part of a business&apos;s digital presence aligned.</p>
+      </div>
+      <div className="homepage-reasons-grid">
+        {reasons.map(([title, ...paragraphs], index) => {
+          const Icon = reasonIcons[index];
+          return (
+            <article className="homepage-reason-item" key={title}>
+              <span className="homepage-reason-icon"><Icon size={24} strokeWidth={1.8} aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{paragraphs.filter(Boolean).join(" ")}</p>
+            </article>
+          );
+        })}
+        <div className="homepage-process-target" aria-hidden="true">
+          <span><span><span /></span></span>
+          <small>Launch &amp; Improve</small>
+        </div>
+      </div>
+      <div className="homepage-reasons-footer">
+        <p>As a full-service digital agency, Vorevix can support both individual projects and broader digital-improvement programmes.</p>
+        <a href="/about">Learn More About Vorevix <ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
+    </section>
 
     <Block number="06" title="Selected Digital Work"><div className="homepage-feature"><img src="/portfolio/portfolio-brand-hero.jpg" alt="Selected Vorevix branding project" width="1200" height="675" loading="lazy" decoding="async"/><div><p>Our work combines business thinking, design and technical execution.</p><p>Each project begins with a specific challenge and is shaped around the requirements of the organisation, its audience and the intended outcome.</p><p>Explore selected projects to understand how branding, user experience, development, SEO and marketing can be connected within one solution.</p><p>Any performance results presented in case studies should be based on approved and verifiable project data rather than estimates or unsupported marketing claims.</p><a className="homepage-text-link" href="/portfolio">View Our Portfolio <ArrowRight size={16} aria-hidden="true"/></a></div></div></Block>
 
-    <Block number="07" title="A Clear Process From Strategy to Launch"><Cards items={process}/><p>This connected process allows a full-service digital agency to maintain clearer alignment from early planning through implementation and ongoing support.</p></Block>
+    <section className="homepage-process-flow" aria-labelledby="homepage-process-title">
+      <div className="homepage-process-heading">
+        <span>Our Process</span>
+        <h2 id="homepage-process-title">A Clear Process From Strategy to Launch</h2>
+        <p>A connected path from early discovery through delivery and ongoing improvement.</p>
+      </div>
+      <div className="homepage-process-flow-grid">
+        {process.map(([title, ...paragraphs], index) => {
+          const Icon = processIcons[index];
+          const cleanTitle = title.replace(/^\d+\.\s*/, "");
+          return (
+            <article className="homepage-process-step" key={title}>
+              <div className="homepage-process-circle">
+                <Icon size={30} strokeWidth={1.5} aria-hidden="true" />
+              </div>
+              <span className="homepage-process-number">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{cleanTitle}</h3>
+              <p>{paragraphs.filter(Boolean).join(" ")}</p>
+            </article>
+          );
+        })}
+      </div>
+      <p className="homepage-process-summary">This connected process allows a full-service digital agency to maintain clearer alignment from early planning through implementation and ongoing support.</p>
+    </section>
 
-    <Block number="08" title="Who Does Vorevix Work With?"><p>Vorevix may support organisations at different stages of digital and commercial growth.</p><Cards items={businessTypes}/><p>A flexible full-service digital agency can assist these organisations through different combinations of strategy, branding, design, development, SEO and digital marketing.</p></Block>
+    <section className="homepage-audiences" aria-labelledby="homepage-audiences-title">
+      <div className="homepage-audiences-heading">
+        <span>Businesses We Support</span>
+        <h2 id="homepage-audiences-title">Who Does Vorevix Work With?</h2>
+        <p>Vorevix may support organisations at different stages of digital and commercial growth.</p>
+      </div>
+      <div className="homepage-audiences-track">
+        {businessTypes.map(([title, description], index) => (
+            <article className="homepage-audience-step" key={title}>
+              <div className="homepage-audience-number">
+                <strong>{String(index + 1).padStart(2, "0")}</strong>
+              </div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </article>
+        ))}
+      </div>
+      <p className="homepage-audiences-summary">A flexible full-service digital agency can assist these organisations through different combinations of strategy, branding, design, development, SEO and digital marketing.</p>
+    </section>
 
-    <Block number="09" title="Can Vorevix Support International Businesses?"><p>Yes. Vorevix works remotely and can coordinate discovery, planning, reviews, approvals and delivery across suitable time zones.</p><p>Our current geographic focus includes organisations seeking digital support in the following markets.</p><Cards links linkLabel={(title) => `Digital Services in ${title === "United Arab Emirates" ? "the UAE" : title}`} items={[["Australia", "/locations/australia", "Connected strategy, branding, design, development, SEO and digital marketing support for Australian businesses."], ["New Zealand", "/locations/new-zealand", "Digital services for New Zealand organisations seeking stronger brands, websites, customer experiences and online visibility."], ["United Arab Emirates", "/locations/united-arab-emirates", "Digital solutions for businesses building, improving or expanding their presence in the UAE."]]}/><p>The homepage remains globally positioned, while dedicated country and service pages can address location-specific search intent.</p><p>Regional availability does not imply a local office, local employees or a physical presence unless independently verified.</p></Block>
+    <section className="homepage-international" aria-labelledby="homepage-international-title">
+      <div className="homepage-international-heading">
+        <span>International Support</span>
+        <h2 id="homepage-international-title">Can Vorevix Support International Businesses?</h2>
+        <p>Yes. Vorevix works remotely and can coordinate discovery, planning, reviews, approvals and delivery across suitable time zones. Our current geographic focus includes organisations seeking digital support in the following markets.</p>
+      </div>
+      <div className="homepage-international-grid">
+        {internationalMarkets.map(([title, href, description, flag], index) => (
+          <article className="homepage-market" key={title}>
+            <span className="homepage-market-index">{String(index + 1).padStart(2, "0")}</span>
+            <div className="homepage-market-icon">
+              <img src={flag} alt={`${title} flag`} width="74" height="74" loading="lazy" decoding="async" />
+            </div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <a href={href}>Explore {title === "United Arab Emirates" ? "the UAE" : title} <ArrowRight size={15} aria-hidden="true" /></a>
+          </article>
+        ))}
+      </div>
+      <div className="homepage-international-notes">
+        <p>The homepage remains globally positioned, while dedicated country and service pages can address location-specific search intent.</p>
+        <p>Regional availability does not imply a local office, local employees or a physical presence unless independently verified.</p>
+      </div>
+    </section>
 
-    <Block number="10" title="Built With Performance, Usability and Long-Term Value in Mind"><p>Digital quality involves more than appearance.</p><p>Depending on the project, our work may consider:</p><ul className="homepage-benefit-list">{["Mobile responsiveness", "Website performance", "Technical SEO", "Accessibility", "Scalable content management", "Security practices", "Analytics integration", "Conversion-focused structure", "Browser compatibility", "Maintainable development", "Third-party integrations", "Ongoing support"].map((item) => <li key={item}>{item}</li>)}</ul><p>Our full-service digital agency approach allows technical, visual and marketing considerations to be reviewed within the wider context of the business.</p><p>The technologies and methods used are selected according to project requirements rather than a fixed platform preference.</p></Block>
+    <section className="homepage-performance" aria-labelledby="homepage-performance-title">
+      <div className="homepage-performance-heading">
+        <span>Built for Better Outcomes</span>
+        <h2 id="homepage-performance-title">Built With Performance, Usability and Long-Term Value in Mind</h2>
+        <p>Digital quality involves more than appearance. Depending on the project, our work may consider:</p>
+      </div>
+      <div className="homepage-performance-cards">
+        {performanceBenefits.map((item, index) => {
+          const rotation = (index - (performanceBenefits.length - 1) / 2) * 1.35;
+          return (
+            <article
+              className="homepage-performance-card"
+              style={{ "--card-rotation": `${rotation}deg` }}
+              key={item}
+            >
+              <small>Focus</small>
+              <strong>{String(index + 1).padStart(2, "0")}</strong>
+              <h3>{item}</h3>
+            </article>
+          );
+        })}
+      </div>
+      <div className="homepage-performance-copy">
+        <p>Our full-service digital agency approach allows technical, visual and marketing considerations to be reviewed within the wider context of the business.</p>
+        <p>The technologies and methods used are selected according to project requirements rather than a fixed platform preference.</p>
+      </div>
+    </section>
 
     <Block number="11" title="What Clients Say About Working With Vorevix"><p>Client feedback can help potential customers understand the quality of communication, collaboration, delivery and ongoing support.</p><a className="homepage-text-link" href="/portfolio">View Our Portfolio <ArrowRight size={16} aria-hidden="true"/></a></Block>
 
-    <Block number="12" title="Frequently Asked Questions" className="homepage-faqs"><FaqList/></Block>
+    <section className="homepage-faqs" aria-labelledby="homepage-faq-title">
+      <div className="homepage-faq-heading">
+        <span>FAQs</span>
+        <h2 id="homepage-faq-title">Frequently Asked Questions</h2>
+        <p>Clear answers to common questions about working with Vorevix.</p>
+      </div>
+      <FaqList />
+      <p className="homepage-faq-contact">Have another question? <a href="/contact">Contact Us <ArrowRight size={14} aria-hidden="true" /></a></p>
+    </section>
 
     <Block number="13" title="Insights for Better Digital Decisions"><p>Explore practical insights covering website strategy, web design, web development, SEO, branding, UI/UX, digital marketing and business growth.</p><p>Useful and original content can help businesses make informed digital decisions while strengthening the clarity, topical relevance and machine-readable understanding of the Vorevix website.</p><a className="homepage-text-link" href="/blog">View All Insights <ArrowRight size={16} aria-hidden="true"/></a></Block>
 

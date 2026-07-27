@@ -174,8 +174,8 @@
 }
 
 .animations-ready .hero-line {
-  overflow: hidden;
-  clip-path: inset(0 100% 0 0);
+  overflow: visible;
+  clip-path: inset(-20% 100% -25% 0);
   animation: heroTextWipe 950ms var(--motion-ease) both;
 }
 
@@ -196,14 +196,9 @@
 }
 
 .animations-ready .hero-line-accent {
-  background: linear-gradient(90deg, #ff6b00, #ff9d00, #ff6b00);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation:
-    heroTextWipe 950ms var(--motion-ease) 540ms both,
-    accentFlow 3.8s ease-in-out 1.4s infinite;
-  color: transparent;
+  background: none;
+  animation: heroTextWipe 950ms var(--motion-ease) 540ms both;
+  color: #ff6b00;
 }
 
 .quote-mark {
@@ -349,11 +344,13 @@ a {
 
 @keyframes heroTextWipe {
   from {
-    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    clip-path: inset(-20% 100% -25% 0);
     transform: translate3d(-18px, 0, 0);
   }
   to {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    clip-path: inset(-20% 0 -25% 0);
     transform: translate3d(0, 0, 0);
   }
 }

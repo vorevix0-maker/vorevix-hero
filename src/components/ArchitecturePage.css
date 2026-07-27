@@ -30,7 +30,7 @@
 }
 
 .architecture-breadcrumbs a {
-  color: #0d5c26;
+  color: #ff6b00;
   text-decoration: none;
 }
 
@@ -50,7 +50,8 @@
 
 .architecture-intro h1 {
   margin: 18px 0 0;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: clamp(40px, 6vw, 72px);
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -72,20 +73,22 @@
   gap: 32px;
   padding: 34px;
   border-radius: 18px;
-  background: #102512;
-  color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  color: #111111;
 }
 
 .architecture-cta h2 {
   margin: 10px 0 0;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: clamp(24px, 3vw, 38px);
 }
 
 .architecture-cta p {
   max-width: 650px;
   margin: 12px 0 0;
-  color: rgba(255, 255, 255, 0.76);
+  color: #555b61;
   line-height: 1.65;
 }
 
@@ -97,8 +100,8 @@
   min-height: 48px;
   padding: 0 20px;
   border-radius: 999px;
-  background: #ffffff;
-  color: #102512;
+  background: #ff6b00;
+  color: #ffffff;
   font-size: 13px;
   font-weight: 900;
   text-decoration: none;

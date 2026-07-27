@@ -1,9 +1,7 @@
 .seo-page {
   min-height: 100vh;
   padding: 154px 6vw 90px;
-  background:
-    radial-gradient(circle at 88% 12%, rgba(255, 107, 0, 0.1), transparent 26%),
-    linear-gradient(180deg, #ffffff 0%, #fff8ef 100%);
+  background: #ffffff;
   color: #111;
 }
 
@@ -31,10 +29,10 @@
   max-width: 980px;
   margin: 0;
   color: #111;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
   font-size: clamp(42px, 6vw, 76px);
   line-height: 1;
-  font-weight: 950;
+  font-weight: 400;
   letter-spacing: -0.04em;
 }
 
@@ -95,10 +93,10 @@
 .seo-page-section h2 {
   margin: 0 0 14px;
   color: #111;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
   font-size: clamp(22px, 2.2vw, 30px);
   line-height: 1.2;
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .seo-page-section p {

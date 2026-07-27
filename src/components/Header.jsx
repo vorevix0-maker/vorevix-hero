@@ -22,6 +22,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const pathname = window.location.pathname;
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -36,6 +37,17 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMenuOpen]);
+
   const currentPage = (href) => pathname === href;
   const linkProps = (href) => ({
     className: currentPage(href) ? "active" : undefined,
@@ -43,9 +55,13 @@ export default function Header() {
   });
 
   return (
-    <header className={`hero-header ${isMenuOpen ? "nav-open" : ""}`}>
+    <header className={`hero-header ${isHome ? "home-header" : ""} ${isMenuOpen ? "nav-open" : ""}`}>
       <a href="/" className="header-logo" aria-label="Vorevix home">
-        <img src="/vorevix-logo.png" alt="Vorevix" />
+        {isHome ? (
+          <img className="home-wordmark-image" src="/images/vorevix-header-logo.png" alt="Vorevix — Smart Solutions. Real Growth" />
+        ) : (
+          <img src="/vorevix-logo.png" alt="Vorevix" />
+        )}
       </a>
 
       <nav className="header-nav" id="primary-navigation" aria-label="Primary navigation">
@@ -117,7 +133,7 @@ export default function Header() {
       </nav>
 
       <a href="/contact" className={`header-btn ${currentPage("/contact") ? "active" : ""}`} {...(currentPage("/contact") ? { "aria-current": "page" } : {})}>
-        Contact <ArrowRight size={18} aria-hidden="true" />
+        {isHome ? "Let’s Talk" : "Contact"} <ArrowRight size={18} aria-hidden="true" />
       </a>
 
       <button
@@ -129,6 +145,7 @@ export default function Header() {
         onClick={() => setIsMenuOpen((open) => !open)}
       >
         {isMenuOpen ? <X size={26} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
+        {isHome && <span>Menu</span>}
       </button>
     </header>
   );

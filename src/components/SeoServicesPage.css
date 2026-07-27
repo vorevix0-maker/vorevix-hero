@@ -14,7 +14,7 @@
 
 .seo-services-page .seo-prose a,
 .seo-services-page .wd-card a {
-  color: #0d5c26;
+  color: var(--wd-orange);
   font-weight: 800;
 }
 
@@ -42,7 +42,8 @@
 .seo-why-grid h3,
 .seo-faq-grid h3 {
   margin: 0 0 12px;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: 20px;
 }
 

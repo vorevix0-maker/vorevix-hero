@@ -1,7 +1,6 @@
 .portfolio-page {
   min-height: 100vh;
-  background:
-    linear-gradient(180deg, #f7fbf4 0%, #ffffff 34%, #fff7f0 100%);
+  background: #ffffff;
   color: #151515;
   overflow: hidden;
 }
@@ -23,7 +22,8 @@
 .portfolio-section-heading h2,
 .portfolio-cta h2,
 .botanics-logo-panel h3 {
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -32,10 +32,10 @@
   display: inline-flex;
   width: fit-content;
   align-items: center;
-  border: 1px solid rgba(13, 92, 38, 0.18);
+  border: 1px solid rgba(255, 107, 0, 0.24);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.82);
-  color: #0d5c26;
+  color: #ff6b00;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -48,7 +48,7 @@
   margin: 22px 0 20px;
   font-size: clamp(42px, 6vw, 76px);
   line-height: 0.96;
-  color: #102512;
+  color: #111111;
 }
 
 .portfolio-hero-copy p {
@@ -82,10 +82,10 @@
   min-height: 48px;
   border: none;
   border-radius: 999px;
-  background: #0d5c26;
+  background: #ff6b00;
   color: #ffffff;
   padding: 0 20px;
-  box-shadow: 0 18px 38px rgba(13, 92, 38, 0.22);
+  box-shadow: 0 18px 38px rgba(255, 107, 0, 0.22);
   cursor: pointer;
   font: inherit;
 }
@@ -93,8 +93,8 @@
 .portfolio-secondary-link {
   min-height: 48px;
   border-radius: 999px;
-  border: 1px solid rgba(13, 92, 38, 0.18);
-  color: #0d5c26;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  color: #111111;
   padding: 0 20px;
   background: rgba(255, 255, 255, 0.72);
 }
@@ -141,7 +141,7 @@
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
-  color: #0d5c26;
+  color: #ff6b00;
   padding: 12px 16px;
   font-size: 13px;
   font-weight: 900;
@@ -182,7 +182,7 @@
   overflow: hidden;
   text-decoration: none;
   color: #ffffff;
-  background: #102512;
+  background: #111111;
   box-shadow: 0 24px 64px rgba(25, 34, 22, 0.14);
 }
 
@@ -293,12 +293,12 @@
 .visual-open-card button {
   width: 100%;
   min-height: 150px;
-  border: 1px solid rgba(13, 92, 38, 0.16);
+  border: 1px solid rgba(17, 17, 17, 0.12);
   border-radius: 8px;
   background:
     linear-gradient(135deg, rgba(255, 190, 48, 0.22), rgba(255, 255, 255, 0)),
     #ffffff;
-  color: #102512;
+  color: #111111;
   cursor: pointer;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -311,7 +311,7 @@
 
 .visual-open-card span {
   grid-column: 1 / -1;
-  color: #0d5c26;
+  color: #ff6b00;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -319,7 +319,8 @@
 }
 
 .visual-open-card strong {
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: clamp(26px, 4vw, 44px);
   line-height: 1;
 }
@@ -374,7 +375,7 @@
 
 .product-card-copy span,
 .campaign-card span {
-  color: #0d5c26;
+  color: #ff6b00;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -459,7 +460,7 @@
   border: 0;
   border-radius: 50%;
   background: #f1f3ef;
-  color: #102512;
+  color: #111111;
   cursor: pointer;
 }
 
@@ -490,8 +491,8 @@
 }
 
 .botanics-intro .portfolio-kicker {
-  background: #eef5ec;
-  color: #184d35;
+  background: #fff3e8;
+  color: #ff6b00;
 }
 
 .botanics-showcase {
@@ -541,7 +542,9 @@
   bottom: 24px;
   max-width: 520px;
   margin: 0 auto;
-  color: #173f2e;
+  color: #111111;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: clamp(25px, 3vw, 40px);
   line-height: 1.08;
 }
@@ -564,7 +567,7 @@
 }
 
 .botanics-card span {
-  color: #184d35;
+  color: #ff6b00;
 }
 
 .botanics-support {
@@ -930,16 +933,15 @@
   margin-top: 80px;
   margin-bottom: 92px;
   border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(255, 188, 43, 0.18), rgba(255, 255, 255, 0)),
-    #102512;
-  color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #ffffff;
+  color: #111111;
   text-align: center;
   padding: 62px 24px;
 }
 
 .portfolio-cta span {
-  color: #ffcf5c;
+  color: #ff6b00;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -948,7 +950,7 @@
 
 .portfolio-cta h2 {
   max-width: 780px;
-  color: #ffffff;
+  color: #111111;
   margin-left: auto;
   margin-right: auto;
 }
@@ -960,8 +962,8 @@
   margin: 26px auto 0;
   border: none;
   border-radius: 999px;
-  background: #ffffff;
-  color: #102512;
+  background: #ff6b00;
+  color: #ffffff;
   padding: 0 22px;
   cursor: pointer;
   font: inherit;

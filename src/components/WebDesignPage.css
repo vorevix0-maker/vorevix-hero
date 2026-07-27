@@ -17,7 +17,7 @@
 
 .web-design-prose a,
 .web-design-why a {
-  color: #0d5c26;
+  color: var(--wd-orange);
   font-weight: 800;
 }
 
@@ -44,7 +44,8 @@
 .web-design-why h3,
 .web-design-faq-grid h3 {
   margin: 18px 0 12px;
-  font-family: "Eurostile Extended", "Montserrat", sans-serif;
+  font-family: "Anton", "Arial Narrow", sans-serif;
+  font-weight: 400;
   font-size: 20px;
 }
 
@@ -54,14 +55,15 @@
 }
 
 .web-design-regional-note { margin: 24px 0 0; color: var(--wd-muted); font-size: 15px; font-weight: 600; line-height: 1.7; }
-.web-design-regional-note a { color: #0d5c26; font-weight: 800; }
+.web-design-regional-note a { color: var(--wd-orange); font-weight: 800; }
 
 .web-design-callout {
   width: min(1280px, calc(100% - 32px));
   padding-right: 50px;
   padding-left: 50px;
   border-radius: 32px;
-  background: #f7f8f4;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #ffffff;
 }
 
 .web-design-page blockquote {
