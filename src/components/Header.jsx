@@ -22,7 +22,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const pathname = window.location.pathname;
-  const isHome = pathname === "/";
+  const useHomeHeader = true;
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -55,9 +55,9 @@ export default function Header() {
   });
 
   return (
-    <header className={`hero-header ${isHome ? "home-header" : ""} ${isMenuOpen ? "nav-open" : ""}`}>
+    <header className={`hero-header home-header ${isMenuOpen ? "nav-open" : ""}`}>
       <a href="/" className="header-logo" aria-label="Vorevix home">
-        {isHome ? (
+        {useHomeHeader ? (
           <img
             className="home-wordmark-image"
             src={isMenuOpen ? "/images/vorevix-header-logo-white.png" : "/images/vorevix-header-logo.png"}
@@ -137,7 +137,7 @@ export default function Header() {
       </nav>
 
       <a href="/contact" className={`header-btn ${currentPage("/contact") ? "active" : ""}`} {...(currentPage("/contact") ? { "aria-current": "page" } : {})}>
-        {isHome ? "Let’s Talk" : "Contact"} <ArrowRight size={18} aria-hidden="true" />
+        {useHomeHeader ? "Let’s Talk" : "Contact"} <ArrowRight size={18} aria-hidden="true" />
       </a>
 
       <button
@@ -149,7 +149,7 @@ export default function Header() {
         onClick={() => setIsMenuOpen((open) => !open)}
       >
         {isMenuOpen ? <X size={26} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
-        {isHome && <span>Menu</span>}
+        <span>Menu</span>
       </button>
     </header>
   );

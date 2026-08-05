@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 import BlogDashboard from "./components/BlogDashboard";
 import PortfolioPage from "./components/PortfolioPage";
 import PageAnimations from "./components/PageAnimations";
@@ -1474,16 +1475,9 @@ function App() {
           ]}
         />
         <Header />
-        <SeoContentPage
-          eyebrow="Contact"
-          title={contactPage.h1}
-          description={contactPage.body}
-          sections={contactPage.sections}
-          links={[
-            { label: "Explore Services", href: "/services" },
-            { label: "Email Vorevix", href: "mailto:contact@vorevix.com" },
-          ]}
-        />
+        <main>
+          <Contact />
+        </main>
         <Footer />
       </>
     );

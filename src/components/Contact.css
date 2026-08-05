@@ -1,5 +1,5 @@
 .contact-section {
-  padding: 68px 6vw 76px;
+  padding: 132px 6vw 76px;
   background: #fff;
   color: #111;
 }
@@ -245,7 +245,7 @@
 
 @media (max-width: 620px) {
   .contact-section {
-    padding: 52px 20px 62px;
+    padding: 104px 20px 62px;
   }
 
   .contact-heading {

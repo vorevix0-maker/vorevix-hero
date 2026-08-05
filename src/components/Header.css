@@ -374,7 +374,15 @@
   }
 
   .home-header .header-nav {
+    right: auto;
+    left: 0;
+    width: 100vw;
     padding: 100px 22px 42px;
+    transform: translateY(-10px);
+  }
+
+  .hero-header.home-header.nav-open .header-nav {
+    transform: translateY(0);
   }
 }
 
@@ -532,6 +540,17 @@
 
   .header-menu-toggle svg {
     stroke-width: 3;
+  }
+
+  .hero-header.home-header .header-nav {
+    right: auto;
+    left: 0;
+    width: 100vw;
+    transform: translateY(-10px);
+  }
+
+  .hero-header.home-header.nav-open .header-nav {
+    transform: translateY(0);
   }
 }
 

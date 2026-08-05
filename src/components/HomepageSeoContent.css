@@ -1968,6 +1968,11 @@
     text-align: center;
   }
 
+  .homepage-seo-section .homepage-seo-block-heading {
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .homepage-seo-section .homepage-seo-block-heading,
   .homepage-seo-section .homepage-feature > div,
   .homepage-seo-section .homepage-service-list article,
