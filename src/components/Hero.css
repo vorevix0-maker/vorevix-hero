@@ -1262,6 +1262,39 @@
 }
 
 @media (max-width: 640px) {
+  .hero-cinematic,
+  .hero-title,
+  .hero-kicker,
+  .hero-trust,
+  .hero-about,
+  .hero-about-aside,
+  .hero-about-copy,
+  .hero-partner,
+  .hero-partner-details,
+  .hero-digital-partner,
+  .hero-digital-partner-copy,
+  .hero-disconnected,
+  .hero-disconnected-intro,
+  .hero-disconnected-list,
+  .hero-disconnected-close {
+    text-align: center;
+  }
+
+  .hero-about-copy > *,
+  .hero-partner-statement,
+  .hero-digital-partner-copy > *,
+  .hero-disconnected-intro p,
+  .hero-disconnected-close {
+    margin-inline: auto;
+  }
+
+  .hero-about-link,
+  .hero-partner-eyebrow,
+  .hero-digital-partner-label,
+  .hero-disconnected-label {
+    justify-content: center;
+  }
+
   .hero-disconnected {
     padding: 30px 20px 48px;
   }
@@ -1323,7 +1356,7 @@
 
   .hero-digital-partner-copy {
     margin: 42px 0 0;
-    padding-left: 22px;
+    padding-left: 0;
   }
 
   .hero-partner {
@@ -1515,6 +1548,23 @@
     opacity: 1;
     transform: none;
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title,
+  .hero-title .hero-line,
+  .hero-kicker,
+  .hero-about,
+  .hero-about-copy,
+  .hero-partner,
+  .hero-partner-details,
+  .hero-digital-partner,
+  .hero-digital-partner-copy,
+  .hero-disconnected,
+  .hero-disconnected-intro,
+  .hero-disconnected-close {
+    text-align: center;
   }
 }
 

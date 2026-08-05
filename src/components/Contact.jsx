@@ -11,8 +11,8 @@ const contactItems = [
   },
   {
     label: "Phone",
-    value: "+92 300 0000000",
-    href: "tel:+923000000000",
+    value: "+92 3185403464",
+    href: "tel:+923185403464",
     icon: Phone,
   },
   {
@@ -110,7 +110,7 @@ export default function Contact() {
 
             <label>
               Phone Number*
-              <input type="tel" name="phone" placeholder="+92 300 0000000" required />
+              <input type="tel" name="phone" placeholder="+92 3185403464" required />
             </label>
 
             <label>

@@ -1,39 +1,271 @@
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Palette } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  FileText,
+  LayoutGrid,
+  MonitorSmartphone,
+  Search,
+  ShoppingBag,
+  Workflow,
+} from "lucide-react";
 import { webDesignNewZealandFaqs } from "../webDesignNewZealandFaqs";
-import "./WebDevelopmentPage.css";
-import "./WebDevelopmentAustraliaPage.css";
-import "./WebDesignPage.css";
+import "./WebDesignNewZealandPage.css";
 
-const discovery = ["business goals and priority services", "target audiences and customer questions", "current website strengths and weaknesses", "competitor positioning", "required pages and content", "functional requirements", "internal approval processes", "launch priorities", "ongoing management needs"];
-const costs = ["number and complexity of pages", "research and strategy requirements", "wireframes and user journeys", "custom interface design", "content preparation", "eCommerce requirements", "integrations and functionality", "development responsibility", "testing and launch support", "number of stakeholders", "feedback and revision requirements", "post-launch support"];
-const process = [["Discovery", "We review the organisation, audience, goals, content, functionality and current digital position."], ["Structure", "We plan the sitemap, page relationships, content hierarchy and key visitor journeys."], ["Wireframes", "We organise major content blocks and calls to action before final visual styling."], ["Interface Design", "We create responsive visual direction and reusable page components based on the approved structure."], ["Development Coordination", "Design specifications, component behaviour and responsive requirements are prepared for implementation."], ["Review and Launch Support", "The website is reviewed against the agreed scope, with issues documented before launch."]];
-const reasons = ["goal-led planning", "information architecture", "user-journey and wireframe development", "responsive interface design", "design direction", "website redesign support", "eCommerce design coordination", "SEO-aware content structure", "accessibility-aware decisions", "remote collaboration"];
+const planningItems = [
+  "Business goals and priority services",
+  "Target audiences and customer questions",
+  "Current website strengths and weaknesses",
+  "Competitor positioning",
+  "Required pages and content",
+  "Functional requirements",
+  "Launch priorities",
+  "Ongoing management needs",
+];
 
-function List({ items }) { return <ul className="wd-checklist">{items.map((item) => <li key={item}>{item}</li>)}</ul>; }
-function Section({ title, children, tinted = false }) { return <section className={`wd-section wda-section web-design-content${tinted ? " wd-tinted" : ""}`}><div className="wd-section-heading"><h2>{title}</h2></div><div className="web-design-prose">{children}</div></section>; }
+const capabilities = [
+  {
+    title: "Information Architecture and Content Hierarchy",
+    body: "We plan sitemaps, page relationships, navigation labels and content hierarchy before detailed interface design. This creates clearer journeys, useful internal links and stronger foundations for future SEO work.",
+    icon: LayoutGrid,
+    visual: "sitemap",
+  },
+  {
+    title: "Wireframes and User-Journey Planning",
+    body: "Wireframes define where headings, content, calls to action and forms should appear. Journey planning makes relevant routes clearer for different visitors and reduces unnecessary friction.",
+    icon: Workflow,
+    visual: "wireframe",
+  },
+  {
+    title: "Responsive and Mobile-First Website Design",
+    body: "Our website design NZ process considers navigation, forms, images and interactions across phones, tablets and larger screens. Results also depend on content quality, implementation and the strength of the offer.",
+    icon: MonitorSmartphone,
+    visual: "responsive",
+  },
+  {
+    title: "Website Redesign",
+    body: "We review what should be retained, improved, reorganised or removed. A redesign may include revised information architecture, content hierarchy, wireframes, interface design and development coordination.",
+    icon: FileText,
+    visual: "redesign",
+  },
+  {
+    title: "eCommerce Website Design",
+    body: "We consider product discovery, category structure, product pages, filtering, trust signals, cart interactions and mobile shopping journeys. Payments, shipping and integrations require separate planning.",
+    icon: ShoppingBag,
+    visual: "commerce",
+  },
+];
+
+const process = [
+  ["Discovery", "Review goals, audience, content and functionality."],
+  ["Structure", "Plan the sitemap, relationships and visitor journeys."],
+  ["Wireframes", "Organise content and calls to action before styling."],
+  ["Interface Design", "Create responsive direction and components."],
+  ["Development Coordination", "Prepare behaviour and implementation specifications."],
+  ["Review and Launch Support", "Review the website against the agreed scope."],
+];
+
+const benefits = [
+  "Goal-led planning",
+  "Information architecture",
+  "User-journey and wireframe development",
+  "Responsive interface design",
+  "Website redesign support",
+  "eCommerce design coordination",
+  "SEO-aware content structure",
+  "Accessibility-aware decisions",
+  "Remote collaboration",
+  "Clear development handoff",
+];
+
+function InterfaceVisual({ type }) {
+  return (
+    <div className={`wdnz-mini-visual wdnz-mini-visual--${type}`} aria-hidden="true">
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+  );
+}
 
 export default function WebDesignNewZealandPage() {
   const [openFaq, setOpenFaq] = useState(0);
-  return <main className="web-development-page web-design-page wda-page">
-    <nav className="wd-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/services/web-design">Web Design</a></li><li aria-hidden="true">/</li><li><span aria-current="page">New Zealand</span></li></ol></nav>
-    <section className="wd-hero web-design-hero"><div className="wd-hero-copy"><span className="wd-eyebrow">Web Design New Zealand</span><h1>Website Design for New Zealand Businesses</h1><p>For organisations comparing website design NZ providers, the strongest option is not simply the most visually impressive website. A successful project should connect business goals, customer needs, content structure, responsive design and practical launch planning. Without that coordination, a website can look polished while still making information difficult to find or important actions unclear.</p><p>Vorevix provides strategy-led website design for New Zealand businesses through a structured remote process. We plan information architecture, content hierarchy, user journeys, responsive layouts, interface direction and development coordination around the needs of each organisation.</p><p>Our website design NZ approach does not rely on guaranteed sales, rankings or enquiries. Instead, we focus on creating clear, adaptable and professionally presented digital experiences that can support marketing, communication and customer decision-making.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Website Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></div><div className="wd-hero-visual web-design-visual"><img src="/service-web.png" alt="Responsive website interface designed by Vorevix" width="1183" height="1329" fetchPriority="high"/></div></section>
 
-    <Section title="Website Design NZ Built Around Business Goals"><p>A website design NZ project should have a defined role in the wider business. It may need to generate enquiries, explain a complex service, support online sales, present a portfolio, communicate credibility or help customers complete a task.</p><p>The design process begins by clarifying those priorities. We consider what visitors need to understand, which pages matter most, what actions should be easy to complete and how the website connects with the organisation’s wider brand and marketing activity.</p><p>This goal-led approach helps prevent unnecessary features and disconnected design decisions. It creates a practical foundation for page structure, content, functionality and visual direction.</p></Section>
-    <Section title="Discovery and Website Planning" tinted><p>Before layouts are created, Vorevix reviews the business, audience, current website and project requirements.</p><p>Discovery may cover:</p><List items={discovery}/><p>The output of discovery is not a promise of results. It is a clearer project direction that reduces avoidable assumptions before design work begins.</p></Section>
-    <Section title="Information Architecture and Content Hierarchy"><p>Information architecture determines how pages, sections and navigation work together. A visitor should be able to understand where they are, what the organisation offers and where to go next.</p><p>For website design NZ projects, we may plan a sitemap, page relationships, navigation labels and content hierarchy before detailed interface design begins. This helps separate essential information from secondary material and gives each page a more defined purpose.</p><p>Clear structure can make content easier to scan and support more consistent customer journeys. It can also provide stronger foundations for future SEO work by creating logical relationships between important pages.</p></Section>
-    <Section title="Wireframes and User-Journey Planning" tinted><p>Wireframes focus on structure before visual styling. They help establish where headings, content blocks, calls to action, forms, proof and supporting information should appear.</p><p>This stage allows key decisions to be reviewed early, when changes are generally easier to make. It also helps align design, content and development expectations.</p><p>User-journey planning considers how different visitors may move through the website. A first-time visitor may need introductory information, while a returning customer may want direct access to a service, product or contact option.</p><p>The goal is not to force every visitor through one rigid path. It is to make relevant paths clearer and reduce unnecessary friction.</p></Section>
-    <Section title="Responsive and Mobile-First Website Design"><p>People may access a website from phones, tablets, laptops and larger displays. Responsive design allows layouts to adapt across common screen sizes instead of treating the desktop version as the only important experience.</p><p>Our website design NZ work considers content priority, spacing, navigation, buttons, forms, images and interaction patterns across devices. Mobile-first planning can be particularly useful when essential actions must remain clear on smaller screens.</p><p>Responsive design can improve usability, but it does not guarantee conversions or customer satisfaction. Results still depend on content quality, technical implementation, audience expectations and the strength of the underlying offer.</p></Section>
-    <Section title="Website Redesign" tinted><p>A redesign may be appropriate when the existing website no longer reflects the business, performs poorly across devices, has unclear navigation or cannot support current content and functionality.</p><p>The first step is not automatically to replace everything. We review what should be retained, improved, reorganised or removed.</p><p>A redesign may involve updated information architecture, revised content hierarchy, new wireframes, refreshed interface design and coordination with development. Existing analytics and user feedback can also inform priorities where reliable data is available.</p><p>A new design cannot guarantee traffic or sales. It can, however, address identified usability, presentation and structural issues.</p></Section>
-    <Section title="eCommerce Website Design"><p>eCommerce projects require more than attractive product pages. Customers need to browse, compare, understand product details and move through cart and checkout steps with minimal confusion.</p><p>Depending on scope, eCommerce design may include category structure, product-page layouts, filtering, promotional content, cart interactions, checkout considerations and mobile shopping journeys.</p><p>Platform selection, payments, shipping, tax configuration and technical integrations require separate planning and verification. Vorevix will only include platform-specific work where it forms part of the agreed engagement.</p><p>Specialist eCommerce requirements may also connect with our <a href="/services/web-development-services">web development services</a> and <a href="/services/ui-ux-design-services">UI/UX design services</a>.</p></Section>
-    <Section title="SEO-Aware Website Design" tinted><p>Design decisions can affect how content is organised, linked and presented. SEO-aware design considers heading hierarchy, page relationships, navigation, content placement, crawlable structure and future optimisation needs.</p><p>Our website design NZ process can coordinate with keyword research and content planning without making ranking guarantees. Search visibility depends on technical quality, competition, authority, content relevance and ongoing optimisation.</p><p>Businesses needing deeper search support can explore our <a href="/services/seo-services">complete SEO services</a>.</p></Section>
-    <Section title="Accessibility-Aware Design"><p>Accessibility-aware design considers how different people read, navigate and interact with a website.</p><p>Relevant considerations may include contrast, readable type, heading structure, clear labels, keyboard access, form feedback and meaningful interaction states. These practices can support a wider range of users and often improve general usability.</p><p>Vorevix does not claim full WCAG compliance unless compliance requirements, testing responsibilities and technical implementation are explicitly included and verified within the project scope.</p></Section>
-    <Section title="Development Coordination and Quality Review" tinted><p>Design and development should not operate as disconnected stages. Approved layouts need to be translated into responsive, functional components while preserving content hierarchy and intended interactions.</p><p>Vorevix can coordinate design handoff, component behaviour, responsive requirements and implementation review with the development team.</p><p>When approved designs are ready for technical implementation, our <a href="/new-zealand/web-development">New Zealand website development service</a> can handle the build, integrations, testing and launch.</p><p>Quality review may include visual checks across common devices and browsers, interaction checks, content review and confirmation that essential pages and actions work as intended. Testing can reduce avoidable issues, but it cannot prove that every future device, browser update or user scenario will behave perfectly.</p><p>Projects requiring broader implementation can connect with our <a href="/services/web-development-services">complete web development services</a>.</p></Section>
-    <section className="wd-section wd-tinted"><div className="wd-section-heading"><h2>Our Website Design Process for New Zealand Teams</h2></div><div className="wd-process-grid">{process.map(([title, body]) => <article className="wd-process-card" key={title}><h3>{title}</h3><p>{body}</p></article>)}</div><p className="web-design-regional-note">Our <a href="/services/web-design">complete web design services</a> page explains the wider global methodology and deliverables in greater detail.</p></section>
-    <Section title="Remote Collaboration Across New Zealand"><p>Vorevix delivers website design NZ projects through remote meetings, documented decisions and milestone-based approvals.</p><p>We can work with founders, internal marketing teams, leadership groups and development partners across New Zealand business hours. Project communication may include discovery calls, design presentations, feedback rounds and written implementation notes.</p><p>National availability does not imply a New Zealand office, local phone number or New Zealand-based design team. Our model is based on structured remote collaboration with clear responsibilities and approval stages.</p></Section>
-    <Section title="What Influences Website Design Cost in New Zealand?" tinted><p>The cost of website design NZ projects depends on scope rather than one universal package.</p><p>Important factors may include:</p><List items={costs}/><p>Vorevix prepares a tailored proposal after reviewing the project. We do not publish unsupported NZD prices, GST statements or fixed delivery timelines.</p></Section>
-    <section className="wd-section"><div className="wd-section-heading"><h2>Why Choose Our Website Design NZ Approach?</h2><p>Our website design NZ approach combines business planning, user experience, responsive design and implementation awareness without forcing every organisation into the same package.</p></div><div className="wd-card-grid">{reasons.map((reason) => <article className="wd-card" key={reason}><Palette className="wd-card-icon" size={25} aria-hidden="true"/><h3>{reason}</h3></article>)}</div><div className="web-design-prose"><p>Explore <a href="/services/branding">branding</a>, <a href="/services/web-development-services">web development</a>, <a href="/services/seo-services">SEO</a>, <a href="/services/digital-marketing">digital marketing</a> and <a href="/portfolio">selected work</a>, or <a href="/contact">discuss your project</a>.</p></div></section>
-    <section className="wd-section wda-section wd-tinted"><div className="wd-section-heading"><h2>Frequently Asked Questions About Website Design in New Zealand</h2></div><div className="wda-faq-list">{webDesignNewZealandFaqs.map(([question, answer], index) => { const open = openFaq === index; const id = `web-design-nz-faq-${index}`; return <article className="wda-faq" key={question}><h3><button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpenFaq(open ? -1 : index)}>{question}<ChevronDown aria-hidden="true"/></button></h3><div id={id} hidden={!open}><p>{answer}</p></div></article>; })}</div></section>
-    <section className="wd-final-cta"><h2>Plan a Clearer Website for Your Business</h2><p>A strong website design NZ project should connect business goals, customer needs, content structure, responsive layouts and practical implementation.</p><p>Our website design NZ service helps New Zealand businesses plan and design websites that are clear, adaptable and aligned with their wider brand and marketing activity.</p><p>Share your current website, goals, required functionality and expected timeline. We will review the information and discuss the most suitable next step.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Website Project <ArrowRight size={18} aria-hidden="true"/></a></div></section>
-  </main>;
+  return (
+    <main className="wdnz-page">
+      <nav className="wdnz-breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/services/web-design">Web Design</a></li>
+          <li aria-hidden="true">/</li>
+          <li><span aria-current="page">New Zealand</span></li>
+        </ol>
+      </nav>
+
+      <section className="wdnz-hero">
+        <div className="wdnz-hero-copy">
+          <p className="wdnz-eyebrow">Website Design New Zealand</p>
+          <h1>Website Design for <span>New Zealand Businesses</span></h1>
+          <p>Vorevix provides professional website design for New Zealand businesses that need a clearer, faster and more effective digital presence. We combine strategy, information architecture, UX planning, responsive interface design and development coordination around business goals.</p>
+          <p>Our website design NZ service supports new websites, eCommerce platforms, landing pages and redesigns, with planning based on your audience, content, functionality and future growth.</p>
+          <div className="wdnz-actions">
+            <a className="wdnz-button wdnz-button--primary" href="/contact">Discuss Your Website Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wdnz-button" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+        <div className="wdnz-hero-visual">
+          <img
+            className="wdnz-hero-art"
+            src="/new-zealand-web-design-hero.png"
+            alt="Responsive website design displayed across desktop, tablet and mobile screens"
+            width="697"
+            height="480"
+            fetchPriority="high"
+          />
+        </div>
+      </section>
+
+      <section className="wdnz-section wdnz-intro">
+        <div>
+          <p className="wdnz-eyebrow">Goal-led design</p>
+          <h2>Website Design NZ Built Around Business Goals</h2>
+        </div>
+        <div className="wdnz-intro-copy">
+          <p>A strong website should explain your services clearly, guide visitors towards the right action and support marketing, communication and sales.</p>
+          <p>We first define what the website must achieve—generating enquiries, supporting sales, improving credibility or helping customers complete a task. These priorities shape its structure and direction.</p>
+          <blockquote>A website should have a clearly defined role within the wider business.</blockquote>
+        </div>
+      </section>
+
+      <section className="wdnz-section wdnz-planning">
+        <header className="wdnz-section-heading">
+          <p className="wdnz-eyebrow">Foundation first</p>
+          <h2>Discovery and Website Planning</h2>
+          <p>Before visual design begins, Vorevix reviews your organisation, audience, current website and requirements to create clear direction and reduce avoidable assumptions.</p>
+        </header>
+        <div className="wdnz-planning-dashboard">
+          <div className="wdnz-planning-core"><Search aria-hidden="true" /><strong>Project Direction</strong><span>Goals · Audience · Content · Function</span></div>
+          <ol>
+            {planningItems.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
+          </ol>
+        </div>
+      </section>
+
+      <section className="wdnz-section wdnz-capabilities">
+        <header className="wdnz-section-heading">
+          <p className="wdnz-eyebrow">Core capabilities</p>
+          <h2>Website Design That Connects Structure and Experience</h2>
+        </header>
+        <div className="wdnz-capability-list">
+          {capabilities.map(({ title, body, icon: Icon, visual }, index) => (
+            <article className={`wdnz-capability wdnz-capability--${index + 1}`} key={title}>
+              <div className="wdnz-capability-copy">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <Icon aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+              {visual === "responsive"
+                ? <img src="/responsive-accessible-design-showcase.png" alt="Responsive website shown across desktop, tablet and mobile screens" width="1672" height="941" loading="lazy" />
+                : <InterfaceVisual type={visual} />}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="wdnz-dark">
+        <div className="wdnz-dark-column">
+          <p className="wdnz-eyebrow">Search foundations</p>
+          <h2>SEO-Aware Website Design</h2>
+          <ul>{["Heading hierarchy", "Page relationships", "Crawlable navigation", "Content placement", "Internal linking", "Future optimisation foundations"].map((item) => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul>
+          <p className="wdnz-disclaimer">Search visibility depends on technical quality, competition, authority, content relevance and ongoing optimisation.</p>
+        </div>
+        <div className="wdnz-dark-link" aria-hidden="true"><span /><span /><span /></div>
+        <div className="wdnz-dark-column">
+          <p className="wdnz-eyebrow">Built for people</p>
+          <h2>Accessibility-Aware Design</h2>
+          <ul>{["Contrast", "Readable typography", "Clear labels", "Keyboard access", "Form feedback", "Meaningful interaction states"].map((item) => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul>
+          <p className="wdnz-disclaimer">Formal accessibility compliance depends on agreed requirements, testing and technical implementation.</p>
+        </div>
+      </section>
+
+      <section className="wdnz-section wdnz-development">
+        <header className="wdnz-section-heading">
+          <p className="wdnz-eyebrow">From design to launch</p>
+          <h2>Development Coordination and Quality Review</h2>
+          <p>Approved designs must be translated into responsive, functional components. Development is included only when agreed within the project scope.</p>
+        </header>
+        <div className="wdnz-delivery-flow">
+          {["Approved Design", "Component Specifications", "Responsive Behaviour", "Development Coordination", "Quality Review", "Launch"].map((item) => <span key={item}>{item}<ArrowRight aria-hidden="true" /></span>)}
+        </div>
+        <p className="wdnz-quality">Device checks · Browser checks · Interaction review · Content review · Responsive verification</p>
+      </section>
+
+      <section className="wdnz-section wdnz-process">
+        <header className="wdnz-section-heading">
+          <p className="wdnz-eyebrow">A clear route forward</p>
+          <h2>Our Website Design Process for New Zealand Teams</h2>
+        </header>
+        <ol>
+          {process.map(([title, body], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}
+        </ol>
+      </section>
+
+      <section className="wdnz-section wdnz-remote">
+        <div>
+          <p className="wdnz-eyebrow">Structured remote delivery</p>
+          <h2>Remote Collaboration Across New Zealand</h2>
+          <p>Vorevix delivers website design NZ projects through remote meetings, documented decisions and milestone-based approvals. We work with businesses across New Zealand without implying a physical local office or New Zealand-based team.</p>
+        </div>
+        <div className="wdnz-remote-flow" aria-label="Remote collaboration workflow">
+          {["Project Brief", "Remote Meeting", "Design Presentation", "Feedback Round", "Milestone Approval", "Delivery"].map((item, index) => <span key={item}><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}
+        </div>
+      </section>
+
+      <section className="wdnz-section wdnz-benefits">
+        <div className="wdnz-benefits-statement">
+          <p className="wdnz-eyebrow">Why Vorevix</p>
+          <h2>Why Choose Our Website Design NZ Approach?</h2>
+          <p>We connect planning, user experience, responsive design and implementation awareness without forcing every organisation into the same package.</p>
+          <strong>We do not use unsupported guarantees, fake results or one-size-fits-all solutions.</strong>
+        </div>
+        <ol>{benefits.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
+      </section>
+
+      <section className="wdnz-section wdnz-faq">
+        <header className="wdnz-section-heading">
+          <p className="wdnz-eyebrow">FAQ</p>
+          <h2>Frequently Asked Questions About Website Design in New Zealand</h2>
+        </header>
+        <div>
+          {webDesignNewZealandFaqs.map(([question, answer], index) => {
+            const open = openFaq === index;
+            const id = `wdnz-faq-${index}`;
+            return (
+              <article className={open ? "is-open" : ""} key={question}>
+                <h3><button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpenFaq(open ? -1 : index)}><span>{String(index + 1).padStart(2, "0")}</span>{question}<ChevronDown aria-hidden="true" /></button></h3>
+                <div id={id} hidden={!open}><p>{answer}</p></div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="wdnz-final-cta">
+        <div>
+          <p className="wdnz-eyebrow">Start a conversation</p>
+          <h2>Plan a Clearer Website for Your Business</h2>
+          <p>Tell us about your current website, goals, required functionality and expected timeline. Vorevix will review your requirements and recommend the most suitable next step for your New Zealand business.</p>
+          <div className="wdnz-actions">
+            <a className="wdnz-button wdnz-button--primary" href="/contact">Discuss Your Website Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wdnz-button" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+        <div className="wdnz-cta-interface" aria-hidden="true"><span /><span /><span /><span /></div>
+      </section>
+    </main>
+  );
 }

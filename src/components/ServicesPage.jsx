@@ -163,7 +163,18 @@ export default function ServicesPage() {
             <p>Vorevix connects these areas through one coordinated process.</p>
           </div>
           <ol className="services-integrated-list">
-            {integratedItems.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
+            {integratedItems.map((item, index) => {
+              const rotation = (index - (integratedItems.length - 1) / 2) * 1.35;
+              return (
+                <li
+                  key={item}
+                  style={{ "--card-rotation": `${rotation}deg` }}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {item}
+                </li>
+              );
+            })}
           </ol>
         </div>
         <p className="services-closing">This helps reduce gaps between design, development and promotion. It also ensures that each part of the project contributes to a shared objective.</p>

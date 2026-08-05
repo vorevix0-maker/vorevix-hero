@@ -1,74 +1,329 @@
-import { useState } from "react";
-import { ArrowRight, ChevronDown, LayoutTemplate } from "lucide-react";
-import { webDesignAustraliaFaqs } from "../webDesignAustraliaFaqs";
+import { useEffect, useRef, useState } from "react";
+import {
+  Accessibility,
+  ArrowRight,
+  Blocks,
+  BriefcaseBusiness,
+  Building2,
+  CheckCircle2,
+  ChevronDown,
+  ClipboardList,
+  Cloud,
+  Code2,
+  Compass,
+  FileSearch,
+  Gauge,
+  History,
+  LayoutTemplate,
+  MessageSquare,
+  MonitorSmartphone,
+  MousePointerClick,
+  Palette,
+  PanelsTopLeft,
+  PencilRuler,
+  RefreshCw,
+  Search,
+  ShoppingCart,
+  Store,
+  Target,
+} from "lucide-react";
 import "./WebDevelopmentPage.css";
-import "./WebDevelopmentAustraliaPage.css";
+import "./WebDesignAustraliaPage.css";
 
 const services = [
-  ["Custom Website Design", "Custom design gives your website a structure and visual system shaped around your business instead of forcing content into a generic template. We create layouts that reflect your brand, communicate your offer clearly and support the actions you want users to take."],
-  ["Responsive and Mobile-First Design", "Australian customers may discover your website on a phone, continue browsing on a laptop and return later on another device. We plan navigation, spacing, forms, images and calls to action so the experience remains clear across screen sizes."],
-  ["Website Redesign", "A redesign can improve structure, navigation, accessibility and conversion pathways without discarding what already works. We review the current experience, identify friction points and determine which pages, features and content should be retained, improved or reorganised."],
-  ["eCommerce Website Design", "eCommerce design should make product discovery, evaluation and purchase feel simple. We can plan category structures, product pages, trust signals, mobile shopping journeys and important checkout touchpoints. The goal is not to add unnecessary visual effects. It is to reduce uncertainty and help customers move through the buying process with confidence."],
-  ["Business and Corporate Website Design", "Service businesses and corporate organisations often need to communicate credibility and complex information without overwhelming visitors. We design structured websites that help users understand services, evidence and next steps."],
-  ["UX and UI Design", <>UX planning focuses on structure, journeys and usability. UI design creates the visual language, components and responsive behaviours that bring those decisions to life. For projects requiring deeper research, prototyping or interface planning, the website can also connect with our dedicated <a href="/services/ui-ux-design-services">UI/UX design services</a>.</>],
+  {
+    icon: LayoutTemplate,
+    title: "Custom Website Design",
+    copy: "We create custom website layouts around your business, brand and audience instead of forcing content into a generic template. Structure, messaging and visual hierarchy support the actions you want users to take.",
+  },
+  {
+    icon: MonitorSmartphone,
+    title: "Responsive and Mobile-First Design",
+    copy: "We design navigation, forms, images and calls to action so the experience remains clear when customers move between phone, tablet and desktop.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Website Redesign",
+    copy: "We review the current website, identify friction points and decide what should be retained, improved or reorganised to strengthen structure, accessibility and conversion pathways.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "eCommerce Website Design",
+    copy: "Our approach considers product discovery, category structure, product pages, trust signals and mobile shopping journeys so customers can buy with greater confidence.",
+  },
+  {
+    icon: Building2,
+    title: "Business and Corporate Website Design",
+    copy: "We design professional websites for service businesses, consultancies and corporate organisations that need to communicate expertise, credibility and complex information clearly.",
+  },
+  {
+    icon: PanelsTopLeft,
+    title: "UX and UI Design",
+    copy: "UX planning defines structure, user journeys and usability. UI design creates the visual system, components and responsive behaviours that bring those decisions to life.",
+  },
 ];
 
 const performance = [
-  ["Clear User Journeys", "We organise pages around the questions users are likely to ask. Navigation, headings, related links and calls to action work together to help visitors move naturally through the website."],
-  ["Conversion-Focused Layouts", "Conversion-focused design means giving users enough clarity, evidence and direction to take the next appropriate step, whether that is making an enquiry, requesting a quote, viewing work or exploring another service."],
-  ["SEO-Ready Structure", <>Design and SEO are most effective when considered together. We plan logical page hierarchy, crawlable navigation, content sections and internal-link opportunities. An SEO-ready structure supports future optimisation, but it does not guarantee rankings. Search performance also depends on content quality, technical implementation, authority and ongoing <a href="/services/seo-services">SEO strategy</a>.</>],
-  ["Accessibility Considerations", "Accessible design helps more people understand and use a website. We consider readable contrast, sensible type sizes, keyboard-aware interactions, descriptive labels and clear visual states where they apply. Accessibility requirements can vary, so formal compliance claims should always be based on an agreed audit and implementation scope."],
-  ["Responsive Performance", "Large media, unnecessary effects and complicated layouts can damage the experience. Our design decisions consider how pages will behave during development, including image use, component complexity and content priorities."],
-  ["Scalable Design Systems", "Reusable patterns help a website remain consistent as it grows. Buttons, forms, cards, headings and spacing can be documented so future pages feel connected to the original design."],
+  [Compass, "Clear User Journeys"],
+  [MousePointerClick, "Conversion-Focused Layouts"],
+  [Search, "SEO-Ready Structure"],
+  [Accessibility, "Accessibility Considerations"],
+  [Gauge, "Responsive Performance"],
+  [Blocks, "Scalable Design Systems"],
 ];
 
 const process = [
-  ["Discovery and Project Goals", "We begin by discussing your business, audience, current challenges, competitors, technical needs and desired outcomes. This stage establishes priorities and prevents design decisions from being based on assumptions."],
-  ["Research and Website Structure", "We review available information and plan the website hierarchy, including navigation, page groups, service relationships and conversion paths."],
-  ["Wireframes and UX Planning", "Wireframes define page structure before detailed styling begins. They help both teams review information order, content needs and user journeys."],
-  ["Visual Design", "Once the structure is approved, we develop the visual direction using your brand identity, content priorities and audience expectations. Responsive layouts and reusable components are considered throughout the design stage."],
-  ["Feedback and Refinement", "Feedback is collected at agreed stages and documented clearly. This makes revisions more efficient and prevents conflicting changes."],
-  ["Development or Handoff", <>Vorevix can connect design with <a href="/services/web-development-services">development</a> or prepare organised files and specifications for an approved development team. The exact handoff depends on the project scope, platform and technical requirements.</>],
-  ["Launch and Ongoing Support", "Before launch, the website should be reviewed across important devices, browsers, content states and forms. Ongoing support can also be discussed for updates and future improvements."],
+  [Target, "Discovery and Project Goals", "We discuss your business, audience, challenges, competitors, technical needs and desired outcomes."],
+  [FileSearch, "Research and Website Structure", "We plan the website hierarchy, navigation, page groups and conversion paths."],
+  [PencilRuler, "Wireframes and UX Planning", "Wireframes define page structure, content order and user journeys before detailed styling."],
+  [Palette, "Visual Design", "We develop the visual direction using your brand identity, priorities and audience expectations."],
+  [MessageSquare, "Feedback and Refinement", "Feedback is collected at agreed stages so revisions remain focused and efficient."],
+  [Code2, "Development or Handoff", "Vorevix can connect design with development or prepare organised files for an approved development team."],
+];
+
+const collaboration = [
+  [ClipboardList, "Brief"],
+  [BriefcaseBusiness, "Planned Meeting"],
+  [CheckCircle2, "Milestone Review"],
+  [MessageSquare, "Documented Feedback"],
+  [Code2, "Delivery"],
 ];
 
 const businessTypes = [
-  ["Small and Growing Businesses", "Growing businesses often need a website that improves credibility, explains services and supports a more professional sales process. The initial scope can focus on essential pages while keeping the structure flexible enough for future expansion."],
-  ["Professional Service Companies", "Consultancies and professional firms need to communicate expertise without relying on vague claims. Service architecture, case studies and clear enquiry paths can make complex offers easier to understand."],
-  ["eCommerce Brands", "Product-led businesses need responsive shopping journeys, useful product information and strong trust signals. Design should support browsing and purchasing without overwhelming customers with unnecessary choices."],
-  ["SaaS and Digital Products", "SaaS websites need to explain the product, audience, value and next step quickly. This may include feature pages, use cases, demos and product previews."],
-  ["Corporate Organisations", "Corporate websites may involve multiple audiences and approval processes. A structured content system helps keep information consistent while giving users clear paths."],
-  ["Businesses Replacing Outdated Websites", "Older websites may have weak mobile behaviour, difficult editing systems or content that no longer reflects the organisation. A redesign can improve the experience while carefully managing important pages and redirects."],
+  [Store, "Small and Growing Businesses"],
+  [BriefcaseBusiness, "Professional Service Companies"],
+  [ShoppingCart, "eCommerce Brands"],
+  [Cloud, "SaaS and Digital Products"],
+  [Building2, "Corporate Organisations"],
+  [History, "Businesses Replacing Outdated Websites"],
 ];
 
-function Cards({items}) { return <div className="wd-card-grid">{items.map(([title,body])=><article className="wd-card" key={title}><LayoutTemplate className="wd-card-icon" aria-hidden="true"/><h3>{title}</h3><p>{body}</p></article>)}</div>; }
-function List({items}) { return <ul className="wd-checklist">{items.map(item=><li key={item}>{item}</li>)}</ul>; }
-function Section({title,children,tinted=false}) { return <section className={`wd-section wda-section${tinted?" wd-tinted":""}`}><div className="wd-section-heading"><h2>{title}</h2></div><div className="wda-prose">{children}</div></section>; }
-function Faq({faq,index}) { const [open,setOpen]=useState(index===0); const id=`wdesign-au-faq-${index}`; return <article className="wda-faq"><h3><button type="button" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(!open)}>{faq.question}<ChevronDown aria-hidden="true"/></button></h3><div id={id} hidden={!open}>{faq.answer.map(p=><p key={p}>{p}</p>)}</div></article>; }
+const reasons = [
+  "Strategy before decoration",
+  "Custom website layouts",
+  "Responsive UX and UI design",
+  "SEO-aware website structure",
+  "Clear project stages",
+  "Development-ready deliverables",
+  "Honest communication",
+];
 
-export default function WebDesignAustraliaPage(){
-  return <main className="web-development-page wda-page">
-    <nav className="wd-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/services/web-design">Web Design</a></li><li aria-hidden="true">/</li><li><span aria-current="page">Australia</span></li></ol></nav>
-    <section className="wd-hero"><div className="wd-hero-copy"><span className="wd-eyebrow">Australian Web Design</span><h1>Web Design Services for Australian Businesses</h1><p>A strong website should do more than look polished. It should make your business easier to understand, guide users towards the right action and support growth across every device. Vorevix provides custom website strategy, UX planning, interface design and development-ready solutions for organisations that need a clearer and more effective digital presence.</p><p>Our approach to web design Australia is built around real business goals. We consider your audience, brand, content, conversion path and technical requirements before visual design begins. The result is a website that feels professional, works naturally for users and gives your team a stronger platform for marketing, sales and future growth.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Website Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></div><div className="wd-hero-visual"><img src="/service-web.png" alt="Web design Australia for growing businesses" width="1183" height="1329" fetchPriority="high"/></div></section>
+const faqs = [
+  ["How much does web design cost in Australia?", "Cost depends on page count, design complexity, content, eCommerce features, integrations, development scope and support needs. A tailored proposal is provided after reviewing the project."],
+  ["How long does a website design project take?", "Timelines vary according to scope, content readiness, feedback speed and technical requirements."],
+  ["Do you work with businesses across Australia?", "Yes. Vorevix works remotely with businesses across Australia using planned meetings, milestone reviews and documented feedback."],
+  ["Will the website be mobile-friendly?", "Yes. Responsive behaviour is planned for desktop, tablet and mobile layouts."],
+  ["Will the website be SEO-ready?", "The design can support SEO through logical structure, content hierarchy, crawlable navigation and internal linking. Technical SEO must be implemented correctly during development."],
+];
 
-    <Section title="Web Design Australia Built Around Business Goals"><p>A website is often one of the first places where customers assess a business. Confusing navigation, unclear messaging, slow pages or an outdated visual style can reduce trust before a conversation begins. Good design solves these problems by connecting user needs with practical commercial priorities.</p><p>Our web design Australia service begins by identifying what the website must achieve. That may include generating qualified enquiries, explaining complex services, supporting eCommerce sales, presenting a stronger brand or making information easier to find. Every design decision is then connected to those objectives.</p></Section>
+function Reveal({ as: Tag = "section", className = "", children, ...props }) {
+  const ref = useRef(null);
 
-    <section className="wd-section wda-section wd-tinted"><div className="wd-section-heading"><h2>Web Design Services for Australian Businesses</h2><p>Our web design Australia process adapts to each project while maintaining a focus on usability, clarity and performance.</p></div><Cards items={services}/></section>
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        element.classList.add("is-visible");
+        observer.disconnect();
+      }
+    }, { threshold: 0.08 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
-    <section className="wd-section wda-section"><div className="wd-section-heading"><h2>Websites Designed to Perform, Not Just Look Good</h2><p>Effective web design Australia balances visual quality with practical performance.</p></div><Cards items={performance}/></section>
+  return <Tag ref={ref} className={`wdaus-reveal ${className}`} {...props}>{children}</Tag>;
+}
 
-    <section className="wd-section wda-section wd-tinted"><div className="wd-section-heading"><h2>Our Web Design Process for Australian Clients</h2><p>A clear process reduces uncertainty and keeps feedback focused. Our web design Australia projects use agreed milestones so clients know what is being reviewed, what decisions are required and what happens next.</p></div><div className="wd-process-grid">{process.map(([title,body])=><article className="wd-process-card" key={title}><h3>{title}</h3><p>{body}</p></article>)}</div></section>
+function Heading({ eyebrow, title, copy, id }) {
+  return (
+    <div className="wdaus-heading">
+      {eyebrow && <span>{eyebrow}</span>}
+      <h2 id={id}>{title}</h2>
+      {copy && <p>{copy}</p>}
+    </div>
+  );
+}
 
-    <Section title="Remote Collaboration That Works Across Australia"><p>For web design Australia projects, Vorevix works remotely through organised communication, documented feedback and clearly agreed milestones. Remote collaboration should not mean unclear availability or scattered decisions.</p><p>Our web design Australia service is available to businesses across the country without implying a physical local office. Clear ownership, reliable communication and well-managed deliverables are what keep a remote project moving.</p></Section>
+function Faq({ question, answer, index, openIndex, setOpenIndex }) {
+  const open = openIndex === index;
+  const buttonId = `wdaus-faq-button-${index}`;
+  const panelId = `wdaus-faq-panel-${index}`;
+  return (
+    <article className={`wdaus-faq-item${open ? " is-open" : ""}`}>
+      <h3>
+        <button
+          id={buttonId}
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpenIndex(open ? -1 : index)}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          {question}
+          <ChevronDown aria-hidden="true" />
+        </button>
+      </h3>
+      <div id={panelId} role="region" aria-labelledby={buttonId} className="wdaus-faq-panel">
+        <div><p>{answer}</p></div>
+      </div>
+    </article>
+  );
+}
 
-    <section className="wd-section wda-section wd-tinted"><div className="wd-section-heading"><h2>Web Design for Different Business Needs</h2></div><Cards items={businessTypes}/></section>
+export default function WebDesignAustraliaPage() {
+  const [openFaq, setOpenFaq] = useState(0);
 
-    <Section title="Why Work With Vorevix"><p>Clients choose Vorevix for:</p><List items={["custom design shaped around business goals","responsive layouts for mobile and desktop","clear user journeys and content hierarchy","collaboration across design and development","organised remote delivery","SEO-ready website structure","reusable systems that support future growth","honest recommendations without unsupported guarantees"]}/><p>We position web design Australia as part of a wider digital strategy. A website should connect with brand identity, search visibility, content, technology and customer acquisition rather than operating as a separate creative exercise.</p></Section>
+  return (
+    <main className="wdaus-page">
+      <nav className="wd-breadcrumbs wdaus-breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/services/web-design">Web Design</a></li>
+          <li aria-hidden="true">/</li>
+          <li><span aria-current="page">Australia</span></li>
+        </ol>
+      </nav>
 
-    <Section title="How Web Design Australia Connects to Your Wider Digital Strategy" tinted><p>A website becomes more valuable when related services work together. Branding improves consistency, UI/UX strengthens journeys, development turns designs into a working experience and SEO supports discoverability.</p><p>Depending on your project, explore our <a href="/services/web-design">global web design services</a>, <a href="/services/web-development-services">web development services</a>, <a href="/services/ui-ux-design-services">UI/UX design services</a>, <a href="/services/seo-services">SEO services</a> and <a href="/services/branding">branding services</a>. Australia-focused identity projects can also use our <a href="/australia/branding-services">branding services for Australian businesses</a>. You can review <a href="/portfolio">our portfolio</a> or <a href="/contact">contact Vorevix</a>.</p></Section>
+      <Reveal className="wdaus-hero" aria-labelledby="wdaus-title">
+        <div className="wdaus-hero-copy">
+          <span className="wdaus-eyebrow">Australian Web Design</span>
+          <h1 id="wdaus-title">Web Design Services for <em>Australian Businesses</em></h1>
+          <p>Vorevix provides professional web design services for Australian businesses that need a clearer, faster and more effective online presence. We combine website strategy, UX planning, responsive UI design and development-ready execution.</p>
+          <p>Whether you need a business website, eCommerce store, landing page or complete redesign, our web design Australia service is planned around your audience, content, conversion path and technical requirements.</p>
+          <div className="wdaus-actions">
+            <a className="wdaus-button wdaus-button-primary" href="/contact">Discuss Your Website Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wdaus-button wdaus-button-secondary" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+        <div className="wdaus-hero-visual" aria-label="Responsive website design preview">
+          <img src="/web-design-responsive-showcase.png" alt="Responsive website previews demonstrating professional web design for Australian businesses" width="1536" height="1024" fetchPriority="high" />
+        </div>
+      </Reveal>
 
-    <section className="wd-section wda-section"><div className="wd-section-heading"><h2>Frequently Asked Questions About Web Design in Australia</h2></div><div className="wda-faq-list">{webDesignAustraliaFaqs.map((faq,index)=><Faq faq={faq} index={index} key={faq.question}/>)}</div></section>
+      <Reveal className="wdaus-section wdaus-intro" aria-labelledby="wdaus-intro-title">
+        <div>
+          <span className="wdaus-eyebrow">Purpose before polish</span>
+          <h2 id="wdaus-intro-title">Web Design Australia Built Around Business Goals</h2>
+        </div>
+        <div className="wdaus-intro-copy">
+          <p>A strong website should do more than look polished. It should explain your offer clearly, guide visitors towards the right action and support growth across desktop, tablet and mobile devices.</p>
+          <p>We begin by identifying what the website must achieve—generating enquiries, supporting eCommerce sales, strengthening your brand, explaining complex services or making information easier to find.</p>
+          <blockquote>Every design decision should connect user needs with practical business priorities.</blockquote>
+        </div>
+      </Reveal>
 
-    <section className="wd-final-cta"><h2>Ready to Build a Better Website for Your Business?</h2><p>Your website should help people understand your business, trust your offer and take the next appropriate step. Vorevix combines clear strategy, responsive UX and organised remote delivery to create websites that support real business goals.</p><p>For your web design Australia project, share your current website, objectives, required features and preferred timeframe. We will review the information and discuss the most suitable next step.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Website Project <ArrowRight size={18} aria-hidden="true"/></a></div></section>
-  </main>;
+      <Reveal className="wdaus-section wdaus-services" aria-labelledby="wdaus-services-title">
+        <Heading eyebrow="Capabilities" id="wdaus-services-title" title="Web Design Services for Australian Businesses" />
+        <div className="wdaus-service-grid">
+          {services.map(({ icon: Icon, title, copy }, index) => (
+            <article className={`wdaus-service-card wdaus-service-${index + 1}`} key={title}>
+              <div className="wdaus-card-top"><Icon aria-hidden="true" /><span>{String(index + 1).padStart(2, "0")}</span></div>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+              <ArrowRight className="wdaus-card-arrow" aria-hidden="true" />
+              {index === 1 && <div className="wdaus-device-mini" aria-hidden="true"><i /><i /><i /></div>}
+              {index === 3 && <div className="wdaus-store-mini" aria-hidden="true"><i /><i /><i /></div>}
+              {index === 5 && <div className="wdaus-ui-mini" aria-hidden="true"><i /><i /><i /><i /></div>}
+            </article>
+          ))}
+        </div>
+      </Reveal>
+
+      <Reveal className="wdaus-performance" aria-labelledby="wdaus-performance-title">
+        <div className="wdaus-performance-inner">
+          <Heading eyebrow="Performance by design" id="wdaus-performance-title" title="Websites Designed to Perform, Not Just Look Good" copy="Effective web design Australia balances visual quality with practical performance." />
+          <div className="wdaus-performance-system">
+            <img
+              className="wdaus-performance-image"
+              src="/australia-web-design-performance.png"
+              alt="Responsive travel website displayed across desktop monitors and mobile devices"
+              width="1536"
+              height="1348"
+              loading="lazy"
+            />
+            <div className="wdaus-feature-nodes">
+              {performance.map(([Icon, label], index) => (
+                <div className={`wdaus-feature-node node-${index + 1}`} key={label}>
+                  <Icon aria-hidden="true" />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="wdaus-disclaimer">SEO-ready structure supports future optimisation, but rankings also depend on content quality, technical implementation, competition and authority.</p>
+        </div>
+      </Reveal>
+
+      <Reveal className="wdaus-section wdaus-process" aria-labelledby="wdaus-process-title">
+        <Heading eyebrow="A clear route forward" id="wdaus-process-title" title="Our Web Design Process for Australian Clients" />
+        <ol>
+          {process.map(([Icon, title, copy], index) => (
+            <li key={title}>
+              <div className="wdaus-process-marker"><Icon aria-hidden="true" /><span>{String(index + 1).padStart(2, "0")}</span></div>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </li>
+          ))}
+        </ol>
+      </Reveal>
+
+      <Reveal className="wdaus-section wdaus-collaboration" aria-labelledby="wdaus-collaboration-title">
+        <div className="wdaus-collaboration-copy">
+          <span className="wdaus-eyebrow">Organised remote delivery</span>
+          <h2 id="wdaus-collaboration-title">Remote Collaboration Across Australia</h2>
+          <p>Vorevix works remotely with businesses across Australia through planned meetings, written updates, milestone reviews and documented feedback.</p>
+          <strong>Clear communication and organised decisions keep every stage moving—without implying a physical local office.</strong>
+        </div>
+        <ol className="wdaus-collaboration-flow">
+          {collaboration.map(([Icon, label], index) => (
+            <li key={label}><Icon aria-hidden="true" /><span>{String(index + 1).padStart(2, "0")}</span><strong>{label}</strong></li>
+          ))}
+        </ol>
+      </Reveal>
+
+      <Reveal className="wdaus-section wdaus-businesses" aria-labelledby="wdaus-businesses-title">
+        <Heading eyebrow="Flexible website planning" id="wdaus-businesses-title" title="Web Design for Different Business Needs" />
+        <ol>
+          {businessTypes.map(([Icon, title], index) => (
+            <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><Icon aria-hidden="true" /><h3>{title}</h3></li>
+          ))}
+        </ol>
+      </Reveal>
+
+      <Reveal className="wdaus-section wdaus-reasons" aria-labelledby="wdaus-reasons-title">
+        <div className="wdaus-reasons-statement">
+          <span className="wdaus-eyebrow">A practical design partner</span>
+          <h2 id="wdaus-reasons-title">Why Work With Vorevix?</h2>
+          <p>We do not use unsupported guarantees, fake results or one-size-fits-all solutions.</p>
+        </div>
+        <ol>
+          {reasons.map((reason, index) => <li key={reason}><span>{String(index + 1).padStart(2, "0")}</span><strong>{reason}</strong></li>)}
+        </ol>
+      </Reveal>
+
+      <Reveal className="wdaus-section wdaus-faq" aria-labelledby="wdaus-faq-title">
+        <Heading eyebrow="Common questions" id="wdaus-faq-title" title="Frequently Asked Questions About Web Design in Australia" />
+        <div className="wdaus-faq-list">
+          {faqs.map(([question, answer], index) => (
+            <Faq key={question} question={question} answer={answer} index={index} openIndex={openFaq} setOpenIndex={setOpenFaq} />
+          ))}
+        </div>
+      </Reveal>
+
+      <Reveal className="wdaus-final-cta" aria-labelledby="wdaus-cta-title">
+        <div className="wdaus-cta-interface" aria-hidden="true"><i /><i /><i /><span /><span /></div>
+        <div>
+          <span className="wdaus-eyebrow">Start a conversation</span>
+          <h2 id="wdaus-cta-title">Ready to Build a Better Website for Your Business?</h2>
+          <p>Tell us about your current website, objectives, required pages, functionality and timeframe. Vorevix will review your requirements and recommend the right web design solution for your Australian business.</p>
+          <div className="wdaus-actions">
+            <a className="wdaus-button wdaus-button-primary" href="/contact">Discuss Your Website Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wdaus-button wdaus-button-dark" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+      </Reveal>
+    </main>
+  );
 }

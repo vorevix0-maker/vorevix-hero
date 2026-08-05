@@ -1,91 +1,380 @@
-import { useState } from "react";
-import { ArrowRight, ChevronDown, Palette } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowRight,
+  Blocks,
+  Check,
+  ChevronDown,
+  Code2,
+  FileText,
+  Gauge,
+  GitBranch,
+  LayoutTemplate,
+  Link2,
+  Monitor,
+  MonitorSmartphone,
+  MousePointerClick,
+  Navigation,
+  Palette,
+  PanelTop,
+  RefreshCw,
+  Search,
+  ShieldCheck,
+  ShoppingCart,
+  Smartphone,
+  Type,
+} from "lucide-react";
 import { webDesignFaqs } from "../webDesignFaqs";
 import "./WebDevelopmentPage.css";
 import "./WebDesignPage.css";
+import "./WebDesignServiceRedesign.css";
+
+const inclusions = [
+  [Search, "Discovery"],
+  [MousePointerClick, "Audience Research"],
+  [GitBranch, "Website Structure"],
+  [Navigation, "User Journeys"],
+  [LayoutTemplate, "Wireframes"],
+  [MonitorSmartphone, "Responsive Design"],
+  [Palette, "UI/UX Design"],
+  [PanelTop, "Prototyping"],
+  [Blocks, "Design Systems"],
+  [Code2, "Development"],
+];
+
+const problems = [
+  "Outdated design",
+  "Confusing navigation",
+  "Weak calls to action",
+  "Poor mobile experience",
+  "Crowded pages",
+  "Inconsistent branding",
+  "Unclear content",
+  "Difficult maintenance",
+];
 
 const services = [
-  ["Custom Web Design", ["We create original layouts around the business, its content and its audience. Instead of forcing every organisation into the same template, we design page structures around what visitors need to understand and what the business needs them to do next.", "Custom web design services can support new websites, complete redesigns, campaign pages and scalable platforms with several page types."]],
-  ["Business Website Design", ["We design professional websites for service providers, consultancies, agencies, organisations and growing companies. These websites are planned to explain services clearly, communicate credibility and help visitors move towards an enquiry."]],
-  ["eCommerce Website Design", ["We design product discovery, category structures, product pages, carts and checkout journeys with usability and clarity in mind.", "The process may consider product filtering, mobile shopping, promotional content, trust information and the relationship between product pages and category navigation."]],
-  ["Landing Page Design", ["A landing page should support one clear objective.", "We design focused pages for campaigns, product launches, service promotions and lead generation using clear information hierarchy, relevant trust signals and carefully placed calls to action."]],
-  ["Responsive Web Design", ["Responsive web design services should involve more than shrinking a desktop layout.", "We plan how navigation, text, images, forms, cards and calls to action should behave across desktop, tablet and mobile screens."]],
-  ["Website Redesign", ["A redesign should improve what is weak without discarding useful assets.", "We review the existing website, identify usability, content and visual problems, preserve what remains valuable and create a clearer direction for the next version."]],
-  ["UI/UX Design", ["We design user flows, wireframes, interfaces and interaction patterns for websites and web-based products. The goal is to reduce friction, improve clarity and make important tasks easier to complete.", <>Projects requiring deeper journey mapping, product workflows or usability research can connect with our <a href="/services/ui-ux-design-services">UI/UX design services</a>.</>]],
-  ["Design Systems", ["For websites that need to grow, we create reusable components, spacing rules, typography styles and interface standards.", "A design system improves consistency and makes future pages easier to design, review and implement."]],
+  [Palette, "Custom Web Design", "Original layouts shaped around your brand, content, audience and commercial goals."],
+  [Monitor, "Business Website Design", "Clear service pages that communicate credibility and guide visitors towards an enquiry."],
+  [ShoppingCart, "Ecommerce Website Design", "Usable product discovery, category, cart and checkout experiences across devices."],
+  [MousePointerClick, "Landing Page Design", "Focused campaign pages with clear hierarchy, trust signals and calls to action."],
+  [MonitorSmartphone, "Responsive Web Design", "Layouts and components planned for desktop, tablet and mobile behaviour."],
+  [RefreshCw, "Website Redesign", "A clearer direction that improves weak areas while preserving useful content and assets."],
+  [Navigation, "UI/UX Design", "User flows, wireframes and interfaces designed to reduce friction and improve clarity."],
+  [Blocks, "Design Systems", "Reusable components and interface rules that support consistency as the website grows."],
+];
+
+const websiteTypes = [
+  "Corporate websites",
+  "Service business websites",
+  "SaaS websites",
+  "Ecommerce stores",
+  "Startup websites",
+  "Portfolio websites",
+  "Membership websites",
+  "Lead-generation websites",
+  "Campaign landing pages",
+];
+
+const conversionFeatures = [
+  "Clear hierarchy",
+  "Strong CTAs",
+  "Scannable sections",
+  "Trust signals",
+  "Simple forms",
+  "Logical navigation",
+];
+
+const accessibilityFeatures = [
+  "Readable typography",
+  "Clear labels",
+  "Suitable colour contrast",
+  "Logical headings",
+  "Keyboard-friendly navigation",
+  "User-friendly forms",
+];
+
+const searchFeatures = [
+  [GitBranch, "Logical page structure"],
+  [Type, "Heading hierarchy"],
+  [Smartphone, "Mobile-friendly layouts"],
+  [Link2, "Internal linking"],
+  [Gauge, "Performance-conscious design"],
+  [Navigation, "Crawl-friendly navigation"],
+  [FileText, "FAQ sections"],
+  [Blocks, "Structured content"],
+  [ShieldCheck, "Consistent business information"],
+];
+
+const deliverables = [
+  "Sitemap",
+  "User journeys",
+  "Content hierarchy",
+  "Wireframes",
+  "High-fidelity designs",
+  "Responsive layouts",
+  "Interactive prototypes",
+  "Component libraries",
+  "Design specifications",
+  "Development handoff",
+  "Design quality assurance",
 ];
 
 const process = [
-  ["1. Discovery", ["We learn about the business, audience, current website, competitors, goals and project constraints.", "This helps clarify what the project needs to solve and which information should guide the design."]],
-  ["2. Research and Strategy", ["We review available information, identify priorities and define the role each page should play."]],
-  ["3. Sitemap and User Journeys", ["We organise the website structure and map the main routes users may take from entry to enquiry, purchase or another relevant action."]],
-  ["4. Wireframing", ["We create page structures that establish hierarchy, content flow and functionality before detailed visual styling begins."]],
-  ["5. Visual Design", ["We apply typography, colour, spacing, imagery and interface components through a system that reflects the brand.", <>Where an existing brand is unclear or inconsistent, the project may also connect with our <a href="/services/branding">branding services</a>.</>]],
-  ["6. Responsive States", ["We define how layouts and components adapt across desktop, tablet and mobile devices."]],
-  ["7. Review and Refinement", ["Feedback is collected through an organised review process and applied within the agreed revision scope."]],
-  ["8. Development Handoff", ["Approved files, components, responsive rules and interaction notes are organised for implementation."]],
-  ["9. Launch Design QA", ["Where development is included, we review the implemented website for visual consistency before launch."]],
+  ["Discovery", "Clarify the business, audience, current website and project objectives."],
+  ["Research and Planning", "Review priorities, competitors, content needs and the role of each page."],
+  ["Wireframing", "Establish page hierarchy, content flow and functionality before visual styling."],
+  ["Visual Design", "Apply typography, colour, imagery and interface components through a clear system."],
+  ["Responsive Design", "Define how layouts and interactions adapt across desktop, tablet and mobile."],
+  ["Prototyping and Handoff", "Prepare approved screens, reusable components and implementation guidance."],
 ];
+
+const platforms = ["WordPress", "Shopify", "WooCommerce", "Webflow", "React", "Custom CMS"];
 
 const reasons = [
-  ["Strategy Before Decoration", "We begin with goals, users and content rather than visual effects."],
-  ["Custom, Purpose-Built Layouts", "The website is designed around the organisation instead of being assembled from unrelated template sections."],
-  ["Design and Development Understanding", "Our approach considers how components, content and responsive layouts will function after handoff."],
-  ["Clear Deliverables", "The business knows what will be designed, reviewed and delivered before the project begins."],
-  ["Honest Communication", "We avoid guaranteed results, fabricated numbers and vague claims. Recommendations are connected to project objectives, available information and practical implementation requirements."],
+  ["Strategy before decoration", "Goals, users and content guide the visual direction."],
+  ["Custom layouts", "Page structures are shaped around the organisation, not a generic template."],
+  ["Responsive UI/UX", "Layouts are considered across screen sizes and practical user journeys."],
+  ["Development-ready execution", "Components and responsive rules are planned for reliable implementation."],
+  ["Clear deliverables", "Scope, review stages and final outputs are agreed before work begins."],
+  ["Honest communication", "Recommendations stay connected to objectives without guaranteed outcomes."],
 ];
 
-function List({ items }) {
-  return <ul className="wd-checklist">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
+function Reveal({ as: Tag = "section", className = "", children, ...props }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      node?.classList.add("is-visible");
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        node.classList.add("is-visible");
+        observer.disconnect();
+      }
+    }, { threshold: 0.12 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return <Tag ref={ref} className={`wds-reveal ${className}`} {...props}>{children}</Tag>;
 }
 
-function Section({ title, children, className = "" }) {
-  return <section className={`wd-section web-design-content ${className}`}><div className="wd-section-heading"><h2>{title}</h2></div><div className="web-design-prose">{children}</div></section>;
+function SectionHeading({ eyebrow, title, copy, light = false }) {
+  return (
+    <div className={`wds-heading ${light ? "wds-heading-light" : ""}`}>
+      {eyebrow && <span>{eyebrow}</span>}
+      <h2>{title}</h2>
+      {copy && <p>{copy}</p>}
+    </div>
+  );
 }
 
-function Faq({ question, answer, index }) {
-  const [open, setOpen] = useState(index === 0);
-  const id = `web-design-faq-${index}`;
-  return <article className={`wd-faq-item ${open ? "open" : ""}`}><h3><button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>{question}<ChevronDown size={21} aria-hidden="true" /></button></h3><div id={id} className="wd-faq-answer" hidden={!open}><p>{answer}</p></div></article>;
+function Faq({ question, answer, index, openIndex, setOpenIndex }) {
+  const open = openIndex === index;
+  const panelId = `web-design-faq-panel-${index}`;
+  const buttonId = `web-design-faq-button-${index}`;
+  return (
+    <article className={`wds-faq-item ${open ? "is-open" : ""}`}>
+      <h3>
+        <button
+          id={buttonId}
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpenIndex(open ? -1 : index)}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          {question}
+          <ChevronDown aria-hidden="true" />
+        </button>
+      </h3>
+      <div id={panelId} role="region" aria-labelledby={buttonId} hidden={!open}>
+        <p>{answer}</p>
+      </div>
+    </article>
+  );
 }
 
 export default function WebDesignPage() {
-  return <main className="web-development-page web-design-page">
-    <nav className="wd-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/services">Services</a></li><li aria-hidden="true">/</li><li><span aria-current="page">Web Design</span></li></ol></nav>
-    <section className="wd-hero web-design-hero"><div className="wd-hero-copy"><span className="wd-eyebrow">Web Design</span><h1>Web Design Services for Growing Businesses</h1><p>Your website should do more than look professional. It should explain your value clearly, help visitors find the right information and guide them towards a useful next step.</p><p>Vorevix provides strategic web design services for businesses that need a website shaped around real users, clear objectives and long-term growth. We combine research, content structure, user experience and responsive design to create websites that are easier to understand, easier to use and ready for effective development.</p><p>Whether you are launching a new website, redesigning an outdated platform or improving an existing customer journey, our process connects business requirements with practical design decisions.</p><div className="wd-actions"><a className="primary" href="/contact">Start Your Web Design Project <ArrowRight size={18} aria-hidden="true" /></a><a href="/portfolio">View Our Work</a></div></div><div className="wd-hero-visual web-design-visual"><img src="/service-web.png" alt="Custom web design services for growing businesses" width="1183" height="1329" fetchPriority="high" /></div></section>
+  const [openFaq, setOpenFaq] = useState(0);
 
-    <Section title="What Do Web Design Services Include?"><p>Web design services can include discovery, audience research, website structure, user journeys, wireframes, responsive layouts, interface design, design systems, prototyping and development handoff.</p><p>The exact scope depends on the website’s purpose, number of pages, content, functionality, platform and future growth requirements. A professional process should clarify what users need to understand, which actions matter and how content should be organised before detailed visual design begins.</p></Section>
+  return (
+    <main className="web-development-page web-design-page wds-page">
+      <nav className="wd-breadcrumbs wds-breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li><li aria-hidden="true">/</li>
+          <li><a href="/services">Services</a></li><li aria-hidden="true">/</li>
+          <li><span aria-current="page">Web Design</span></li>
+        </ol>
+      </nav>
 
-    <Section title="Is Your Website Holding Your Business Back?"><p>A website can appear acceptable while still creating serious business problems. Visitors may struggle to understand what the company offers, important pages may be difficult to find and the mobile experience may feel incomplete.</p><p>Common warning signs include:</p><List items={["an outdated appearance that no longer reflects the business","confusing navigation or inconsistent page structures","weak calls to action and unclear conversion paths","poor usability on mobile and tablet devices","crowded pages that are difficult to scan","visual design that does not match the brand","content added without a clear hierarchy","a website that is difficult to maintain or expand"]}/><p>These issues are rarely fixed by changing colours or adding more graphics. They usually require a clearer structure, stronger content priorities and a process based on how people actually use the website.</p></Section>
+      <Reveal className="wds-hero" aria-labelledby="web-design-title">
+        <div className="wds-hero-copy">
+          <span className="wds-kicker">Web Design</span>
+          <h1 id="web-design-title">Web Design Services <em>for Growing Businesses</em></h1>
+          <p>Strategic, responsive web design that makes your business easier to understand and the next step easier to take.</p>
+          <div className="wds-actions">
+            <a className="wds-button wds-button-primary" href="/contact">Start Your Web Design Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wds-button wds-button-secondary" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+        <div className="wds-hero-visual">
+          <img
+            className="wds-hero-showcase"
+            src="/web-design-responsive-showcase.png"
+            alt="Responsive ecommerce website displayed across desktop, tablet and mobile devices"
+            width="1566"
+            height="1004"
+            fetchPriority="high"
+          />
+        </div>
+      </Reveal>
 
-    <Section title="Web Design Built Around Business Goals"><p>Effective website design begins before the visual interface.</p><p>We start by understanding the business model, audience, priorities and the actions users should be able to complete. This prevents design decisions from being based only on personal preference or temporary trends.</p><p>Our web design services may bring together:</p><List items={["business and audience discovery","competitor and market review","sitemap and content planning","user journeys and conversion paths","wireframes and page hierarchy","brand-aligned interface design","responsive behaviour","accessibility considerations","development feasibility","organised handoff planning"]}/><p>The result is a clearer website experience and a practical system that can be implemented by a development team.</p></Section>
+      <Reveal className="wds-section wds-inclusions" aria-labelledby="inclusions-title">
+        <SectionHeading eyebrow="Connected planning" title="What Web Design Services Include" copy="Research, design decisions and development handoff work as one process." />
+        <ol className="wds-inclusion-track">
+          {inclusions.map(([, label], index) => (
+            <li key={label}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{label}</strong>
+            </li>
+          ))}
+        </ol>
+      </Reveal>
 
-    <section className="wd-section"><div className="wd-section-heading"><h2>Our Web Design Services</h2></div><div className="wd-card-grid">{services.map(([title, paragraphs]) => <article className="wd-card" key={title}><Palette className="wd-card-icon" size={26} aria-hidden="true"/><h3>{title}</h3>{paragraphs.map((paragraph, index) => <p key={`${title}-${index}`}>{paragraph}</p>)}</article>)}</div></section>
+      <Reveal className="wds-section wds-problems" aria-labelledby="problems-title">
+        <SectionHeading eyebrow="Website problems" title="Is Your Website Holding Your Business Back?" copy="A website can look acceptable while making information difficult to find and actions unclear." light />
+        <div className="wds-problem-grid">
+          {problems.map((problem, index) => <article key={problem}><span>{String(index + 1).padStart(2, "0")}</span><h3>{problem}</h3><ArrowRight aria-hidden="true" /></article>)}
+        </div>
+      </Reveal>
 
-    <Section title="What Types of Websites Can Vorevix Design?"><p>Different business models require different content structures and customer journeys. A SaaS business, an online store and a professional-service company should not be forced into the same website model.</p><p>Vorevix can design:</p><List items={["corporate and company websites","service-business websites","SaaS and software websites","eCommerce stores","startup websites","portfolio websites","membership websites","lead-generation websites","campaign landing pages"]}/><p>The final structure depends on the audience, offer, content, required functionality and intended user actions.</p></Section>
+      <Reveal className="wds-section wds-services" aria-labelledby="services-title">
+        <SectionHeading eyebrow="Core capabilities" title="Our Web Design Services" copy="Design support for websites, redesigns, campaigns and scalable platforms." />
+        <div className="wds-service-grid">
+          {services.map(([Icon, title, copy], index) => (
+            <article className={`wds-service-card wds-service-${index + 1}`} key={title}>
+              <Icon aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{copy}</p>
+              <a href={title === "UI/UX Design" ? "/services/ui-ux-design-services" : "/contact"} aria-label={`Discuss ${title}`}>Explore <ArrowRight aria-hidden="true" /></a>
+            </article>
+          ))}
+        </div>
+      </Reveal>
 
-    <Section title="How Does Web Design Guide Users Towards Action?"><p>Good design makes the next step understandable.</p><p>We organise pages around the questions visitors ask and the decisions they need to make. Important information and calls to action are positioned at logical points rather than repeated without context.</p><p>Conversion-focused design may include:</p><List items={["clear visual hierarchy","focused calls to action","scannable sections","relevant trust signals","simplified forms","logical navigation","reduced visual friction","consistent messaging","clear pricing or enquiry pathways where appropriate"]}/><p>Design can support conversion opportunities, but no responsible agency can guarantee a specific conversion rate without considering traffic quality, the offer, pricing, market demand and the sales process.</p></Section>
+      <Reveal className="wds-section wds-types" aria-labelledby="types-title">
+        <div className="wds-types-sticky"><SectionHeading eyebrow="Website categories" title="Types of Websites We Design" copy="Different business models need different structures, content priorities and customer journeys." /></div>
+        <ol>
+          {websiteTypes.map((type, index) => <li key={type}><span>{String(index + 1).padStart(2, "0")}</span><h3>{type}</h3></li>)}
+        </ol>
+      </Reveal>
 
-    <Section title="Responsive and Accessible by Design"><p>We plan responsive behaviour from the beginning rather than treating mobile design as a final adjustment.</p><p>This includes flexible layouts, touch-friendly controls, readable typography, responsive images and practical breakpoint planning.</p><p>Accessibility considerations may include:</p><List items={["suitable colour contrast","clear labels","logical heading hierarchy","readable font sizes","visible focus states","form usability","consistent navigation","content that does not depend only on colour","keyboard-friendly interaction patterns"]}/><p>Accessibility is shared across design, content and development. Final compliance depends on correct implementation and testing, so unsupported compliance claims should be avoided.</p></Section>
+      <Reveal className="wds-section wds-conversion" aria-labelledby="conversion-title">
+        <div>
+          <SectionHeading eyebrow="Conversion-focused" title="Guide Users Towards the Next Action" copy="We organise pages around visitor questions and decisions. Design can support conversion opportunities, but cannot guarantee a specific rate." />
+          <a className="wds-button wds-button-primary" href="/contact">Discuss Your Website <ArrowRight aria-hidden="true" /></a>
+        </div>
+        <div className="wds-interface-checklist">
+          <div className="wds-mini-browser"><span /><span /><span /></div>
+          {conversionFeatures.map((feature) => <p key={feature}><Check aria-hidden="true" />{feature}</p>)}
+        </div>
+      </Reveal>
 
-    <Section title="Web Design That Supports Search, Answer and AI Discovery"><p>Web design and SEO are different disciplines, but design decisions can support or obstruct organic visibility.</p><p>Our web design services can support search and AI readability through:</p><List items={["logical page and heading structures","useful content areas","internal-link opportunities","mobile usability","performance-conscious layouts","crawl-friendly navigation","reusable templates","FAQ and direct-answer sections","consistent entity naming","structured-data opportunities"]}/><p>Answer Engine Optimisation benefits from concise answers, clear definitions and question-led sections.</p><p>Generative Engine Optimisation benefits from consistent entities, well-structured information and factual content that AI-powered systems can interpret more easily.</p><p>These practices can improve content clarity and machine-readable understanding, but they cannot guarantee inclusion in Google AI Overviews, ChatGPT answers, Gemini responses or other generated results.</p><p>Technical SEO, structured data and performance implementation must be completed during development. Where required, design work can connect with our <a href="/services/seo-services">SEO services</a> and <a href="/services/web-development-services">web development services</a>.</p></Section>
+      <Reveal className="wds-section wds-responsive" aria-labelledby="responsive-title">
+        <SectionHeading eyebrow="Built for people" title="Responsive and Accessible by Design" copy="Responsive behaviour is planned from the beginning. Accessibility remains shared across design, content, development and final testing." />
+        <div className="wds-device-stage">
+          <img
+            src="/responsive-accessible-design-showcase.png"
+            alt="Responsive restaurant website displayed across desktop, tablet and mobile devices"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="wds-badges">{accessibilityFeatures.map((feature) => <span key={feature}><Check aria-hidden="true" />{feature}</span>)}</div>
+      </Reveal>
 
-    <Section title="What Do You Receive?"><p>Clear deliverables reduce uncertainty and make implementation more efficient.</p><p>Depending on the project scope, our web design services may include:</p><List items={["sitemap and page planning","user journeys","content-hierarchy recommendations","low-fidelity wireframes","high-fidelity page designs","desktop, tablet and mobile layouts","interactive prototypes","reusable component libraries","typography, spacing and colour rules","form and interaction states","developer notes and design specifications","organised development handoff","design QA during implementation"]}/><p>The exact deliverables are agreed before work begins so that both sides understand what is included.</p></Section>
+      <Reveal className="wds-section wds-search" aria-labelledby="search-title">
+        <SectionHeading eyebrow="Search-ready foundations" title="SEO-Friendly Web Design" copy="Design can support search, answer engines and AI-powered discovery through clear structure and readable information. Inclusion, citations and rankings cannot be guaranteed." />
+        <div className="wds-search-diagram">
+          {searchFeatures.map(([, label], index) => <article key={label}><span>{String(index + 1).padStart(2, "0")}</span><h3>{label}</h3></article>)}
+        </div>
+      </Reveal>
 
-    <section className="wd-section wd-tinted"><div className="wd-section-heading"><h2>Our Web Design Process</h2></div><div className="wd-process-grid">{process.map(([title, paragraphs]) => <article className="wd-process-card" key={title}><h3>{title}</h3>{paragraphs.map((paragraph, index) => <p key={`${title}-${index}`}>{paragraph}</p>)}</article>)}</div></section>
+      <Reveal className="wds-section wds-deliverables" aria-labelledby="deliverables-title">
+        <SectionHeading eyebrow="Clear outputs" title="What You Receive" copy="Exact deliverables are agreed before work begins, so design, review and implementation expectations remain clear." />
+        <div className="wds-dashboard">
+          {deliverables.map((item, index) => <article key={item}><span>{String(index + 1).padStart(2, "0")}</span><Check aria-hidden="true" /><h3>{item}</h3></article>)}
+        </div>
+      </Reveal>
 
-    <Section title="Designed for Modern Website Platforms"><p>Our designs can be prepared for platforms such as:</p><List items={["WordPress","Shopify","WooCommerce","Webflow","React-based websites","custom content-management systems"]}/><p>Platform selection should be based on content needs, functionality, integrations, budget, internal capabilities and future plans.</p><p>Vorevix does not force every project onto the same technology.</p></Section>
+      <Reveal className="wds-section wds-process" aria-labelledby="process-title">
+        <SectionHeading eyebrow="From strategy to handoff" title="Our Web Design Process" />
+        <ol>
+          {process.map(([title, copy], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}
+        </ol>
+      </Reveal>
 
-    <Section title="From Design Strategy to Development-Ready Execution"><p>Web design defines how a website should communicate, look and behave.</p><p>Web development turns the approved design into a functional website.</p><p>A project may use Vorevix for design only or connect the work directly with our <a href="/services/web-development-services">web development services</a>. In either case, the handoff is planned to reduce ambiguity and preserve the approved design direction.</p></Section>
+      <Reveal className="wds-section wds-platforms" aria-labelledby="platforms-title">
+        <SectionHeading eyebrow="Flexible implementation" title="Designed for Modern Website Platforms" copy="Platform selection depends on content, functionality, integrations, budget, internal capability and future plans—not a forced technology preference." />
+        <div>{platforms.map((platform) => <span key={platform}>{platform}</span>)}</div>
+      </Reveal>
 
-    <section className="wd-section"><div className="wd-section-heading"><h2>Why Do Businesses Choose Vorevix?</h2></div><div className="web-design-why">{reasons.map(([title, body]) => <article key={title}><Palette size={24} aria-hidden="true"/><h3>{title}</h3><p>{body}</p></article>)}</div></section>
+      <Reveal className="wds-section wds-locations" aria-label="Web Design Services by Location">
+        <SectionHeading
+          eyebrow="Local services"
+          title="Web Design Services by Location"
+          copy="Explore our dedicated web design services for businesses in Australia, New Zealand and Dubai."
+        />
+        <div className="wds-location-grid">
+          <a className="wds-location-card" href="/australia/web-design">
+            <span className="wds-location-number" aria-hidden="true">01</span>
+            <span className="wds-location-name">Australia Web Design</span>
+            <span className="wds-location-link">View Local Website <ArrowRight aria-hidden="true" /></span>
+          </a>
+          <a className="wds-location-card" href="/new-zealand/web-design">
+            <span className="wds-location-number" aria-hidden="true">02</span>
+            <span className="wds-location-name">New Zealand Web Design</span>
+            <span className="wds-location-link">View Local Website <ArrowRight aria-hidden="true" /></span>
+          </a>
+          <a className="wds-location-card" href="/united-arab-emirates/web-design">
+            <span className="wds-location-number" aria-hidden="true">03</span>
+            <span className="wds-location-name">Dubai Web Design</span>
+            <span className="wds-location-link">View Local Website <ArrowRight aria-hidden="true" /></span>
+          </a>
+        </div>
+      </Reveal>
 
-    <Section title="Selected Web Design Work" className="web-design-callout"><p>Each web design project begins with a different challenge.</p><p>A case study may explain:</p><List items={["the business or industry","the initial website problem","the research and design approach","major deliverables","important design decisions","the final interface","verified outcomes where available"]}/><p>Results should only be shown where real and approved data exists.</p><a className="wd-text-link" href="/portfolio">View Our Portfolio <ArrowRight size={18} aria-hidden="true"/></a></Section>
+      <Reveal className="wds-section wds-reasons" aria-labelledby="reasons-title">
+        <SectionHeading eyebrow="Why Vorevix" title="Why Choose Vorevix?" />
+        <div>
+          {reasons.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}
+        </div>
+      </Reveal>
 
-    <Section title="What Affects the Cost of Web Design?"><p>The cost of professional web design services depends on the amount and complexity of work required.</p><p>Important pricing factors may include:</p><List items={["number of unique pages","complexity of layouts","content readiness","eCommerce requirements","integrations","custom components","responsive states","prototype complexity","revision rounds","design-system requirements","development needs","testing and design QA"]}/><p>After reviewing the requirements, we provide an estimate and explain what is included in the proposed scope.</p></Section>
+      <Reveal className="wds-section wds-faq" aria-labelledby="faq-title">
+        <SectionHeading eyebrow="Common questions" title="Frequently Asked Questions" />
+        <div className="wds-faq-list">
+          {webDesignFaqs.map(([question, answer], index) => <Faq key={question} question={question} answer={answer} index={index} openIndex={openFaq} setOpenIndex={setOpenFaq} />)}
+        </div>
+      </Reveal>
 
-    <section className="wd-section web-design-faq"><div className="wd-section-heading"><h2>Frequently Asked Questions</h2></div><div className="wd-faq-list">{webDesignFaqs.map(([question, answer], index) => <Faq key={question} question={question} answer={answer} index={index}/>)}</div></section>
-
-    <section className="wd-final-cta"><h2>Ready to Invest in Professional Web Design Services?</h2><p>A strong website should make the business easier to understand and the next step easier to take.</p><p>Our web design services connect business goals, user needs, responsive layouts and development-ready planning within one structured process.</p><p>Tell us about your goals, current website, required pages, functionality and timeline. We will review the project and recommend a practical direction based on what the business actually needs.</p><div className="wd-actions"><a className="primary" href="/contact">Discuss Your Project <ArrowRight size={18} aria-hidden="true"/></a><a href="/portfolio">View Our Work</a></div></section>
-  </main>;
+      <Reveal className="wds-final-cta" aria-labelledby="final-cta-title">
+        <div className="wds-cta-grid" aria-hidden="true" />
+        <div>
+          <span>Start a conversation</span>
+          <h2 id="final-cta-title">Ready to Start Your Web Design Project?</h2>
+          <p>Tell us about your goals, website, pages and functionality. We will recommend a practical direction.</p>
+          <div className="wds-actions">
+            <a className="wds-button wds-button-primary" href="/contact">Discuss Your Project <ArrowRight aria-hidden="true" /></a>
+            <a className="wds-button wds-button-dark-outline" href="/portfolio">View Our Work</a>
+          </div>
+        </div>
+      </Reveal>
+    </main>
+  );
 }

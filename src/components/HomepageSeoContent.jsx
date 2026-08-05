@@ -28,9 +28,10 @@ const reasons = [
   ["Built for Future Improvement", "Our solutions are planned with maintainability, scalability and future changes in mind."],
   ["Quality Beyond Appearance", "Visual quality matters, but usability, accessibility, performance, technical structure and long-term value also influence the success of a digital experience."],
   ["Continued Support", "Where required, we can continue supporting websites, campaigns and digital platforms after launch under an agreed scope."],
+  ["Launch and Improve", "We use launch insights, performance data and changing priorities to guide practical improvements over time."],
 ];
 
-const reasonIcons = [Target, MessageSquareText, Network, TrendingUp, BadgeCheck, Headphones];
+const reasonIcons = [Target, MessageSquareText, Network, TrendingUp, BadgeCheck, Headphones, RefreshCw];
 
 const process = [
   ["1. Discover", "We learn about the business, audience, current assets, competitors, challenges and project goals.", "This helps clarify what the project needs to solve and which outcomes should guide the work."],
@@ -186,13 +187,10 @@ export default function HomepageSeoContent() {
               <span className="homepage-reason-icon"><Icon size={24} strokeWidth={1.8} aria-hidden="true" /></span>
               <h3>{title}</h3>
               <p>{paragraphs.filter(Boolean).join(" ")}</p>
+              <span className="homepage-reason-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
             </article>
           );
         })}
-        <div className="homepage-process-target" aria-hidden="true">
-          <span><span><span /></span></span>
-          <small>Launch &amp; Improve</small>
-        </div>
       </div>
       <div className="homepage-reasons-footer">
         <p>As a full-service digital agency, Vorevix can support both individual projects and broader digital-improvement programmes.</p>

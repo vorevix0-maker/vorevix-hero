@@ -126,9 +126,9 @@ export default function Footer() {
               <Mail size={22} aria-hidden="true" />
               <span>contact@vorevix.com</span>
             </a>
-            <a href="tel:+923000000000">
+            <a href="tel:+923185403464">
               <Phone size={22} aria-hidden="true" />
-              <span>+92 300 0000000</span>
+              <span>+92 3185403464</span>
             </a>
             <p>
               <MapPin size={23} aria-hidden="true" />
