@@ -11,16 +11,9 @@ const serviceLinks = [
   { label: "Digital Marketing", href: "/services/digital-marketing" },
 ];
 
-const locationLinks = [
-  { label: "Australia", href: "/locations/australia" },
-  { label: "New Zealand", href: "/locations/new-zealand" },
-  { label: "United Arab Emirates", href: "/locations/united-arab-emirates" },
-];
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [locationsOpen, setLocationsOpen] = useState(false);
   const pathname = window.location.pathname;
   const useHomeHeader = true;
 
@@ -29,7 +22,6 @@ export default function Header() {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
         setServicesOpen(false);
-        setLocationsOpen(false);
       }
     };
 
@@ -72,20 +64,13 @@ export default function Header() {
         <a className={`header-link ${currentPage("/") ? "active" : ""}`} href="/" {...(currentPage("/") ? { "aria-current": "page" } : {})}>
           Home
         </a>
-        <a className={`header-link ${currentPage("/about") ? "active" : ""}`} href="/about" {...(currentPage("/about") ? { "aria-current": "page" } : {})}>
-          About
-        </a>
-
         <div className={`nav-dropdown ${servicesOpen ? "is-open" : ""}`}>
           <button
             className={`nav-dropdown-toggle ${pathname.startsWith("/services") ? "active" : ""}`}
             type="button"
             aria-expanded={servicesOpen}
             aria-controls="services-navigation"
-            onClick={() => {
-              setServicesOpen((open) => !open);
-              setLocationsOpen(false);
-            }}
+            onClick={() => setServicesOpen((open) => !open)}
           >
             Services
             <ChevronDown size={15} aria-hidden="true" />
@@ -100,36 +85,16 @@ export default function Header() {
           </div>
         </div>
 
+        <a className={`header-link ${currentPage("/about") ? "active" : ""}`} href="/about" {...(currentPage("/about") ? { "aria-current": "page" } : {})}>
+          About
+        </a>
+
         <a className={`header-link ${currentPage("/portfolio") ? "active" : ""}`} href="/portfolio" {...(currentPage("/portfolio") ? { "aria-current": "page" } : {})}>
           Portfolio
         </a>
         <a className={`header-link ${currentPage("/blog") ? "active" : ""}`} href="/blog" {...(currentPage("/blog") ? { "aria-current": "page" } : {})}>
           Blog
         </a>
-
-        <div className={`nav-dropdown ${locationsOpen ? "is-open" : ""}`}>
-          <button
-            className={`nav-dropdown-toggle ${pathname.startsWith("/locations") ? "active" : ""}`}
-            type="button"
-            aria-expanded={locationsOpen}
-            aria-controls="locations-navigation"
-            onClick={() => {
-              setLocationsOpen((open) => !open);
-              setServicesOpen(false);
-            }}
-          >
-            Locations
-            <ChevronDown size={15} aria-hidden="true" />
-          </button>
-          <div className="nav-dropdown-menu" id="locations-navigation">
-            <a href="/locations" {...linkProps("/locations")}>All Locations</a>
-            {locationLinks.map((link) => (
-              <a href={link.href} key={link.href} {...linkProps(link.href)}>
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
 
         <a className={`mobile-nav-contact ${currentPage("/contact") ? "active" : ""}`} href="/contact" {...(currentPage("/contact") ? { "aria-current": "page" } : {})}>
           Contact
